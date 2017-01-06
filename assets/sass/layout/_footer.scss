@@ -1,0 +1,13 @@
+/**
+  * Footer Partial SASS
+  * This SASS file has all footers style
+**/
+footer {
+  width: 100%;
+  background: $gray;
+  .contact-foot {
+    @include styling_wrapper_content($white, center, 20px);
+    margin: 2% 0;
+    opacity: 0.7;
+  }
+}

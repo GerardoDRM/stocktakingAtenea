@@ -1,0 +1,129 @@
+/**
+  * Forms Partial SASS
+  * This SASS file has all
+  * forms used on the app
+**/
+
+textarea {
+  background-color:#e9eaed;
+}
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.select-sport {
+  @include box(100%, 50px, relative);
+  cursor: pointer;
+
+  margin: 10px auto;
+  color: #999999;
+  font-size: 18px;
+  font-weight: bold;
+  .select-box {
+    @include border-radius(4px) ;
+    @include position(absolute, true, 0);
+    @include transition(all 0.2s ease-in);
+    background-color: $green;
+    padding: 8px 15px;
+  }
+  .select-options {
+    @include position(absolute, $values: top 100% right 0 left 0);
+    @include box(null, $height: 150px, $z-index: 999, $display: none);
+    @extend %no-margin, %no-padding;
+    list-style: none;
+    background-color: $new-green;
+    overflow-y: scroll;
+    li {
+      @include transition(all 0.15s ease-in);
+      @extend %no-margin;
+      padding: 5px 0;
+      font-size: 18px;
+      text-indent: 15px;
+      color: $black;
+      font-weight: bold;
+      border-top: 1px solid $new-green;
+      &:hover {
+        color: $green;
+        background: $white;
+      }
+      &[rel="hide"] {
+        display: none;
+      }
+    }
+  }
+
+}
+
+// Sign Up //
+.input-space {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+.form-sign {
+  width: 100%;
+  margin: 0 auto;
+  background: url("../images/slide_2.jpg")no-repeat center;
+  background-size: cover;
+  height: auto;
+  .input-signup {
+    width: 100%;
+    border: none;
+    @include border-radius(4px);
+    padding: 10px;
+    background-color: $green;
+    margin-top: 15px;
+    font-weight: bold;
+    color: $black;
+    font-size: em(18px);
+  }
+  .facebook {
+    color: $white;
+    background-color: $facebook;
+    display: block;
+    margin: 15px auto;
+  }
+}
+
+
+
+//////LOGIN////////
+.form-login {
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  .input-login {
+    background-color: $green;
+    font-weight: bold;
+    color: $black;
+    font-size: 18px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    @include border-radius(4px);
+    padding: 10px;
+  }
+  .form-group-login {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .facebook {
+    color: $white;
+    background-color: $facebook;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+  }
+}
+
+///Profile View///////
+.input-profile {
+  font-weight: bold;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}

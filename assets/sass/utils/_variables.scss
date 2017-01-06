@@ -1,0 +1,45 @@
+/**
+  * Variables Partial SASS
+  * This SASS file has the palette color
+  * the media queries break points and fonts attributes.
+**/
+
+// Basic colors
+$white: #FFF;
+$black: #000;
+$gray: #707070;
+$gray-material : #e9eaed;
+$green: #2ae92e;
+$new-green: #9bee9d;
+$color-error : #FFE6B2;
+$color-error-letter : #C5A14E;
+$color-success: #70DA8B;
+$color-success-letter: #4DA463;
+$facebook: #3b5999;
+$blue: #337AB7;
+// Asset paths
+$path-img-css: "../../img";
+
+// Media query break points
+
+$brk-less-lg: "(min-width: 1200px)";
+$brk-less-md: "(min-width: 992px)";
+$brk-less-max-md: "(max-width: 992px)and(min-width:768px)";
+$brk-less-sm: "(min-width: 768px)";
+$brk-less-max-sm: "(max-width: 768px)and(min-width:500px)";
+
+
+// Font stack
+$font-url--google: 'http://fonts.googleapis.com/css?family=Open+Sans|Yeseva+One';
+$font-family--primary: "Open Sans", sans-serif;
+$font-family--secondary: 'Yeseva One', cursive;
+
+
+// Font Weights
+$font-weight--thin: 100;
+$font-weight--light: 300;
+$font-weight--medium: 400;
+$font-weight--bold: 700;
+
+// Text Size
+$base__font-size: 16px;

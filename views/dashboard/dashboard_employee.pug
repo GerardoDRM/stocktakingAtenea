@@ -1,0 +1,76 @@
+extends ../base_employee.pug
+
+block content
+
+  div.mdl-layout__content.cd-tabs-content
+    div.filters
+      h2 Sucursal
+      select
+        option(value="1") Todas
+        option(value="2") Oaxaca
+      h2 Ventas
+      select
+            option(value="1") Todas
+            option(value="2") Oaxaca
+      h2 Ordenar
+      select
+            option(value="1") Todas
+            option(value="2") Oaxaca
+    div.tab.selected.product(data-content="product")
+      div.mdl-grid
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            p.nameProduct Nombre del Productos
+            p.availableProduct Disponibilidad
+          div.mdl-cell.mdl-cell--4-col
+            p.priceProduct Precio
+            a#show-dialog Ver más
+      div.mdl-grid
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            p.nameProduct Nombre del Productos
+            p.availableProduct Disponibilidad
+          div.mdl-cell.mdl-cell--4-col
+            p.priceProduct Precio
+            a#show-dialog Ver más
+      div.mdl-grid
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            p.nameProduct Nombre del Productos
+            p.availableProduct Disponibilidad
+          div.mdl-cell.mdl-cell--4-col
+            p.priceProduct Precio
+            a#show-dialog Ver más
+
+      dialog.mdl-dialog.dialog-grid-employee
+          h3 Nombre
+          div.mdl-grid
+            div.mdl-cell.mdl-cell--3-col
+              h4 Precio
+              p Precio
+              p Precio
+            div.mdl-cell.mdl-cell--3-col
+              h4 Tamaño
+              p Tamaño
+              p Tamaño
+            div.mdl-cell.mdl-cell--3-col
+              h4 Color
+              p Color
+              p Color
+            div.mdl-cell.mdl-cell--3-col
+              h4 Acción
+              button Acción
+              button Acción
+
+
+
+
+
+
+
+          div.mdl-dialog__actions
+
+            button.mdl-button.close Cerrar

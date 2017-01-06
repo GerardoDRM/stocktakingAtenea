@@ -1,0 +1,93 @@
+/**
+  * Mixin Partial SASS
+  * This SASS file make groups of CSS declarations
+  * that are reuse throughout the site.
+**/
+
+// Media queries
+// This mixin generate a break point
+@mixin mq($break) {
+    @media #{$break} {
+      @content;
+    }
+}
+
+// box-wrapper
+// In most of the cases wrappers has this attributes
+@mixin box($width: 100%, $height: null, $position: null, $z-index: null, $display: null) {
+  width: $width;
+  height: $height;
+  position: $position;
+  display: $display;
+  z-index: $z-index;
+}
+
+// icon wrapper
+// On the app icons has this attributes
+@mixin icon_background($width, $height, $background-size, $display: inline-block) {
+  width: $width;
+  height: $height;
+  background-size: $background-size $background-size;
+  display: $display;
+}
+
+// Styling the fonts
+@mixin styling_wrapper_content($color, $text-align, $size : $base__font-size,  $font: null, $h:null, $w:null) {
+
+  @if $size != null {
+    font-size: em($size);
+  }
+  color: $color;
+  text-align: $text-align;
+  font-family: $font;
+  line-height: $h;
+  font-weight: $w;
+}
+
+// Mixing position
+// This mixin generate position values
+@mixin position($pos, $all: false, $values:()) {
+  $offsets: top right bottom left;
+  position: $pos;
+  // Iterate over all values in offsets
+  @each $offset in $offsets {
+    // If all values have the same valuecd
+    @if $all == true {
+      #{$offset} : nth($values, 1);
+    } @else {
+      $index: index($values, $offset);
+      @if $index {
+        $val: nth($values, $index + 1);
+        #{$offset}: $val;
+      }
+    }
+  }
+}
+
+// Mixing for transition
+// Generate all transition vendor prefix
+@mixin transition($values...) {
+  $transitions: ();
+  @each $declaration in $values {
+    $prop: nth($declaration, 1);
+    $prop-opts: ();
+    $length: length($declaration);
+    @for $i from 2 through $length {
+      $prop-opts: append($prop-opts, nth($declaration, $i));
+    }
+    $trans: ($prop, $prop-opts);
+    $transitions: append($transitions, $trans, comma);
+  }
+
+  -webkit-transition: trans-prefix($transitions, webkit);
+  -moz-transition: trans-prefix($transitions, moz);
+  -o-transition: trans-prefix($transitions, o);
+  transition: $values;
+}
+// Generate all border-radius vendor prefix
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}

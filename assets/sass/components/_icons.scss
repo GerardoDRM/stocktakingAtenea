@@ -1,0 +1,32 @@
+/**
+  * Icons Partial SASS
+  * This SASS file has most of the icons
+  * used on the app
+**/
+
+/* These are general rules for logos */
+/* Logo */
+.logo_hor {
+  @include box(200px, 66px);
+  text-align: center;
+  margin-left: 20%;
+}
+
+// Icon Login
+.icons-login {
+  margin: 50px auto 15px;
+  width: 85%;
+}
+
+
+// Dashboard
+.icons-sport {
+  width: 90%;
+}
+
+.photo-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+}

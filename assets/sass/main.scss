@@ -1,0 +1,13 @@
+/**
+  * Main SASS file gets all partials
+  * this sass file will be compiled at
+  * the beginning
+**/
+
+@import "utils/variables";
+@import "utils/utils";
+@import "utils/mixings";
+@import "utils/extends";
+@import "layout/index";
+@import "components/index";
+@import "layout/media-queries";

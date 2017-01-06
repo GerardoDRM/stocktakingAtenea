@@ -1,0 +1,99 @@
+/**
+  * BASE Partial SASS
+  * This SASS file has general components
+  * used on the app
+**/
+
+/*General*/
+html {
+    height: 100%;
+}
+.pos-absolute {
+  position: absolute;
+}
+.no-padding {
+  @extend %no-padding;
+}
+.no-margin {
+  @extend %no-margin;
+}
+
+.no-margin--sides {
+  @extend %no-margin--side;
+}
+
+a {
+  cursor: pointer;
+  &:hover,&:link,&:visited,&:active {
+    color:$black;
+    text-decoration: none;
+  }
+}
+
+.logoIndex {
+    height: 400px;
+}
+
+.logo_contact {
+    width: 70%;
+    margin: 25% auto;
+}
+
+.logo-box-index {
+    @include box(100%, auto, absolute, 1);
+    text-align: center;
+    top: 20%;
+}
+
+.text-center {
+  text-align: center;
+}
+/*Menu color*/
+
+
+
+/*Notifications*/
+.center_notification {
+    @include box(32%,$z_index: 4);
+    @include position(absolute, $values: top 100px left 32%);
+}
+
+.notification {
+    @include styling_wrapper_content($white, center);
+    @include border-radius(4px);
+    @extend %margin-center;
+    padding: 10px 20px;
+    width: 80%;
+}
+
+.error {
+  background-color: $color-error;
+  color: $color-error-letter;
+  @extend %messages;
+}
+
+.success {
+  background-color: $color-success;
+  color: $color-success-letter;
+  @extend %messages;
+}
+
+/* Wrappers */
+
+.wrapper {
+    width: auto;
+    margin-left: 20px;
+    background: $white;
+    margin-top: 200px;
+}
+
+.full-wrapper {
+  @extend %complete-dimension;
+}
+.model-responsive {
+    width: 100%;
+}
+
+.text-left {
+  text-align: left;
+}

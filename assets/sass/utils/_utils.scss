@@ -1,0 +1,57 @@
+/**
+  * Utils Partial SASS
+  * This SASS file has all the functions used
+  * on the partials.
+**/
+
+// Import if Google Font URL is defined
+@if variable_exists(font-url--google) {
+  @import url($font-url--google);
+}
+
+// Calculate em values
+// This functions convert from px to em
+@function  em($target, $context: $base__font-size ) {
+  @return ($target / $context) * 1em;
+
+}
+
+// Check for prefix
+// Check if vendor prefix are available
+@function prefix($property, $prefixes: (webkit moz o ms)) {
+    $vendor-prefixed-properties: transform background-clip background-size border-radius;
+    $result: ();
+    @each $prefix in $prefixes {
+       @if index($vendor-prefixed-properties, $property) {
+         $property: -#{$prefix}-#{$property}
+       }
+       $result: append($result, $property);
+    }
+    @return $result;
+}
+
+@function trans-prefix($transition, $prefix: moz) {
+    $prefixed: ();
+    @each $trans in $transition {
+        $prop-name: nth($trans, 1);
+        $vendor-prop-name: prefix($prop-name, $prefix);
+        $prop-vals: nth($trans, 2);
+        $prefixed: append($prefixed, ($vendor-prop-name $prop-vals), comma);
+    }
+    @return $prefixed;
+}
+
+
+// BEM selectors
+
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}

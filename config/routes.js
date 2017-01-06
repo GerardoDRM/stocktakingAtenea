@@ -37,7 +37,12 @@ module.exports.routes = {
   },
   '/dashboard': {
     view: 'dashboard/dashboard_main'
+  },
+  '/employee': {
+    view: 'dashboard/dashboard_employee'
   }
+
+
 
   /***************************************************************************
    *                                                                          *
