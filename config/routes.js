@@ -40,18 +40,22 @@ module.exports.routes = {
   },
   '/employee': {
     view: 'dashboard/dashboard_employee'
-  }
+  },
 
 
 
   /***************************************************************************
    *                                                                          *
-   * Custom routes here...                                                    *
-   *                                                                          *
-   * If a request to a URL doesn't match any of the custom routes above, it   *
-   * is matched against Sails route blueprints. See `config/blueprints.js`    *
-   * for configuration options and examples.                                  *
+                              API RESTFUL
    *                                                                          *
    ***************************************************************************/
+  // Branch CRUD API
+  'GET /api/v0/branches': "BranchController.showBranches",
+  'POST /api/v0/branch': "BranchController.createBranch",
+  // Employee API
+  'POST /api/v0/signup': 'EmployeeController.signup',
+  'PUT /api/v0/login': 'EmployeeController.login',
+  'GET /logout': 'EmployeeController.logout'
+
 
 };
