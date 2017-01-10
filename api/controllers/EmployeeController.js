@@ -114,4 +114,55 @@ module.exports = {
     });
   },
 
+  deleteEmployee: function(req, res) {
+
+
+
+      Employee.destroy({id: req.param('id')}, function userDelete(err) {
+
+        if (err) {
+          // Otherwise, send back something reasonable as our error response.
+          return res.negotiate(err);
+        }
+        // Send back the id of the new user
+        return res.json({
+          "status": 200,
+          "user": userDeleted
+        });
+
+
+      });
+    },
+
+  updateEmployee: function(req, res) {
+
+    var data = {
+      id: req.param("id"),
+      full_name: req.param('name'),
+      email: req.param('email'),
+      password: encryptedPassword,
+      rol: req.param('role'),
+      workingAt: req.param("branch")
+    }
+
+
+
+    Employee.update({id: req.param('id'),},data).exec(function userUpdated(err, updated){
+
+      if (err) {
+  // handle error here- e.g. `res.serverError(err);`
+  return res.negotiate(err);
+}
+
+return res.json({
+  "status": 200,
+  "user": userUpdated
+});
+
+
+
+    });
+
+  }
+
 };
