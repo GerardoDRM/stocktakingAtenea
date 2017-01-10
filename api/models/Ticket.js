@@ -8,7 +8,13 @@
 module.exports = {
 
   attributes: {
-    autoPK: true,
+    autoPK: false,
+    idticket: {
+      type: 'integer',
+      primaryKey: true,
+      required: true,
+      autoIncrement: true
+    },
     date: {
       type: 'date',
       required: true
@@ -20,12 +26,6 @@ module.exports = {
     model: {
       type: 'string',
       required: true
-    },
-    // Foreing keys
-    products: {
-      collection: 'product',
-      via: 'ticket',
-      through: 'sales'
     }
   }
 };

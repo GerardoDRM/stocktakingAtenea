@@ -8,9 +8,8 @@
 module.exports = {
   autoPK: false,
   attributes: {
-    id: {
+    idemployee: {
       type: 'integer',
-      autoIncrement: true,
       primaryKey: true,
       required: true
     },

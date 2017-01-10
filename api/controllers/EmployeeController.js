@@ -18,7 +18,7 @@ module.exports = {
 
     // Try to look up user using the provided email address
     Employee.findOne({
-      id: req.param('id'),
+      "idemployee": req.param('id'),
     }, function foundUser(err, user) {
       if (err || user === undefined) return res.negotiate(err);
       if (!user) return res.notFound();
@@ -42,7 +42,7 @@ module.exports = {
 
         success: function() {
           // Store user id in the user session
-          req.session.me = user.id;
+          req.session.me = user.idemployee;
           // All done- let the client know that everything worked.
           return res.json({
             "status": 200,
@@ -66,7 +66,7 @@ module.exports = {
       // OK.
       success: function(encryptedPassword) {
         var data = {
-          id: req.param("id"),
+          idemployee: req.param("id"),
           full_name: req.param('name'),
           email: req.param('email'),
           password: encryptedPassword,
@@ -115,51 +115,34 @@ module.exports = {
   },
 
   deleteEmployee: function(req, res) {
-
-
-
-      Employee.destroy({id: req.param('id')}, function userDelete(err) {
-
-        if (err) {
-          // Otherwise, send back something reasonable as our error response.
-          return res.negotiate(err);
-        }
-        // Send back the id of the new user
-        return res.json({
-          "status": 200,
-          "user": userDeleted
-        });
-
-
+    Employee.destroy({
+      idemployee: req.param('id')
+    }, function userDelete(err) {
+      if (err) {
+        // Otherwise, send back something reasonable as our error response.
+        return res.negotiate(err);
+      }
+      // Send back the id of the new user
+      return res.json({
+        "status": 200
       });
-    },
+    });
+  },
 
   updateEmployee: function(req, res) {
-
-    var data = {
-      id: req.param("id"),
-      full_name: req.param('name'),
-      email: req.param('email'),
-      password: encryptedPassword,
-      rol: req.param('role'),
-      workingAt: req.param("branch")
-    }
-
-
-
-    Employee.update({id: req.param('id'),},data).exec(function userUpdated(err, updated){
+    var values = req.allParams();
+    Employee.update({
+      idemployee: req.param('id'),
+    }, values).exec(function userUpdated(err, updated) {
 
       if (err) {
-  // handle error here- e.g. `res.serverError(err);`
-  return res.negotiate(err);
-}
-
-return res.json({
-  "status": 200,
-  "user": userUpdated
-});
-
-
+        // handle error here- e.g. `res.serverError(err);`
+        return res.negotiate(err);
+      }
+      return res.json({
+        "status": 200,
+        "user": updated
+      });
 
     });
 

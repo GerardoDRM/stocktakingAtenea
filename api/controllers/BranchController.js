@@ -19,19 +19,39 @@ module.exports = {
   },
 
   createBranch: function(req, res) {
-    var data = {
-      "name": req.param("name"),
-      "street": req.param("street"),
-      "city": req.param("city"),
-      "state": req.param("state")
-    };
-    Branch.create(data, function created(err, newBranch) {
+    var values = req.allParams();
+    Branch.create(values, function created(err, newBranch) {
       if (err || newBranch === undefined) return res.negotiate(err);
       return res.json({
         "status": 200
       })
     });
-  }
+  },
+
+  deleteBranch: function(req, res) {
+    Branch.desrtoy({
+      "idbranch": req.param("id")
+    }, function remove(err) {
+      if (err || newBranch === undefined) return res.negotiate(err);
+      return res.json({
+        "status": 200
+      })
+    });
+  },
+
+  updateBranch: function(req, res) {
+    var values = req.allParams();
+
+    Branch.update({
+      "idbranch": req.param("id")
+    }, values).exec(function updateBranch(err, branch) {
+      if (err || newBranch === undefined) return res.negotiate(err);
+      return res.json({
+        "status": 200,
+        "branch": branch
+      });
+    });
+  },
 
 
 };

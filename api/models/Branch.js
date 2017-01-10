@@ -6,11 +6,12 @@
  */
 
 module.exports = {
-  autoPK: true,
+  autoPK: false,
   attributes: {
-    id: {
+    idbranch: {
       type: 'integer',
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true
     },
     name: {
       type: 'string',
@@ -23,6 +24,9 @@ module.exports = {
       type: 'string'
     },
     state: {
+      type: 'string'
+    },
+    phone: {
       type: 'string'
     },
     lat: {

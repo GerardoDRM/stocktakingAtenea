@@ -9,10 +9,11 @@ module.exports = {
 
   attributes: {
     autoPK: false,
-    id: {
-      type: 'string',
+    idproduct: {
+      type: 'integer',
       primaryKey: true,
-      required: true
+      required: true,
+      autoIncrement: true
     },
     name: {
       type: 'string',
@@ -34,12 +35,6 @@ module.exports = {
     // Foreign keys
     location: {
       model: 'branch'
-    },
-    tickets: {
-      collection: "ticket",
-      via : "product",
-      through: 'sales'
     }
-
   }
 };
