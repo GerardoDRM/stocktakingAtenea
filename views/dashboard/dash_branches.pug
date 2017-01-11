@@ -1,0 +1,64 @@
+div.mdl-layout__content(style="width:100%;")
+  div
+    h2 Sucursales
+    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
+      thead
+        tr
+          th Foto
+          th Nombre
+          th Precio
+          th Cantidad
+          th Acciones
+      tbody
+        tr
+          td
+            img(src="./images/rop.jpg")
+          td Pantalon
+          td $2.90
+          td 23
+          td
+            button.mdl-button.mdl-js-button Ver Mas
+            button.mdl-button.mdl-js-button Eliminar
+        tr
+          td
+            img(src="./images/rop.jpg")
+          td Pantalon
+          td $2.90
+          td 23
+        tr
+          td
+            img(src="./images/rop.jpg")
+          td Pantalon
+          td $2.90
+          td 23
+
+  button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab
+    i.material-icons add
+
+  //- Dialog
+  dialog.mdl-dialog.dialog-grid
+    h3 Nombre
+    div.mdl-grid
+      div.mdl-cell.mdl-cell--6-col
+        p Descripción
+        p Precio
+        p Categoría
+        p Marca
+        p Tamaños
+        p _ _
+        p Sucursales
+        p _ _
+        p Colores
+        p _ _
+      div.mdl-cell.mdl-cell--6-cols.product-main-image
+        img(src="./images/rop.jpg")
+        div.mdl-grid.product-images
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+    div.mdl-dialog__actions
+      button.mdl-button.close Cerrar
