@@ -52,10 +52,16 @@ module.exports.routes = {
   // Branch CRUD API
   'GET /api/v0/branches': "BranchController.showBranches",
   'POST /api/v0/branch': "BranchController.createBranch",
-  // Employee API
+  'PUT  '
+  'DELETE'
+  // Employee CRUD API
   'POST /api/v0/signup': 'EmployeeController.signup',
   'PUT /api/v0/login': 'EmployeeController.login',
   'GET /logout': 'EmployeeController.logout'
+
+  // PRODUCT CRUD API
+
+
 
 
 };
