@@ -7,6 +7,17 @@
 
 module.exports = {
 
+  showProducts: function(req, res) {
+    Product.find({}, function find(err, products) {
+      if (err || products === undefined) return res.negotiate(err);
+      // Return branches array
+      return res.json({
+        "status": 200,
+        "products": products
+      })
+    });
+  },
+
   addProduct: function(req, res) {
     var values = req.allParams();
     Product.create(values, function createProduct(err, product) {
@@ -65,5 +76,8 @@ module.exports = {
     });
 
   }
+
+  // Specific products CRUD
+
 
 };

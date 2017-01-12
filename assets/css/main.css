@@ -25,36 +25,6 @@
   * styles that are presented on some
   * classes
 **/
-.dl-menuwrapper-admin li, .profile-view-container .responsive-button {
-  text-align: center; }
-
-.full-wrapper, .dl-menuwrapper-admin, .dl-menuwrapper-admin .dl-menu, .profile-preview .inner-filter, .photo-preview .inner-filter, .photo-preview .video-container {
-  width: 100%;
-  height: 100%; }
-
-.notification, .middle-body img, .nike-img img, .middle-middle img, .top-sign img, .left-profile img, .profile-view-container .responsive-button {
-  margin: 0 auto; }
-
-.no-padding, .select-sport .select-options, .dl-menuwrapper-admin ul {
-  padding: 0; }
-
-.no-margin, .select-sport .select-options, .select-sport .select-options li, .middle-image, .profile-preview {
-  margin: 0; }
-
-.no-margin--sides {
-  margin-left: 0;
-  margin-right: 0; }
-
-.error, .success {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  width: 100%;
-  text-align: center;
-  padding: 15px; }
-
-/* Buttons */
 /**
   * Index Partial SASS
   * This SASS file is the manifest on
@@ -67,90 +37,91 @@
   * used on the app
 **/
 /*General*/
+.mdl-layout,
+.mdl-layout__container,
+body,
 html {
-  height: 100%; }
-
-.pos-absolute {
-  position: absolute; }
-
-a {
-  cursor: pointer; }
-  a:hover, a:link, a:visited, a:active {
-    color: #000;
-    text-decoration: none; }
-
-.logoIndex {
-  height: 400px; }
-
-.logo_contact {
-  width: 70%;
-  margin: 25% auto; }
-
-.logo-box-index {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: 1;
-  text-align: center;
-  top: 20%; }
-
-.text-center {
-  text-align: center; }
-
-/*Menu color*/
-/*Notifications*/
-.center_notification {
-  width: 32%;
-  z-index: 4;
-  position: absolute;
-  top: 100px;
-  left: 32%; }
-
-.notification {
-  font-size: 1em;
-  color: #FFF;
-  text-align: center;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  border-radius: 4px;
-  padding: 10px 20px;
-  width: 80%; }
-
-.error {
-  background-color: #FFE6B2;
-  color: #C5A14E; }
-
-.success {
-  background-color: #70DA8B;
-  color: #4DA463; }
-
-/* Wrappers */
-.wrapper {
-  width: auto;
-  margin-left: 20px;
-  background: #FFF;
-  margin-top: 200px; }
-
-.model-responsive {
+  height: 100%;
   width: 100%; }
 
-.text-left {
-  text-align: left; }
+.mdl-layout,
+.mdl-layout__container,
+.mdl-layout__content {
+  z-index: inherit !important; }
+
+._dialog_overlay {
+  z-index: inherit !important;
+  position: inherit !important; }
+
+.no-margin {
+  margin: 0; }
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500; }
+
+.phone-appear {
+  display: none; }
+
+.error-msg {
+  width: 100%;
+  color: #EC407A;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+.loading {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: none; }
+  .loading .mdl-progress {
+    width: 100%; }
+  .loading .loading-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20%; }
+    .loading .loading-container img {
+      width: 50px;
+      height: 50px; }
+    .loading .loading-container p {
+      font-size: 1.25em; }
+
+.downloads {
+  bottom: 0;
+  z-index: 99;
+  right: 5px;
+  position: fixed; }
 
 /**
   * Footer Partial SASS
   * This SASS file has all footers style
 **/
-footer {
-  width: 100%;
-  background: #707070; }
-  footer .contact-foot {
-    font-size: 1.25em;
-    color: #FFF;
-    text-align: center;
-    margin: 2% 0;
-    opacity: 0.7; }
+.footer {
+  background-color: #AD1457;
+  position: relative;
+  color: #FFF; }
+  .footer a:hover {
+    color: #8bc34a; }
+  .footer .mdl-mega-footer--top-section::after {
+    border-bottom: none; }
+  .footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none; }
+  .footer .mdl-mega-footer--bottom-section {
+    position: relative; }
+    .footer .mdl-mega-footer--bottom-section a {
+      margin-right: 2em; }
+  .footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px; }
 
 /**
   * Header Partial SASS
@@ -158,84 +129,75 @@ footer {
   * used on the app
 **/
 /* Header */
-.navbar-default .navbar-nav > li > a {
-  color: #f5f5f5; }
+.android-header {
+  overflow: visible;
+  background-color: #E91E63; }
+  .android-header .material-icons {
+    color: #767777 !important; }
+  .android-header .mdl-navigation__link {
+    color: #FFF;
+    font-weight: 400;
+    font-size: 1.125em; }
 
-.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
-  color: #2ae92e;
-  background-color: transparent; }
+/* Tab container*/
+.cd-tabs-content {
+  height: auto;
+  padding: 0; }
+  .cd-tabs-content .tab {
+    display: none;
+    padding: 0;
+    height: auto; }
+    .cd-tabs-content .tab.selected {
+      display: block;
+      -webkit-animation: cd-fade-in 0.5s;
+      -moz-animation: cd-fade-in 0.5s;
+      animation: cd-fade-in 0.5s; }
 
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
-  color: #2ae92e;
-  background-color: transparent; }
+.container-dash {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: inherit;
+  width: 80%; }
 
-/*
-  ANIMATION
-  */
-@-webkit-keyframes stretch {
-  0% {
-    transform: scale(0.3);
-    border-radius: 100%; }
-  50% {
-    width: 50%;
-    height: 150px;
-    margin-left: -48%; }
-  100% {
-    width: 100%;
-    left: 0;
-    margin-left: 0;
-    transform: scale(1); } }
-@-moz-keyframes stretch {
-  0% {
-    transform: scale(0.3);
-    border-radius: 100%; }
-  50% {
-    width: 50%;
-    height: 150px;
-    margin-left: -48%; }
-  100% {
-    width: 100%;
-    left: 0;
-    margin-left: 0;
-    transform: scale(1); } }
-@keyframes stretch {
-  0% {
-    transform: scale(0.3);
-    border-radius: 100%; }
-  50% {
-    width: 50%;
-    height: 150px;
-    margin-left: -48%; }
-  100% {
-    width: 100%;
-    left: 0;
-    margin-left: 0;
-    transform: scale(1); } }
-/* out*/
-@-webkit-keyframes feedback-out {
-  0% {
-    transform: translateY(0); }
-  20% {
-    transform: translateY(0px);
-    padding-top: 5px; }
-  100% {
-    transform: translateY(-150px); } }
-@-moz-keyframes feedback-out {
-  0% {
-    transform: translateY(0); }
-  20% {
-    transform: translateY(0px);
-    padding-top: 5px; }
-  100% {
-    transform: translateY(-150px); } }
-@keyframes feedback-out {
-  0% {
-    transform: translateY(0); }
-  20% {
-    transform: translateY(0px);
-    padding-top: 5px; }
-  100% {
-    transform: translateY(-150px); } }
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin-bottom: 16px; }
+
+.drawer {
+  border: none;
+  /* iOS Safari specific workaround */
+  /* END iOS Safari specific workaround */ }
+  .drawer .mdl-menu__container {
+    z-index: -1; }
+  .drawer .navigation {
+    z-index: -2;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1; }
+  .drawer .mdl-menu .mdl-menu__item {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+
+.drawer-header {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 16px;
+  height: 151px; }
+
 /**
   * Index Partial SASS
   * This SASS file is the manifest on
@@ -247,176 +209,11 @@ footer {
   * This SASS file create
   * multiple backgrounds (colors/img)
 **/
-.carousel-images {
-  background: url("../images/slide_1.jpg") no-repeat center;
-  background-size: cover;
-  width: 100%;
-  height: 350px; }
-
-.carousel-images-dos {
-  background: url("../images/welcome.jpg") no-repeat center 16%;
-  background-size: cover;
-  width: 100%;
-  height: 350px; }
-
-.carousel-images-tres {
-  background: url("../images/banners-01.jpg") no-repeat center;
-  background-size: cover;
-  width: 100%;
-  height: 350px; }
-
-.profile-picture {
-  background: gray;
-  width: 100%;
-  height: 300px;
-  background-size: cover;
-  margin-bottom: 10%; }
-
-.profile-photos-slide {
-  width: 100%;
-  height: 150px;
-  margin: 15px 0;
-  cursor: pointer; }
-
-.profile-photos-slide-exclusive {
-  background: url("../images/slide_1.jpg") no-repeat center;
-  width: 100%;
-  height: 70px;
-  background-size: cover; }
-
-.color-profile {
-  background-color: #e9eaed; }
-
 /**
   * Forms Partial SASS
   * This SASS file has all
   * forms used on the app
 **/
-textarea {
-  background-color: #e9eaed; }
-
-.select-hidden {
-  display: none;
-  visibility: hidden; }
-
-.select-sport {
-  width: 100%;
-  height: 50px;
-  position: relative;
-  cursor: pointer;
-  margin: 10px auto;
-  color: #999999;
-  font-size: 18px;
-  font-weight: bold; }
-  .select-sport .select-box {
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    -webkit-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-    background-color: #2ae92e;
-    padding: 8px 15px; }
-  .select-sport .select-options {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    height: 150px;
-    display: none;
-    z-index: 999;
-    list-style: none;
-    background-color: #9bee9d;
-    overflow-y: scroll; }
-    .select-sport .select-options li {
-      -webkit-transition: all 0.15s ease-in;
-      -moz-transition: all 0.15s ease-in;
-      -o-transition: all 0.15s ease-in;
-      transition: all 0.15s ease-in;
-      padding: 5px 0;
-      font-size: 18px;
-      text-indent: 15px;
-      color: #000;
-      font-weight: bold;
-      border-top: 1px solid #9bee9d; }
-      .select-sport .select-options li:hover {
-        color: #2ae92e;
-        background: #FFF; }
-      .select-sport .select-options li[rel="hide"] {
-        display: none; }
-
-.input-space {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 20px; }
-
-.form-sign {
-  width: 100%;
-  margin: 0 auto;
-  background: url("../images/slide_2.jpg") no-repeat center;
-  background-size: cover;
-  height: auto; }
-  .form-sign .input-signup {
-    width: 100%;
-    border: none;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px;
-    padding: 10px;
-    background-color: #2ae92e;
-    margin-top: 15px;
-    font-weight: bold;
-    color: #000;
-    font-size: 1.125em; }
-  .form-sign .facebook {
-    color: #FFF;
-    background-color: #3b5999;
-    display: block;
-    margin: 15px auto; }
-
-.form-login {
-  width: 90%;
-  margin: 0 auto;
-  height: auto; }
-  .form-login .input-login {
-    background-color: #2ae92e;
-    font-weight: bold;
-    color: #000;
-    font-size: 18px;
-    width: 100%;
-    margin-bottom: 10px;
-    border: none;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px;
-    padding: 10px; }
-  .form-login .form-group-login {
-    width: 90%;
-    margin: 0 auto;
-    text-align: center; }
-  .form-login .facebook {
-    color: #FFF;
-    background-color: #3b5999;
-    display: block;
-    margin: 15px auto;
-    text-align: center; }
-
-.input-profile {
-  font-weight: bold;
-  width: auto;
-  position: absolute;
-  top: 50%;
-  right: 0; }
-
 /**
   * Icons Partial SASS
   * This SASS file has most of the icons
@@ -424,1061 +221,16 @@ textarea {
 **/
 /* These are general rules for logos */
 /* Logo */
-.logo_hor {
-  width: 200px;
-  height: 66px;
-  text-align: center;
-  margin-left: 20%; }
-
-.icons-login {
-  margin: 50px auto 15px;
-  width: 85%; }
-
-.icons-sport {
-  width: 90%; }
-
-.photo-icon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 40px; }
-
 /**
   * Modals Partial SASS
   * This SASS has the modals dialogs
 **/
-.modalChat {
-  display: none;
-  z-index: 99;
-  width: 250px;
-  height: 70%;
-  background-color: #FFF;
-  top: 5%;
-  position: fixed;
-  right: 0;
-  box-shadow: 0 6px 19px gray; }
-  .modalChat .header {
-    padding: 16px;
-    background-color: #e9eaed;
-    display: flex; }
-    .modalChat .header h2 {
-      margin: 0;
-      padding-left: 10px;
-      width: 100%;
-      text-align: center;
-      font-size: 1.25em; }
-    .modalChat .header span {
-      font-size: 2em; }
-  .modalChat .inbox-container {
-    height: 100%; }
-  .modalChat ul {
-    width: 100%;
-    height: 72%;
-    list-style: none;
-    padding: 0;
-    overflow-y: scroll;
-    overflow-x: hidden; }
-    .modalChat ul.message-list li {
-      border-bottom: 1px solid #e9eaed;
-      cursor: pointer;
-      height: 85px; }
-      .modalChat ul.message-list li:hover {
-        background-color: #707070; }
-      .modalChat ul.message-list li .row {
-        height: 100%; }
-        .modalChat ul.message-list li .row .col-xs-4 {
-          height: 100%; }
-        .modalChat ul.message-list li .row .col-xs-6 {
-          height: 100%;
-          display: flex; }
-      .modalChat ul.message-list li img {
-        width: 100%;
-        height: 100%; }
-      .modalChat ul.message-list li p {
-        font-size: 1.375em;
-        align-self: center; }
-    .modalChat ul .message {
-      width: 90%;
-      height: auto;
-      border: 2px solid #e9eaed;
-      margin: 5px 0;
-      float: left;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      border-radius: 10px; }
-      .modalChat ul .message p {
-        padding: 10px; }
-      .modalChat ul .message.own-message {
-        float: right;
-        background-color: #9bee9d; }
-  .modalChat .message-input {
-    width: 100%;
-    height: 50px;
-    background-color: #FFF;
-    display: flex;
-    justify-content: center;
-    margin-top: -15px;
-    position: absolute;
-    bottom: 0; }
-    .modalChat .message-input textarea {
-      width: 78%;
-      height: 50px;
-      align-self: center;
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-      border-radius: 5px; }
-    .modalChat .message-input a {
-      align-self: center; }
-      .modalChat .message-input a img {
-        width: 80%;
-        margin-left: 15px; }
-
-.feedback {
-  padding: 0 100px;
-  color: #fff;
-  overflow: hidden;
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  left: 50%;
-  margin-left: -100px;
-  background-color: #9bee9d;
-  top: 0;
-  z-index: 2;
-  display: none;
-  font-family: 'Roboto', sans-serif; }
-  .feedback h3 {
-    font-size: 22px; }
-  .feedback p {
-    font-size: 16; }
-
-.msg {
-  background-color: #9bee9d;
-  display: block;
-  -webkit-animation: stretch 0.3s ease-in-out forwards, feedback-out 0.3s ease-in-out 5s forwards;
-  -moz-animation: stretch 0.3s ease-in-out forwards, feedback-out 0.3s ease-in-out 5s forwards;
-  animation: stretch 0.3s ease-in-out forwards, feedback-out 0.3s ease-in-out 5s forwards; }
-
-.modalDialog {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  -o-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 5;
-  opacity: 0;
-  pointer-events: none;
-  overflow: auto; }
-
-.modalDialogBasic {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  -o-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  background: #2ae92e;
-  z-index: 5;
-  display: block;
-  pointer-events: none;
-  overflow: auto; }
-
-.dialogVideo {
-  padding: 5%;
-  position: relative;
-  z-index: 99;
-  height: auto;
-  margin: 12% auto;
-  width: 50%;
-  background: #FFF; }
-
-.dialogGallery {
-  width: 800px;
-  height: 80%;
-  position: relative;
-  z-index: 99;
-  margin: 5% auto; }
-
-.dialogSport {
-  padding: 5%;
-  position: relative;
-  z-index: 99;
-  margin: 12% auto;
-  width: 35%;
-  background: #FFF; }
-
-.dialogSample {
-  position: relative;
-  z-index: 99;
-  margin: 12% auto;
-  width: 60%; }
-
-.dialogSampleBasic {
-  text-align: center;
-  position: relative;
-  z-index: 99;
-  margin: 12% auto;
-  width: 60%; }
-  .dialogSampleBasic img {
-    width: 90%; }
-
-.dialogSessions {
-  background: #FFF;
-  width: 90%;
-  margin: 10% auto;
-  padding: 10px;
-  box-shadow: 12px 9px 25px #0A0A0A;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
-  .dialogSessions h1 {
-    font-weight: bold;
-    font-size: 1.375em; }
-  .dialogSessions h4 {
-    font-style: italic; }
-  .dialogSessions form {
-    text-align: center; }
-  .dialogSessions textarea {
-    margin: 0;
-    width: 90%;
-    height: 80px; }
-
-.dialogLoading {
-  margin-top: 15%;
-  text-align: center;
-  color: #FFF; }
-  .dialogLoading img {
-    width: 5%; }
-
 /**
   * Wrappers Partial SASS
   * This SASS has all the wrappers used on the app
   * This file is the most important because all boxes format
   * are predefined here
 **/
-.right {
-  right: 0;
-  left: auto; }
-
-.left {
-  right: auto;
-  left: 0; }
-
-.logo {
-  width: 80%; }
-
-.navbar-default {
-  background-color: #333;
-  border-color: #e7e7e7;
-  height: auto;
-  margin: 0;
-  border: 0 solid transparent;
-  border-radius: 1px; }
-
-.navbar-text {
-  font-size: 22px;
-  color: #FFF; }
-
-/* Index */
-.margin-top {
-  text-align: center;
-  margin: 0;
-  position: absolute;
-  right: 10%; }
-  .margin-top h1 {
-    color: #FFF;
-    font-size: 65px; }
-  .margin-top h2 {
-    color: #2ae92e;
-    font-size: 45px; }
-  .margin-top h3 {
-    color: #FFF;
-    font-size: 30px; }
-  .margin-top p {
-    color: #FFF;
-    font-size: 20px; }
-
-.midtern-header {
-  background-color: #2ae92e;
-  height: 200px; }
-  .midtern-header h1 {
-    text-align: center;
-    padding-top: 2%;
-    margin: 0;
-    font-size: 3.125em;
-    font-style: italic;
-    font-weight: bold; }
-  .midtern-header p {
-    text-align: center;
-    font-size: 1.25em; }
-
-.middle-body {
-  margin: 20px;
-  text-align: center; }
-  .middle-body img {
-    width: 80%; }
-  .middle-body h1 {
-    font-size: 40px;
-    font-style: italic;
-    font-weight: bold; }
-  .middle-body h2 {
-    font-style: italic;
-    font-size: 24px;
-    font-weight: bold; }
-  .middle-body p {
-    color: #000;
-    font-size: 0.625em;
-    font-style: italic;
-    font-weight: bold; }
-
-.nike-img {
-  padding-top: 2%; }
-  .nike-img img {
-    width: 80%; }
-
-.middle-middle {
-  background-color: #e9eaed;
-  margin: 20px;
-  height: auto; }
-  .middle-middle img {
-    width: 100%;
-    margin-top: 5%;
-    box-shadow: 12px 9px 25px #707070; }
-  .middle-middle h2 {
-    font-size: 40px;
-    color: #000;
-    font-style: italic;
-    font-weight: bold; }
-
-.row-middle {
-  margin-top: 45px;
-  text-align: center; }
-
-.middle-counter {
-  margin: 20px;
-  height: auto;
-  text-align: center; }
-  .middle-counter img {
-    width: 100%; }
-  .middle-counter h2 {
-    color: #000;
-    font-size: 64px;
-    font-weight: bold; }
-
-.mision-vision {
-  height: auto;
-  text-align: center;
-  background-color: #e9eaed; }
-  .mision-vision h2 {
-    color: #2ae92e;
-    text-align: center;
-    font-size: 4em;
-    font-weight: bold; }
-  .mision-vision p {
-    font-style: italic;
-    font-weight: bold;
-    font-size: 1em; }
-
-.dissapear {
-  display: none; }
-
-.top-sign {
-  text-align: center; }
-  .top-sign img {
-    width: 33%; }
-  .top-sign h1 {
-    text-align: center;
-    font-size: 20px;
-    color: #FFF;
-    font-weight: bold; }
-
-.advisement {
-  height: 190px; }
-
-.function h1 {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: #000;
-  margin-top: 60px; }
-.function h2 {
-  font-size: 20px;
-  text-align: center;
-  color: #000; }
-.function p {
-  text-align: center;
-  color: #000;
-  font-size: 15px; }
-
-.more-info {
-  width: 100%;
-  background-color: #e9eaed;
-  height: 350px;
-  align-items: center;
-  display: flex; }
-  .more-info p {
-    text-align: center;
-    color: #000;
-    font-size: 15px;
-    margin: 0 auto;
-    width: 80%; }
-
-.top-login {
-  text-align: center; }
-  .top-login img {
-    width: 33%;
-    margin: 5% auto; }
-  .top-login h1 {
-    text-align: center;
-    font-size: 20px;
-    color: #000;
-    font-weight: bold; }
-
-.top-title-player {
-  text-align: center;
-  color: #FFF;
-  font-size: 35px;
-  background-color: #4D4D4D;
-  height: 100px; }
-  .top-title-player h1 {
-    margin: 0; }
-
-.dl-menuwrapper-admin {
-  -webkit-transition: opacity 0.4s ease-in-out;
-  -moz-transition: opacity 0.4s ease-in-out;
-  -o-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
-  z-index: 2;
-  text-align: left; }
-  .dl-menuwrapper-admin ul {
-    background: #FFF;
-    list-style: none;
-    height: auto; }
-  .dl-menuwrapper-admin li {
-    padding: 0;
-    border: 1px solid #e9eaed; }
-    .dl-menuwrapper-admin li h3 {
-      font-size: 18px; }
-    .dl-menuwrapper-admin li a {
-      font-size: 1.75em;
-      color: #e9eaed;
-      line-height: 20px;
-      font-weight: 300;
-      display: block;
-      position: relative;
-      padding: 15px 20px;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: bold;
-      color: #9bee9d; }
-      .dl-menuwrapper-admin li a:hover, .dl-menuwrapper-admin li a.selected {
-        color: #2ae92e; }
-        .dl-menuwrapper-admin li a:hover::before, .dl-menuwrapper-admin li a.selected::before {
-          content: close-quote; }
-  .dl-menuwrapper-admin .dl-menu {
-    -webkit-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    -moz-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    -o-transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    transition: opacity 0.4s ease-in-out, left 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
-
-/* Tab container*/
-.cd-tabs-content {
-  background: #FFF;
-  height: auto;
-  padding: 0; }
-  .cd-tabs-content li {
-    display: none;
-    padding: 1.4em;
-    height: auto;
-    overflow-y: scroll; }
-    .cd-tabs-content li.selected {
-      display: block;
-      -webkit-animation: cd-fade-in 0.5s;
-      -moz-animation: cd-fade-in 0.5s;
-      animation: cd-fade-in 0.5s; }
-    .cd-tabs-content li p {
-      font-size: 1em;
-      color: #000;
-      font-family: "Open Sans", sans-serif;
-      line-height: 1.6;
-      margin-bottom: 2em; }
-
-.text-height-one {
-  height: 200px; }
-
-.container-dash {
-  padding: 0;
-  box-shadow: 0 6px 19px gray;
-  margin-bottom: 50px; }
-
-.image-picture-two img {
-  margin-top: 0;
-  padding-left: 5%;
-  padding-top: 4%; }
-
-.images-profile {
-  text-align: center;
-  width: 100%;
-  background-color: #e9eaed;
-  height: 250px; }
-  .images-profile h2 {
-    color: #FFF;
-    margin-top: 71px;
-    font-weight: bold;
-    font-size: 36px; }
-
-.form-group-modified-input {
-  border: none;
-  background-color: #e9eaed;
-  height: 34px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  margin-bottom: 5%;
-  width: 100%; }
-
-.middle-image {
-  height: 200px;
-  width: 100%; }
-
-.profile-photo {
-  background: #000; }
-  .profile-photo .default-photo {
-    background: #707070;
-    background-size: cover;
-    -webkit-transition: opacity ease-in-out 0.2s;
-    -moz-transition: opacity ease-in-out 0.2s;
-    -o-transition: opacity ease-in-out 0.2s;
-    transition: opacity ease-in-out 0.2s; }
-  .profile-photo input {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; }
-
-.profile-preview {
-  height: 200px;
-  width: 100%;
-  display: none; }
-  .profile-preview .inner-filter {
-    background: linear-gradient(0deg, transparent, rgba(29, 17, 17, 0.6)), linear-gradient(transparent, transparent 50%); }
-  .profile-preview a {
-    background-image: url(../images/ic_cancel_white.png);
-    padding: 15px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    top: 15px;
-    right: 15px; }
-    .profile-preview a:hover {
-      padding: 18px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      cursor: pointer; }
-
-.photo {
-  text-align: center;
-  width: 100%;
-  height: 150px;
-  background-color: #9bee9d;
-  margin: 10px 0; }
-  .photo:hover {
-    background-color: #2ae92e; }
-  .photo img {
-    margin-top: 10%; }
-  .photo input {
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; }
-
-.photo-preview {
-  width: 100%;
-  height: 150px;
-  display: none;
-  margin: 10px 0; }
-  .photo-preview .inner-filter {
-    background: linear-gradient(0deg, transparent, rgba(29, 17, 17, 0.6)), linear-gradient(transparent, transparent 50%); }
-  .photo-preview a {
-    background-image: url(../images/ic_cancel_white.png);
-    padding: 15px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
-    right: 15px;
-    top: 20px; }
-    .photo-preview a:hover {
-      padding: 18px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      cursor: pointer; }
-
-.margin-position {
-  margin-top: -10%; }
-
-.p-sport {
-  margin-top: 20%;
-  font-size: 16px; }
-  .p-sport a {
-    color: #9bee9d; }
-    .p-sport a:hover {
-      color: #9bee9d; }
-
-.margin-gallery {
-  margin-top: 5%; }
-
-.gallery-video p {
-  font-size: 16px; }
-
-.countries-eff select {
-  width: 95%;
-  height: 34px;
-  padding: 6px 12px;
-  margin-bottom: 5%; }
-
-.contador {
-  width: 300px; }
-
-.background-img-profile {
-  background: linear-gradient(transparent, transparent 50%), linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent), url("../images/slide_2.jpg") no-repeat center;
-  background-size: cover; }
-
-.coach-container {
-  padding-bottom: 35px;
-  background-color: #FFF; }
-  .coach-container .coach-row {
-    width: 100%;
-    padding: 0;
-    border-bottom: 3px solid #9bee9d;
-    margin: 0 auto; }
-    .coach-container .coach-row h3 {
-      padding-left: 15px; }
-    .coach-container .coach-row textarea {
-      height: 150px; }
-    .coach-container .coach-row .years {
-      display: inline;
-      margin-bottom: 5%; }
-
-.head-body-coach {
-  font-size: 24px;
-  font-weight: bold;
-  padding-top: 5%;
-  text-align: center; }
-
-.left-profile {
-  overflow: auto; }
-  .left-profile img {
-    margin-left: 25%;
-    width: 50%;
-    margin-top: 57%; }
-  .left-profile h1 {
-    text-align: center;
-    color: #2ae92e;
-    font-size: 36px;
-    font-weight: bold; }
-
-.profile-view-container p {
-  font-size: 20px;
-  font-weight: normal; }
-  .profile-view-container p.green-title {
-    font-weight: bold;
-    color: #2ae92e; }
-.profile-view-container .head-title {
-  font-weight: bold;
-  padding-top: 5%; }
-.profile-view-container .sub-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #707070; }
-.profile-view-container .responsive-button {
-  display: block;
-  margin-bottom: 5%; }
-.profile-view-container a {
-  width: 148px;
-  background-color: #2ae92e;
-  color: #000;
-  padding: 5%;
-  margin: 0;
-  font-weight: bold;
-  text-align: center; }
-
-.video-frame {
-  width: 90%;
-  margin: 20px auto;
-  height: 380px; }
-
-.profile-card {
-  margin-top: 10px; }
-  .profile-card .card {
-    box-shadow: 0 4px 6px gray; }
-    .profile-card .card p {
-      text-align: center;
-      font-weight: bold; }
-    .profile-card .card .shield {
-      width: 30px;
-      position: absolute;
-      top: 45%;
-      left: 10%; }
-    .profile-card .card .catalogue-image {
-      background: gray;
-      width: 100%;
-      height: 120px; }
-
-.container-inner-main {
-  margin: 20px 0; }
-  .container-inner-main .inner-block {
-    overflow-x: hidden;
-    background-color: #FFF;
-    box-shadow: 0 6px 19px gray;
-    margin: 20px 5px;
-    overflow-y: scroll;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    border-radius: 5px; }
-    .container-inner-main .inner-block.full-box {
-      height: 900px; }
-    .container-inner-main .inner-block.semi-full-box {
-      height: 600px; }
-    .container-inner-main .inner-block.quarter-box {
-      height: 300px; }
-    .container-inner-main .inner-block.half-box {
-      height: 450px; }
-    .container-inner-main .inner-block .interest {
-      background-color: #2ae92e;
-      width: 100%;
-      padding: 6px 0; }
-      .container-inner-main .inner-block .interest h2 {
-        margin: 0;
-        padding-left: 10px;
-        font-weight: bold; }
-    .container-inner-main .inner-block .advicement {
-      width: 100%;
-      border-bottom: 1px solid #e9eaed;
-      padding-bottom: 5px; }
-      .container-inner-main .inner-block .advicement h3 {
-        font-weight: bold; }
-  .container-inner-main .interest-team {
-    margin-top: 5px; }
-    .container-inner-main .interest-team ul {
-      padding-left: 10px; }
-      .container-inner-main .interest-team ul li {
-        list-style-type: none;
-        border-bottom: 1px solid #e9eaed;
-        height: 75px; }
-        .container-inner-main .interest-team ul li .row {
-          height: 100%; }
-          .container-inner-main .interest-team ul li .row .col-xs-4 {
-            height: 100%; }
-        .container-inner-main .interest-team ul li img {
-          width: 100%;
-          height: 100%; }
-        .container-inner-main .interest-team ul li p {
-          font-size: 1.125em; }
-          .container-inner-main .interest-team ul li p.title {
-            font-weight: bold; }
-
-.width-profile {
-  width: 100%; }
-
-.head-body {
-  font-size: 36px;
-  font-weight: bold;
-  padding-top: 5%; }
-
-.margin-left-paragraph {
-  margin-left: 21px; }
-
-.border-right-column {
-  border-right: 1px solid; }
-
-.border-top-column {
-  border-top: 1px solid; }
-
-.exclusive-club {
-  clear: both; }
-
-.head-body-bottom {
-  font-size: 36px;
-  font-weight: bold;
-  padding-top: 5%; }
-
-.body-paragraph-bottom {
-  font-size: 20px;
-  font-weight: normal; }
-
-.head-paragraph {
-  font-size: 20px;
-  font-weight: bold; }
-
-.color-textarea {
-  background-color: #e9eaed; }
-
-.border-column-botom {
-  border-bottom: 1px solid;
-  padding-bottom: 3%; }
-
-.glyphicon-direction {
-  right: 5%;
-  top: 13px;
-  position: absolute; }
-
-.margin-controller {
-  margin-left: 14px; }
-
-.text-height-two {
-  height: 100px; }
-
-.organization-advisement {
-  height: 150px; }
-
-.middle-organization {
-  background: url("../images/banners-05.jpg") no-repeat center;
-  background-size: cover;
-  background-position: 50% 0;
-  width: 100%;
-  height: 450px; }
-
-.font-organization {
-  text-align: center;
-  font-size: 36px;
-  color: #FFF;
-  margin-top: 10%;
-  font-weight: bolder; }
-
-.recuitrers {
-  margin: 5% auto;
-  width: 300px;
-  height: 350px;
-  background-color: #2ae92e;
-  text-align: center;
-  padding: 5px; }
-  .recuitrers h3 {
-    font-weight: bold;
-    font-size: 20px; }
-  .recuitrers h2 {
-    font-size: 30px; }
-  .recuitrers p {
-    margin-bottom: 5%;
-    font-size: 15px; }
-
-.pay-organization {
-  width: 100%;
-  text-align: center;
-  margin: auto; }
-
-.prospects-image {
-  background: url(../images/jugador.png) no-repeat 6px center;
-  background-size: cover;
-  height: 120px;
-  width: 100%;
-  margin-bottom: 34px; }
-
-.message-image {
-  width: 21px;
-  margin-left: 110px; }
-
-.prospects-description {
-  height: 120px; }
-  .prospects-description h3 {
-    padding-left: 15px; }
-
-.green-header-title {
-  background: #2ae92e;
-  padding: 10px 0;
-  font-weight: bold;
-  margin: 20px 5px -38px;
-  width: 99%;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
-  .green-header-title h2 {
-    font-size: 2.1875em;
-    margin: 0;
-    padding-left: 10px; }
-
-.filter {
-  padding: 0 12px; }
-  .filter p {
-    font-size: 20px; }
-
-.prospects-image-search {
-  background: url(../images/jugador.png) no-repeat 6px center;
-  background-size: cover;
-  height: 150px;
-  width: 80%;
-  margin-bottom: 34px; }
-
-.team-photos {
-  border-radius: 50%;
-  margin-bottom: 10px;
-  width: 80px;
-  height: 80px; }
-
-.contact-header {
-  padding-left: 18%;
-  font-size: 5em;
-  color: #FFF;
-  position: relative;
-  padding-top: 300px;
-  margin: 0; }
-
-.card-exclusive {
-  width: 60%;
-  box-shadow: 0 1px 10px #333;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px; }
-  .card-exclusive .header {
-    text-align: center;
-    color: #FFF;
-    background-color: #4D4D4D;
-    padding: 2px; }
-
-.font-image-combines {
-  background: url("../images/banners-01.jpg") no-repeat center;
-  background-size: cover;
-  width: 100%;
-  height: 250px; }
-
-.combines {
-  margin-left: 40px;
-  margin-right: 40px; }
-  .combines h2 {
-    font-size: 36px;
-    color: #2ae92e; }
-  .combines h1 {
-    font-size: 48px;
-    color: #2ae92e; }
-  .combines .head-combine {
-    padding: 15px 10%;
-    margin-bottom: 5%;
-    background-color: #FFF; }
-  .combines .middle-combine {
-    padding: 15px 10%;
-    margin-bottom: 5%;
-    background-color: #FFF; }
-    .combines .middle-combine img {
-      margin-left: 20%;
-      margin-bottom: 5%; }
-    .combines .middle-combine ul {
-      list-style: none; }
-      .combines .middle-combine ul li p {
-        margin: 0; }
-  .combines .cost-combine {
-    padding: 15px 10%;
-    background-color: #FFF;
-    margin-bottom: 5%; }
-    .combines .cost-combine h1 {
-      text-align: center; }
-    .combines .cost-combine p {
-      text-align: center;
-      font-weight: bold; }
-  .combines .date-combine {
-    padding: 15px 10%;
-    background-color: #FFF;
-    margin-bottom: 5%; }
-    .combines .date-combine ul {
-      list-style: none; }
-      .combines .date-combine ul li {
-        color: #9bee9d; }
-  .combines .complete-combine {
-    padding: 15px 10%;
-    background-color: #FFF;
-    margin-bottom: 5%; }
-
-.photo-team-preview {
-  background: #707070;
-  width: 100%;
-  height: 380px;
-  background-size: cover; }
-
-.head-preview {
-  background-color: #96B13E;
-  color: #FFF; }
-  .head-preview h2 {
-    font-weight: bold; }
-
-.blog-date {
-  list-style: none; }
-  .blog-date .years {
-    font-weight: bold; }
-  .blog-date .blog-months {
-    list-style: none;
-    padding-left: 38px;
-    display: block; }
-
-.card-blog {
-  background-color: #FFF;
-  box-shadow: 0 6px 19px gray;
-  margin: 15px auto; }
-  .card-blog .author {
-    font-style: italic; }
-  .card-blog p {
-    margin-bottom: 10px; }
-
-.see-image {
-  margin-left: 30%;
-  width: 35%;
-  margin-top: 41%; }
-
-.container-team {
-  margin-top: 0; }
-
-.following-card {
-  position: absolute;
-  background: #2ae92e;
-  padding: 4%; }
-
-.note-terms {
-  font-weight: bold;
-  color: white;
-  margin-top: 10px; }
-
-.new-video {
-  padding: 2px;
-  position: absolute;
-  top: 0;
-  left: 5%;
-  background: #2ae92e; }
-
-.term-class h1 {
-  text-align: center;
-  font-weight: bold; }
-.term-class p {
-  text-align: left;
-  margin-bottom: 10px; }
-.term-class h2 {
-  text-align: center;
-  font-weight: bold; }
-
-.atena {
-  height: 150px;
-  background: #e91e63;
-  margin-left: 0; }
-
-.mdl-grid {
-  padding: 0px; }
-
-.mdl-cell {
-  margin: 0px; }
-
 .options {
   height: 100%;
   background: #fce4ec;
@@ -1491,12 +243,6 @@ textarea {
     font-size: 25px;
     padding-top: 50px;
     margin-top: 0; }
-
-.nav-atenea {
-  background: #e91e63; }
-
-.drawer {
-  background: #e91e63; }
 
 .user {
   padding-top: 59px;
@@ -1522,114 +268,36 @@ textarea {
     background: white;
     height: 26px; }
 
-.product {
-  border-bottom: 10px solid gray;
-  border-width: thin; }
-  .product img {
-    padding-top: 10px;
-    padding-left: 30%;
-    width: 20%; }
-  .product a {
-    text-decoration: none;
-    padding-top: 10px;
-    color: #e91e63;
-    font-weight: bold;
-    font-size: 25px; }
-
-.nameProduct {
-  padding-top: 10px;
-  font-weight: bold; }
-
-.priceProduct {
-  display: -webkit-inline-box;
-  padding-right: 30px;
-  padding-top: 10px;
-  color: #e91e63;
-  font-weight: bold; }
-
-.availableProduct {
-  color: #e9eaed;
-  font-weight: bold; }
-
-.fab {
-  margin-left: 75%;
-  margin-top: 15%; }
-
 .dialog-grid h3 {
   padding-left: 27px;
   font-weight: bold; }
 .dialog-grid p {
   padding-left: 27px;
-  color: #707070;
+  color: #EEEEEE;
   font-size: 14px;
   font-weight: bold; }
 .dialog-grid img {
   width: 211px; }
-
-.dialog-grid-employee h4 {
-  border-bottom: 1px solid black;
-  padding-left: 27px;
-  font-weight: bold; }
-.dialog-grid-employee p {
-  padding-left: 27px;
-  color: #707070;
-  font-size: 14px;
-  font-weight: bold; }
-.dialog-grid-employee img {
-  width: 211px; }
-.dialog-grid-employee button {
-  display: list-item;
-  margin-bottom: 22px; }
-
-.product-images {
-  margin-top: 16px;
-  width: 142%; }
-  .product-images img {
-    width: 52px; }
 
 .mdl-dialog {
   border: none;
   box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
   width: 700px; }
 
-.product-main-image {
-  margin-left: 50px; }
+.dash-content-top {
+  margin-top: 80px; }
 
-.tabs-cont {
-  margin-left: 18%; }
+.table-dash {
+  width: 100%;
+  margin-bottom: 100px; }
+  .table-dash img {
+    width: 100px; }
 
-.sucursal-owner {
-  border-bottom: 1px solid black; }
-  .sucursal-owner img {
-    width: 33%;
-    margin-left: 89px;
-    margin-top: 18px; }
-  .sucursal-owner p {
-    margin-top: 18px;
-    font-weight: bold; }
-  .sucursal-owner button {
-    margin-top: 18px;
-    padding-right: 38px;
-    padding-left: 38px;
-    height: 28px; }
-
-.addrees {
-  color: #e9eaed; }
-
-.employee-owner {
-  border-bottom: 1px solid black; }
-  .employee-owner img {
-    width: 33%;
-    margin-left: 89px;
-    margin-top: 18px; }
-  .employee-owner p {
-    margin-top: 18px;
-    font-weight: bold; }
-  .employee-owner button {
-    margin-top: 18px;
-    padding-right: 38px;
-    padding-left: 38px;
-    height: 28px; }
+.fab {
+  position: absolute;
+  text-align: center;
+  right: 0;
+  top: 120px; }
 
 /**
   * Buttons Partial SASS
@@ -1637,196 +305,5 @@ textarea {
   * buttons style on the web app
 **/
 /* General */
-.button-member--cancel {
-  color: white;
-  background-color: red;
-  width: 180px;
-  margin-bottom: 5%;
-  border: none;
-  padding: 7px; }
-
-.button-member--confirm {
-  color: #000;
-  background-color: #2ae92e;
-  width: 180px;
-  border: none;
-  padding: 7px; }
-
-.anchor-coach {
-  margin-left: 44px;
-  color: #9bee9d;
-  font-weight: bold; }
-  .anchor-coach:hover, .anchor-coach:link, .anchor-coach:visited, .anchor-coach:active {
-    color: #9bee9d; }
-
-.chat {
-  background: url(../images/chat.png) no-repeat 6px center;
-  width: 90px;
-  height: 90px;
-  display: block;
-  right: 45px;
-  position: fixed;
-  bottom: 45px; }
-
-.save-button {
-  text-align: right; }
-  .save-button button {
-    margin-top: 100px;
-    font-weight: bold;
-    background-color: #2ae92e;
-    border: none;
-    padding: 9px; }
-
-.view-green--btn {
-  padding: 6px;
-  background-color: #2ae92e;
-  color: #000;
-  margin-top: 0;
-  font-weight: bold;
-  width: 100px;
-  font-size: 22px;
-  border: none; }
-
-/**
-  * Media queries Partial SASS
-  * This SASS file has the break points
-  * for each media query used on the app
-  * !Important Sass extend cannot be used
-  * on media queries, just include and functions
-**/
-/*Media Queries*/
-@media (min-width: 768px) {
-  .midtern-header h1 {
-    font-size: 4em; }
-  .midtern-header p {
-    font-size: 2.5em; }
-
-  .dissapear {
-    display: block; }
-
-  .middle-body p {
-    font-size: 1.5em; }
-
-  .middle-middle {
-    height: 300px; }
-
-  .middle-counter {
-    height: 300px; }
-
-  .mision-vision {
-    height: 300px;
-    font-size: 1.5em; }
-
-  .navbar-default {
-    height: 6.25em; }
-
-  .logo {
-    width: 100%; }
-
-  .carousel-images {
-    height: 500px; }
-
-  .carousel-images-dos {
-    height: 500px; }
-
-  .carousel-images-tres {
-    height: 500px; }
-
-  .form-sign .input-signup {
-    font-size: 22px; }
-
-  .top-sign img {
-    width: 30%; }
-  .top-sign h1 {
-    font-size: 40px; }
-
-  .function h1 {
-    font-size: 40px; }
-  .function h2 {
-    font-size: 40px; }
-  .function p {
-    font-size: 20px; }
-
-  .more-info p {
-    font-size: 20px; }
-
-  .top-login img {
-    width: 20%; }
-  .top-login h1 {
-    font-size: 30px; }
-
-  .form-login {
-    height: 460px;
-    width: 50%; }
-    .form-login .input-login {
-      font-size: 22px; }
-
-  .select-sport {
-    font-size: 22px; }
-
-  .images-profile {
-    height: auto; }
-    .images-profile h2 {
-      color: #000;
-      margin-top: 35%; }
-
-  .background-img-profile {
-    background: #e9eaed; }
-
-  .buttom-member-one {
-    margin-bottom: 0; }
-
-  .left-profile h1 {
-    text-align: left; }
-
-  .recuitrers {
-    margin-top: 5%;
-    padding: 0; }
-
-  .pay-organization {
-    width: 50%; }
-
-  .dl-menuwrapper-admin ul {
-    height: 600px; }
-
-  .cd-tabs-content {
-    height: 600px; }
-    .cd-tabs-content li {
-      height: 600px; }
-
-  .coach-container .coach-row {
-    width: 90%;
-    padding: 0 2%; }
-
-  .profile-view-container .responsive-button {
-    display: none; }
-
-  .container-team {
-    margin-top: -125px; }
-
-  .dialogSessions {
-    width: 40%; }
-    .dialogSessions h1 {
-      font-size: 2.25em; }
-
-  .feedback h3 {
-    font-size: 32px; }
-  .feedback p {
-    font-size: 22px; }
-
-  .modalChat {
-    width: 400px; }
-    .modalChat .header h2 {
-      font-size: 1.875em; }
-
-  .modalDialogBasic {
-    display: none; } }
-@media (max-width: 992px) and (min-width: 768px) {
-  .navbar-default {
-    height: 10.25em; } }
-@media (max-width: 768px) and (min-width: 500px) {
-  .special-two-col {
-    float: left;
-    width: 45%; } }
 
 /*# sourceMappingURL=main.css.map */

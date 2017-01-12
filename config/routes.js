@@ -52,14 +52,21 @@ module.exports.routes = {
   // Branch CRUD API
   'GET /api/v0/branches': "BranchController.showBranches",
   'POST /api/v0/branch': "BranchController.createBranch",
-  'PUT  '
-  'DELETE'
+
+
+
   // Employee CRUD API
+  'GET /api/v0/employees': 'EmployeeController.showEmployees',
   'POST /api/v0/signup': 'EmployeeController.signup',
   'PUT /api/v0/login': 'EmployeeController.login',
   'GET /logout': 'EmployeeController.logout'
 
   // PRODUCT CRUD API
+'GET /api/v0/products': 'ProductController.showProducts',
+'POST /api/v0/product': 'ProductController.createProduct',
+'DELETE /api/v0/productDelete' : 'ProductController.deleteProduct',
+'PUT /api/v0/productUpdate' : 'ProductController.updateProduct',
+
 
 
 

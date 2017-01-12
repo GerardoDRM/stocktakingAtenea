@@ -10,6 +10,17 @@ var crypto = require('crypto');
 
 module.exports = {
 
+  showEmployees: function(req, res) {
+    Employee.find({}, function find(err, employees) {
+      if (err || employees === undefined) return res.negotiate(err);
+      // Return branches array
+      return res.json({
+        "status": 200,
+        "employees": employees
+      })
+    });
+  },
+
   /**
    * Check the provided email address and password, and if they
    * match a real user in the database, sign in to Activity Overlord.

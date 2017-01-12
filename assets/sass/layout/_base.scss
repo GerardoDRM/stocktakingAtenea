@@ -5,95 +5,71 @@
 **/
 
 /*General*/
+.mdl-layout,
+.mdl-layout__container,
+body,
 html {
-    height: 100%;
+  height: 100%;
+  width: 100%;
 }
-.pos-absolute {
-  position: absolute;
+.mdl-layout,
+.mdl-layout__container,
+.mdl-layout__content {
+  z-index: inherit !important;
 }
-.no-padding {
-  @extend %no-padding;
+._dialog_overlay {
+  z-index: inherit !important;
+  position: inherit !important;
 }
+
+
 .no-margin {
-  @extend %no-margin;
+  margin: 0;
+}
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #767777;
+  font-weight: 500;
 }
 
-.no-margin--sides {
-  @extend %no-margin--side;
+.phone-appear {
+  display: none;
 }
-
-a {
-  cursor: pointer;
-  &:hover,&:link,&:visited,&:active {
-    color:$black;
-    text-decoration: none;
+.error-msg {
+  width: 100%;
+  color: $pink-400;
+  @include border-radius(5px);
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  display: none;
+  .mdl-progress {
+    width: 100%;
+  }
+  .loading-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20%;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+    p {
+      font-size: em(20px);
+    }
   }
 }
-
-.logoIndex {
-    height: 400px;
-}
-
-.logo_contact {
-    width: 70%;
-    margin: 25% auto;
-}
-
-.logo-box-index {
-    @include box(100%, auto, absolute, 1);
-    text-align: center;
-    top: 20%;
-}
-
-.text-center {
-  text-align: center;
-}
-/*Menu color*/
-
-
-
-/*Notifications*/
-.center_notification {
-    @include box(32%,$z_index: 4);
-    @include position(absolute, $values: top 100px left 32%);
-}
-
-.notification {
-    @include styling_wrapper_content($white, center);
-    @include border-radius(4px);
-    @extend %margin-center;
-    padding: 10px 20px;
-    width: 80%;
-}
-
-.error {
-  background-color: $color-error;
-  color: $color-error-letter;
-  @extend %messages;
-}
-
-.success {
-  background-color: $color-success;
-  color: $color-success-letter;
-  @extend %messages;
-}
-
-/* Wrappers */
-
-.wrapper {
-    width: auto;
-    margin-left: 20px;
-    background: $white;
-    margin-top: 200px;
-}
-
-.full-wrapper {
-  @extend %complete-dimension;
-}
-.model-responsive {
-    width: 100%;
-}
-
-.text-left {
-  text-align: left;
+.downloads {
+  bottom: 0;
+  z-index: 99;
+  right: 5px;
+  position: fixed;
 }

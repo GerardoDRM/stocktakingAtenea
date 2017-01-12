@@ -1,4 +1,4 @@
-angular.module('Atenea').controller('AdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+angular.module('Atenea').controller('EmployeeAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 
   $scope.logoutEmployee = function() {
     $http({

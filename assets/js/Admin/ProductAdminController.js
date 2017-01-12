@@ -1,4 +1,4 @@
-angular.module('Atenea').controller('BranchAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+angular.module('Atenea').controller('ProductAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 
   $scope.getBranches = function() {
     $http({
