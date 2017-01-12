@@ -52,29 +52,22 @@ module.exports.routes = {
   // Branch CRUD API
   'GET /api/v0/branches': "BranchController.showBranches",
   'POST /api/v0/branch': "BranchController.createBranch",
-  'DELETE /api/v0/branchDelete' : 'BranchController.deleteBranch',
-  'PUT /api/v0/branchUpdate' : 'BranchController.updateBranch'
-
-
-
+  'DELETE /api/v0/branchDelete': 'BranchController.deleteBranch',
+  'PUT /api/v0/branchUpdate': 'BranchController.updateBranch',
 
   // Employee CRUD API
   'GET /api/v0/employees': 'EmployeeController.showEmployees',
   'POST /api/v0/signup': 'EmployeeController.signup',
   'PUT /api/v0/login': 'EmployeeController.login',
   'GET /logout': 'EmployeeController.logout',
-  'DELETE /api/v0/employeeDelete' : 'EmployeeController.deleteEmployee',
-  'PUT /api/v0/employeeUpdate' : 'EmployeeController.updateEmployee'
+  'DELETE /api/v0/employeeDelete': 'EmployeeController.deleteEmployee',
+  'PUT /api/v0/employeeUpdate': 'EmployeeController.updateEmployee',
 
   // PRODUCT CRUD API
-'GET /api/v0/products': 'ProductController.showProducts',
-'POST /api/v0/product': 'ProductController.addProduct',
-'DELETE /api/v0/productDelete' : 'ProductController.deleteProduct',
-'PUT /api/v0/productUpdate' : 'ProductController.updateProduct',
-'GET /api/vo/productSearch' : 'ProductController.searchProduct'
-
-
-
-
+  'GET /api/v0/products': 'ProductController.showProducts',
+  'POST /api/v0/product': 'ProductController.addProduct',
+  'DELETE /api/v0/productDelete': 'ProductController.deleteProduct',
+  'PUT /api/v0/productUpdate': 'ProductController.updateProduct',
+  'GET /api/vo/productSearch': 'ProductController.searchProduct'
 
 };
