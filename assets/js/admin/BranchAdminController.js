@@ -1,4 +1,4 @@
-angular.module('Atenea').controller('BranchAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+app.controller('BranchAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 
   $scope.getBranches = function() {
     $http({
@@ -7,11 +7,10 @@ angular.module('Atenea').controller('BranchAdminController', ['$scope', '$http',
       })
       .then(function successCallback(response) {
         var branches = response.data.branches;
-        console.log(branches);
         for (var i = 0; i < branches.length; i = i + 3) {
 
           for (var j = 0; j < 3; j++) {
-            _addBranches( branches[i + j]);
+            _addBranches(branches[i + j]);
           }
         }
       }, function errorCallback(response) {});

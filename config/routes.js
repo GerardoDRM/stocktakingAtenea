@@ -60,8 +60,9 @@ module.exports.routes = {
   'POST /api/v0/signup': 'EmployeeController.signup',
   'PUT /api/v0/login': 'EmployeeController.login',
   'GET /logout': 'EmployeeController.logout',
-  'DELETE /api/v0/employeeDelete': 'EmployeeController.deleteEmployee',
-  'PUT /api/v0/employeeUpdate': 'EmployeeController.updateEmployee',
+  'DELETE /api/v0/employees/:id': 'EmployeeController.deleteEmployee',
+  'PUT /api/v0/employees/:id': 'EmployeeController.updateEmployee',
+  'GET /api/v0/employees/:id': 'EmployeeController.getEmployeeById',
 
   // PRODUCT CRUD API
   'GET /api/v0/products': 'ProductController.showProducts',

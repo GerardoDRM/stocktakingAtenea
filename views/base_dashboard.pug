@@ -6,7 +6,7 @@ html(lang="es")
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
     link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
     link(rel='stylesheet', href='/css/main.css', type='text/css')
-  body
+  body(ng-app="AteneaApp" ng-cloak)
     .app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-drawer.mdl-layout--fixed-header
       header.android-header.mdl-layout__header.mdl-layout__header--waterfall
         .mdl-layout__header-row
@@ -53,9 +53,12 @@ html(lang="es")
   script(src="/js/dialog.js")
   script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js")
   script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js")
-
-
   script(src="https://code.getmdl.io/1.3.0/material.min.js")
+  //- angular
+  script(src="/js/admin/DashboardModuleApp.js")
+  script(src="/js/admin/EmployeeAdminController.js")
+  script(src="/js/admin/BranchAdminController.js")
+  script(src="/js/admin/ProductAdminController.js")
   script.
     $(document).ready(function() {
     // Tabs which are used on navigation bar

@@ -21,6 +21,20 @@ module.exports = {
     });
   },
 
+
+  getEmployeeById: function(req, res) {
+    Employee.findOne({
+      "idemployee": req.param("id")
+    }, function find(err, employee) {
+      if (err || employee === undefined) return res.negotiate(err);
+      // Return branches array
+      return res.json({
+        "status": 200,
+        "employee": employee
+      })
+    });
+  },
+
   /**
    * Check the provided email address and password, and if they
    * match a real user in the database, sign in to Activity Overlord.
@@ -156,7 +170,6 @@ module.exports = {
       });
 
     });
-
   }
 
 };
