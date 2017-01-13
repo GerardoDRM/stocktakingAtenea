@@ -41,6 +41,9 @@ module.exports.routes = {
   '/employee': {
     view: 'dashboard/dashboard_employee'
   },
+  '/login': {
+    view: 'dashboard/login'
+  },
 
 
 

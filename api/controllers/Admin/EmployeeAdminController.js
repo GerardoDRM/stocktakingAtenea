@@ -1,4 +1,4 @@
-angular.module('Atenea').controller('EmployeeAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+angular.module('Atenea').controller('AdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 
   $scope.logoutEmployee = function() {
     $http({
@@ -22,8 +22,7 @@ angular.module('Atenea').controller('EmployeeAdminController', ['$scope', '$http
         url: '/api/v0/login'
       })
       .then(function successCallback(response) {
-        var log =  response.result;
-        console.log(log);
+
 
       }, function errorCallback(response) {});
 
