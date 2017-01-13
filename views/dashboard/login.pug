@@ -1,20 +1,41 @@
-extends ../base_employee.pug
+doctype html
+html(lang="es")
+  head
+    title= "Sistema Inventarios"
 
-block content
+    link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
+    link(rel='stylesheet', href='/css/main.css', type='text/css')
+  body.backLogin(ng-app="AteneaApp" ng-cloak)
+    .mdl-layout.mdl-js-layout.has-drawer.is-upgraded
+      main.mdl-layout__content
+        .login(ng-controller="LoginController")
+          .card-login.mdl-card.mdl-shadow--2dp
+            .mdl-card__title
+              h2.mdl-card__title-text Bienvenido a Atenea
+            form(name="userForm" novalidate)
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input.mdl-textfield__input(type='number' name="id" ng-model="user.id")
+                label.mdl-textfield__label(style="color:#ff4081;") Id empleado
+                .error-msg(ng-show='userForm.$submitted || userForm.id.$touched')
+                  span(ng-show='userForm.id.$error.required') Campo requerido
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input.mdl-textfield__input(type='password' name="id" ng-model="user.password")
+                label.mdl-textfield__label(style="color:#ff4081;") Password
+                .error-msg(ng-show='userForm.$submitted || userForm.password.$touched')
+                  span(ng-show='employeeForm.password.$error.required') Campo requerido
+              .mdl-card__actions.mdl-card--border
+                // Raised button with ripple
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(ng-click="loginEmployee(userForm)")
+                  | Ingresar
 
-    div.backLogin(ng-controller ="EmployeeAdminController")
-    div.login
-      h2  Bienvenido a Atenea
-      // Textfield with Floating Label
-      form(action='#')
-          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input#sample3.mdl-textfield__input(type='text')
-            label.mdl-textfield__label(style="color:#ff4081;" for='sample3') Email
-      form(action='#')
-          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input#sample3.mdl-textfield__input(type='text')
-            label.mdl-textfield__label(style="color:#ff4081;" for='sample3') Password
 
-      // Raised button with ripple
-      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(ng-click="loginEmployee")
-        | Ingresar
+
+
+
+  // SCRIPTS
+  script(src="/js/dependencies/sails.io.js")
+  script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js")
+  script(src="https://code.getmdl.io/1.3.0/material.min.js")
+  script(src="/js/admin/LoginController.js")
+  // SCRIPTS END

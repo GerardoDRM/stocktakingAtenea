@@ -10,6 +10,25 @@ var crypto = require('crypto');
 
 module.exports = {
 
+  // Change dashboard view depends on user role
+  showDashboard: function(req, res) {
+    if (!req.session.me) {
+      return res.view('dashboard/login');
+    }
+    Employee.findOne({
+      "idemployee": req.session.me
+    }, function find(err, employee) {
+      if (err || employee === undefined) return res.view("dashboard/login");
+      // Return branches array
+      if (employee.role == "admin") {
+        res.view("dashboard/dashboard_main");
+      } else {
+        res.view("dashboard/dashboard_employee");
+      }
+    });
+
+  },
+
   showEmployees: function(req, res) {
     Employee.find({}, function find(err, employees) {
       if (err || employees === undefined) return res.negotiate(err);
@@ -40,7 +59,6 @@ module.exports = {
    * match a real user in the database, sign in to Activity Overlord.
    */
   login: function(req, res) {
-
     // Try to look up user using the provided email address
     Employee.findOne({
       "idemployee": req.param('id'),
@@ -70,8 +88,7 @@ module.exports = {
           req.session.me = user.idemployee;
           // All done- let the client know that everything worked.
           return res.json({
-            "status": 200,
-            "user": user
+            "status": 200
           });
         }
       });
@@ -127,14 +144,14 @@ module.exports = {
       // If session refers to a user who no longer exists, still allow logout.
       if (!user) {
         sails.log.verbose('Session refers to a user who no longer exists.');
-        return res.backToHomePage();
+        return res.view("dashboard/login");
       }
 
       // Wipe out the session (log out)
       req.session.me = null;
 
       // Either send a 200 OK or redirect to the home page
-      return res.backToHomePage();
+      return res.view("dashboard/login");
 
     });
   },

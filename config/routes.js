@@ -35,12 +35,7 @@ module.exports.routes = {
   '/': {
     view: 'website/home'
   },
-  '/dashboard': {
-    view: 'dashboard/dashboard_main'
-  },
-  '/employee': {
-    view: 'dashboard/dashboard_employee'
-  },
+  '/dashboard': "EmployeeController.showDashboard",
   '/login': {
     view: 'dashboard/login'
   },
