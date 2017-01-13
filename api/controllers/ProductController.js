@@ -10,13 +10,25 @@ module.exports = {
   showProducts: function(req, res) {
     Product.find({}, function find(err, products) {
       if (err || products === undefined) return res.negotiate(err);
-      // Return branches array
+      // Return productes array
       return res.json({
         "status": 200,
         "products": products
       })
     });
   },
+
+  getProductById: function(req, res) {
+    Product.findOne({"idproduct": req.param("id")}, function find(err, product) {
+      if (err || product === undefined) return res.negotiate(err);
+      // Return productes array
+      return res.json({
+        "status": 200,
+        "product": product
+      })
+    });
+  },
+
 
   addProduct: function(req, res) {
     var values = req.allParams();

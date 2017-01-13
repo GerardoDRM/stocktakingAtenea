@@ -7,6 +7,8 @@
 
 module.exports = {
   autoPK: false,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     idemployee: {
       type: 'integer',
@@ -24,7 +26,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    rol: {
+    role: {
       type: 'string',
       required: true
     },

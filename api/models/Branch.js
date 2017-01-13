@@ -7,6 +7,8 @@
 
 module.exports = {
   autoPK: false,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
     idbranch: {
       type: 'integer',

@@ -1,9 +1,9 @@
 extends ../base_dashboard.pug
 
 block content
-  #employee.container-dash.tab.selected(data-content='employees')
-    include dash_employees.pug
   #branch.container-dash.tab(data-content='branches')
     include dash_branches.pug
+  #employee.container-dash.tab.selected(data-content='employees')
+    include dash_employees.pug
   #product.container-dash.tab(data-content='products')
     include dash_products.pug

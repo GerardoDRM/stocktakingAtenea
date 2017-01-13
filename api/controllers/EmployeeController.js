@@ -91,12 +91,12 @@ module.exports = {
       // OK.
       success: function(encryptedPassword) {
         var data = {
-          idemployee: req.param("id"),
-          full_name: req.param('name'),
+          idemployee: req.param("idemployee"),
+          full_name: req.param('full_name'),
           email: req.param('email'),
           password: encryptedPassword,
-          rol: req.param('role'),
-          workingAt: req.param("branch")
+          role: req.param('role'),
+          workingAt: req.param('workingAt')
         }
 
         Employee.create(data, function userCreated(err, newUser) {
@@ -156,6 +156,7 @@ module.exports = {
 
   updateEmployee: function(req, res) {
     var values = req.allParams();
+    delete values["idemployee"];
     Employee.update({
       idemployee: req.param('id'),
     }, values).exec(function userUpdated(err, updated) {

@@ -8,6 +8,8 @@
 module.exports = {
 
   attributes: {
+    autoCreatedAt: false,
+    autoUpdatedAt: false,
     quantity: {
       type: 'integer',
       required: true

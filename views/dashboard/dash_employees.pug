@@ -15,8 +15,8 @@ div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminControll
           td {{e.full_name}}
           td {{e.email}}
           td
-            button.mdl-button.mdl-js-button(ng-click="showEmployeeDetail({{e.idemployee}})") Ver Mas
-            button.mdl-button.mdl-js-button(ng-click="deleteEmployee()") Eliminar
+            button.mdl-button.mdl-js-button(ng-click="showEmployeeDetail(e.idemployee)") Ver Mas
+            button.mdl-button.mdl-js-button(ng-click="deleteEmployee(e.idemployee)") Eliminar
 
   button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab(ng-click="showEmployeeForm()")
     i.material-icons add
@@ -24,25 +24,43 @@ div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminControll
   //- Dialog Employee Detail
   dialog#employeeDialog.mdl-dialog.dialog-grid
     h3 {{employee.full_name}}
-    .mdl-dialog__content
-      .mdl-textfield.mdl-js-textfield
-          input.mdl-textfield__input(type='text', pattern='-?[0-9]*(\.[0-9]+)?')
+    form(name="employeeForm" novalidate)
+      .mdl-dialog__content
+        .mdl-textfield.mdl-js-textfield
+          input.mdl-textfield__input(type='number', pattern='-?[0-9]*(\.[0-9]+)?', name="idemployee", ng-model="employee.idemployee", required)
           label.mdl-textfield__label Id Empleado...
-          span.mdl-textfield__error El Id no es un numero!
+          .error-msg(ng-show='employeeForm.$submitted || employeeForm.idemployee.$touched')
+            span(ng-show='employeeForm.idemployee.$error.required') Campo requerido
+            span.mdl-textfield__error El Id no es un numero!
 
-      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-        input.mdl-textfield__input(type='text')
-        label.mdl-textfield__label Email...
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="employee.full_name", name="name")
+          label.mdl-textfield__label Nombre...
+          .error-msg(ng-show='employeeForm.$submitted || employeeForm.name.$touched')
+            span(ng-show='employeeForm.name.$error.required') Campo requerido
 
-      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-        input.mdl-textfield__input(type='password')
-        label.mdl-textfield__label Password...
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="employee.email", name="email")
+          label.mdl-textfield__label Email...
 
-      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-        input.mdl-textfield__input(type='text')
-        label.mdl-textfield__label Rol...
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='password' ng-model="employee.password", name="password", required)
+          label.mdl-textfield__label Password...
+          .error-msg(ng-show='employeeForm.$submitted || employeeForm.password.$touched')
+            span(ng-show='employeeForm.password.$error.required') Campo requerido
 
-    div.mdl-dialog__actions
-      button.mdl-button.close(ng-click="closeDialog()") Cerrar
-    div.mdl-dialog__actions
-      button.mdl-button.close(ng-click="storeData()") Guardar
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text', ng-model="employee.role", name="role", required)
+          label.mdl-textfield__label Rol...
+          .error-msg(ng-show='employeeForm.$submitted || employeeForm.role.$touched')
+            span(ng-show='employeeForm.role.$error.required') Campo requerido
+
+        select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
+          .error-msg(ng-show='employeeForm.$submitted || employeeForm.branch.$touched')
+            span(ng-show='employeeForm.branch.$error.required') Campo requerido
+
+
+      div.mdl-dialog__actions
+        button.mdl-button.close(ng-click="closeDialog()") Cerrar
+      div.mdl-dialog__actions
+        button.mdl-button.close(ng-click="storeData(employeeForm.$valid)") Guardar

@@ -1,4 +1,4 @@
-div.mdl-layout__content(style="width:100%;")
+div.mdl-layout__content(style="width:100%;" ng-controller="BranchAdminController")
   div
     h2 Sucursales
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
@@ -6,59 +6,51 @@ div.mdl-layout__content(style="width:100%;")
         tr
           th Foto
           th Nombre
-          th Precio
-          th Cantidad
-          th Acciones
+          th Direccion
+          th Tel.
       tbody
-        tr
+        tr(ng-repeat="e in branches")
           td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
+            img(src="./images/people.svg")
+          td {{e.name}}
+          td {{e.address}}
+          td {{e.phone}}
           td
-            button.mdl-button.mdl-js-button Ver Mas
-            button.mdl-button.mdl-js-button Eliminar
-        tr
-          td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
-        tr
-          td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
+            button.mdl-button.mdl-js-button(ng-click="showBranchDetail(e.idbranch)") Ver Mas
+            button.mdl-button.mdl-js-button(ng-click="deleteBranch(e.idbranch)") Eliminar
 
-  button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab
+  button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab(ng-click="showBranchForm()")
     i.material-icons add
 
-  //- Dialog
-  dialog.mdl-dialog.dialog-grid
-    h3 Nombre
-    div.mdl-grid
-      div.mdl-cell.mdl-cell--6-col
-        p Descripción
-        p Precio
-        p Categoría
-        p Marca
-        p Tamaños
-        p _ _
-        p Sucursales
-        p _ _
-        p Colores
-        p _ _
-      div.mdl-cell.mdl-cell--6-cols.product-main-image
-        img(src="./images/rop.jpg")
-        div.mdl-grid.product-images
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
+  //- Dialog Employee Detail
+  dialog#branchDialog.mdl-dialog.dialog-grid
+    h3 {{branch.full_name}}
+    form(name="branchForm" novalidate)
+      .mdl-dialog__contents
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="branch.name", name="name")
+          label.mdl-textfield__label Nombre...
+          .error-msg(ng-show='branchForm.$submitted || branchForm.name.$touched')
+            span(ng-show='branchForm.name.$error.required') Campo requerido
 
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-    div.mdl-dialog__actions
-      button.mdl-button.close Cerrar
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="branch.street", name="street")
+          label.mdl-textfield__label Calle...
+          .error-msg(ng-show='branchForm.$submitted || branchForm.street.$touched')
+            span(ng-show='branchForm.street.$error.required') Campo requerido
+
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="branch.state")
+          label.mdl-textfield__label Estado...
+
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text', ng-model="branch.city")
+          label.mdl-textfield__label Ciudad...
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='phone', ng-model="branch.phone")
+          label.mdl-textfield__label Telefono...
+
+      div.mdl-dialog__actions
+        button.mdl-button.close(ng-click="closeDialog()") Cerrar
+      div.mdl-dialog__actions
+        button.mdl-button.close(ng-click="storeData(branchForm.$valid)") Guardar

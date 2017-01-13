@@ -9,36 +9,23 @@ div.mdl-layout__content(style="width:100%;")
       option(value="1") Todas
       option(value="2") Oaxaca
   div
-    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash
+    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
           th Foto
           th Nombre
-          th Precio
-          th Cantidad
-          th Acciones
+          th Direccion
+          th Tel.
       tbody
-        tr
+        tr(ng-repeat="e in products")
           td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
+            img(src="./images/people.svg")
+          td {{e.name}}
+          td {{e.adrress}}
+          td {{e.tel}}
           td
-            button.mdl-button.mdl-js-button Ver Mas
-            button.mdl-button.mdl-js-button Eliminar
-        tr
-          td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
-        tr
-          td
-            img(src="./images/rop.jpg")
-          td Pantalon
-          td $2.90
-          td 23
+            button.mdl-button.mdl-js-button(ng-click="showBranchDetail({{e.idproduct}})") Ver Mas
+            button.mdl-button.mdl-js-button(ng-click="deleteBranch()") Eliminar
 
   button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab
     i.material-icons add
@@ -63,7 +50,6 @@ div.mdl-layout__content(style="width:100%;")
         div.mdl-grid.product-images
           div.mdl-cell.mdl-cell--4-col
             img(src="./images/rop.jpg")
-
           div.mdl-cell.mdl-cell--4-col
             img(src="./images/rop.jpg")
           div.mdl-cell.mdl-cell--4-col

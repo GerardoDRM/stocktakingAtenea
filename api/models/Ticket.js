@@ -9,6 +9,8 @@ module.exports = {
 
   attributes: {
     autoPK: false,
+    autoCreatedAt: false,
+    autoUpdatedAt: false,
     idticket: {
       type: 'integer',
       primaryKey: true,

@@ -9,6 +9,8 @@ module.exports = {
 
   attributes: {
     autoPK: false,
+    autoCreatedAt: false,
+    autoUpdatedAt: false,
     idproduct: {
       type: 'integer',
       primaryKey: true,
