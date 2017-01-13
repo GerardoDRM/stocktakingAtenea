@@ -1,0 +1,20 @@
+extends ../base_employee.pug
+
+block content
+
+    div.backLogin(ng-controller ="EmployeeAdminController")
+    div.login
+      h2  Bienvenido a Atenea
+      // Textfield with Floating Label
+      form(action='#')
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+            input#sample3.mdl-textfield__input(type='text')
+            label.mdl-textfield__label(style="color:#ff4081;" for='sample3') Email
+      form(action='#')
+          .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+            input#sample3.mdl-textfield__input(type='text')
+            label.mdl-textfield__label(style="color:#ff4081;" for='sample3') Password
+
+      // Raised button with ripple
+      button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect(ng-click="loginEmployee")
+        | Ingresar
