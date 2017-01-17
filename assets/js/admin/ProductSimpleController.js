@@ -1,4 +1,4 @@
-app.controller('ProductAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+app.controller('ProductSimpleController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
 
   $scope.branches = [];
   $scope.branch = undefined;
@@ -110,21 +110,14 @@ app.controller('ProductAdminController', ['$scope', '$http', '$compile', functio
         }
       }, function errorCallback(response) {});
   }
-
-  var cleanContent = function() {
-    var tabContentWrapper = $('.cd-tabs-content');
-    var selectedContent = tabContentWrapper.find('.tab[data-content="productsimple"]');
-    selectedContent.addClass('selected').siblings('.tab').removeClass('selected');
-  }
-
   // Show dialog with product info
   $scope.showProductDetail = function(id) {
-    cleanContent();
+    window.location.href = "/product/" + id;
   }
 
   // Show empty dialog
   $scope.showProductForm = function() {
-    cleanContent();
+    window.location.href = "/product";
   }
 
 }]);

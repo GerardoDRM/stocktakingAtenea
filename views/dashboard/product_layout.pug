@@ -1,0 +1,49 @@
+form(name="productForm" novalidate)
+  div.mdl-layout__content.product-form
+    .mdl-grid.mdl-card.mdl-shadow--4dp
+      div.mdl-cell.mdl-cell--6-col
+        //- ProductId
+        .mdl-textfield.mdl-js-textfield
+          input.mdl-textfield__input(type='number', pattern='-?[0-9]*(\.[0-9]+)?', name="idproduct", ng-model="product.idproduct", required)
+          label.mdl-textfield__label Id Empleado...
+          .error-msg(ng-show='productForm.$submitted || productForm.idproduct.$touched')
+            span(ng-show='productForm.idproduct.$error.required') Campo requerido
+        //- Name
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.name", name="name")
+          label.mdl-textfield__label Nombre...
+        //- Description
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.description", name="description")
+          label.mdl-textfield__label Descripción...
+        //- Price
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.price", name="price")
+          label.mdl-textfield__label Precio...
+        //- category
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.category", name="category")
+          label.mdl-textfield__label Categoría...
+        //- Branches
+        //- quantity
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.quantity", name="quantity")
+          label.mdl-textfield__label Cantidad...
+        //- branch
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.branches", name="branches")
+          label.mdl-textfield__label Sucursales...
+
+        //- branch_model
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+          input.mdl-textfield__input(type='text' ng-model="product.model", name="model")
+          label.mdl-textfield__label Marca...
+      div.mdl-cell.mdl-cell--6-cols.product-main-image
+        img(src="./images/rop.jpg")
+        div.mdl-grid.product-images
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")
+          div.mdl-cell.mdl-cell--4-col
+            img(src="./images/rop.jpg")

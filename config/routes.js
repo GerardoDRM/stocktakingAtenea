@@ -39,9 +39,12 @@ module.exports.routes = {
   '/login': {
     view: 'dashboard/login'
   },
-
-
-
+  '/product/:id': {
+    view: 'dashboard/product_layout'
+  },
+  '/product': {
+    view: 'dashboard/product_layout'
+  },
   /***************************************************************************
    *                                                                          *
                               API RESTFUL

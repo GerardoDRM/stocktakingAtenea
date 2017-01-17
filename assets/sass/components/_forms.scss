@@ -3,3 +3,12 @@
   * This SASS file has all
   * forms used on the app
 **/
+
+.product-form {
+  max-width: 1000px;
+  width: 100%;
+  .mdl-card {
+    width: 90%;
+  }
+
+}

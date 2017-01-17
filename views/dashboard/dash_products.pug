@@ -1,58 +1,29 @@
-div.mdl-layout__content(style="width:100%;")
+div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminController")
   div.filters
     h2 Sucursal
-    select
-      option(value="1") Todas
-      option(value="2") Oaxaca
+    select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch")
     h2 Ordenar
     select
       option(value="1") Todas
       option(value="2") Oaxaca
   div
-    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
+    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top(style="margin-top:0;")
       thead
         tr
           th Foto
           th Nombre
-          th Direccion
-          th Tel.
+          th Precio
+          th Cantidad
       tbody
         tr(ng-repeat="e in products")
           td
             img(src="./images/people.svg")
           td {{e.name}}
-          td {{e.adrress}}
-          td {{e.tel}}
+          td {{e.price}}
+          td {{e.quantity}}
           td
-            button.mdl-button.mdl-js-button(ng-click="showBranchDetail({{e.idproduct}})") Ver Mas
-            button.mdl-button.mdl-js-button(ng-click="deleteBranch()") Eliminar
+            button.mdl-button.mdl-js-button(ng-click="showProductDetail(e.idproduct)") Ver Mas
+            button.mdl-button.mdl-js-button(ng-click="deleteProduct(e.idproduct)") Eliminar
 
-  button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab
+  button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab(ng-click="showProductForm()")
     i.material-icons add
-
-  //- Dialog
-  dialog.mdl-dialog.dialog-grid
-    h3 Nombre
-    div.mdl-grid
-      div.mdl-cell.mdl-cell--6-col
-        p Descripción
-        p Precio
-        p Categoría
-        p Marca
-        p Tamaños
-        p _ _
-        p Sucursales
-        p _ _
-        p Colores
-        p _ _
-      div.mdl-cell.mdl-cell--6-cols.product-main-image
-        img(src="./images/rop.jpg")
-        div.mdl-grid.product-images
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-    div.mdl-dialog__actions
-      button.mdl-button.close Cerrar

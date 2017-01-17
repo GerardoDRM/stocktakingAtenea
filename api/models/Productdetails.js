@@ -1,43 +1,40 @@
 /**
- * Product.js
+ * ProductDetails.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-  autoPK: false,
-  autoCreatedAt: false,
-  autoUpdatedAt: false,
+
   attributes: {
-    idproduct: {
-      type: 'string',
+    autoPK: true,
+    autoCreatedAt: false,
+    autoUpdatedAt: false,
+
+    iddetail: {
+      type: 'integer',
       primaryKey: true,
       required: true
     },
-    name: {
+    size: {
       type: 'string',
       required: true
     },
-    price: {
-      type: 'float',
+    quantity: {
+      type: 'integer',
       required: true
     },
-    category: {
+    color: {
       type: 'string',
       required: true
     },
-    description: {
-      type: 'string',
-      required: true
-    },
-    model: {
-      type: 'string',
-    },
-
     // Foreign keys
-    location: {
+    idbranch: {
       model: 'branch'
+    },
+    idproduct: {
+      model: 'product'
     }
   }
 };
