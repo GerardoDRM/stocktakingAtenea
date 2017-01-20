@@ -81,6 +81,7 @@ module.exports.routes = {
 
   // UPLOAD IMAGE
   'PUT /api/v0/product/image/:id': 'GalleryController.uploadImgProduct'
+  'DELETE /api/v0/product/image/:id': 'GalleryController.uploadImgProduct'
 
 
 };
