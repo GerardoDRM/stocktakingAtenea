@@ -18,10 +18,12 @@ module.exports = {
 
       // Create data on Gallery table
       var data = {
-        "url": 'assets/uploads/',
-        "idproduct": req.param("idproduct");
+        "url": uploadedFiles[0].fd.replace(sails.config.appPath + "/", ""),
+        "product_idproduct": req.param("idproduct")
       }
+			sails.log(data);
       Gallery.create(data, function createPhoto(err, gallery) {
+				sails.log(err);
         if (err || gallery === undefined) {
           return res.json({"status": 500});
         }
@@ -34,7 +36,7 @@ module.exports = {
   deleteImgProduct: function(req, res) {
     // Remove file from database
     Gallery.destroy({
-      "idgallery": req.param("id")
+      "idgallery": req.param("idgallery")
     }, function(err) {
       if (err) {
         return res.json({"status": 500});

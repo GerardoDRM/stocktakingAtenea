@@ -20,7 +20,7 @@ module.exports = {
       required: true
     },
     // Foreign keys
-    idproduct: {
+    product_idproduct: {
       model: 'product'
     }
 

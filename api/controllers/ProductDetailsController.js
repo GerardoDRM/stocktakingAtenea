@@ -18,7 +18,7 @@ module.exports = {
       }
       return res.json({"status": 200, "product": details});
     });
-  }
+  },
 
   // GET Product details list
   showProductDetails: function(req, res) {
