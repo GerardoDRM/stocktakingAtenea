@@ -34,7 +34,9 @@ module.exports = {
     model: {
       type: 'string',
     },
-
+    min_product: {
+      type: 'integer'
+    },
     // Foreign keys
     location: {
       model: 'branch'

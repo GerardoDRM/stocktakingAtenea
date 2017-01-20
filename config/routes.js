@@ -71,6 +71,16 @@ module.exports.routes = {
   'POST /api/v0/product': 'ProductController.addProduct',
   'DELETE /api/v0/products/:id': 'ProductController.deleteProduct',
   'PUT /api/v0/products/:id': 'ProductController.updateProduct',
-  'GET /api/v0/products/:id': 'ProductController.searchProduct',
+  'GET /api/v0/products/:id': 'ProductController.getProductById',
+
+  // PRODUCT CRUD API DETAILS
+  'GET /api/v0/products_details': 'ProductController.showProductDetails',
+  'POST /api/v0/product_details': 'ProductController.createProductDetails',
+  'DELETE /api/v0/products_details/:id': 'ProductController.deleteProductDetails',
+  'PUT /api/v0/products_details': 'ProductController.updateProductDetails',
+
+  // UPLOAD IMAGE
+  'PUT /api/v0/product/image/:id': 'GalleryController.uploadImgProduct'
+
 
 };

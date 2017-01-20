@@ -6,6 +6,9 @@
  */
 
 module.exports = {
-	
-};
 
+	uploadImgProduct: function(req, res) {
+
+	}
+
+};
