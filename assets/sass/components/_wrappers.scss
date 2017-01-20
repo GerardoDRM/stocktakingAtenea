@@ -74,12 +74,15 @@
   width: 700px;
 }
 // Table Dashboard
+
 .dash-content-top {
   margin-top: 80px;
 }
+
 .table-dash {
   width: 100%;
   margin-bottom: 100px;
+
   img {
     width: 100px;
   }
@@ -92,25 +95,33 @@
   top: 120px;
 }
 
-
 .mdl-textfield__label:after {
-    background-color: #ff4081;
-    bottom: 20px;
-    content: '';
-    height: 2px;
-    left: 45%;
-    position: absolute;
-    transition-duration: .2s;
-    transition-timing-function: cubic-bezier(.4,0,.2,1);
-    visibility: hidden;
-    width: 10px;
+  background-color: #ff4081;
+  bottom: 20px;
+  content: '';
+  height: 2px;
+  left: 45%;
+  position: absolute;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(.4,0,.2,1);
+  visibility: hidden;
+  width: 10px;
 }
 
 .mdl-textfield__label {
   color: #ff4081;
 }
 
-
 .nav-atenea {
   background: #ff4081;
+}
+// Product Card container
+
+.product-section {
+  width: 110%;
+  margin-right: -8px;
+  margin-left: -8px;
+  &.gray {
+    background: $grey-material;
+  }
 }

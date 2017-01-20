@@ -3,15 +3,13 @@
   * This SASS file make groups of CSS declarations
   * that are reuse throughout the site.
 **/
-
 // Media queries
 // This mixin generate a break point
 @mixin mq($break) {
-    @media #{$break} {
-      @content;
-    }
+   @media #{$break}{
+    @content;
+  }
 }
-
 // box-wrapper
 // In most of the cases wrappers has this attributes
 @mixin box($width: 100%, $height: null, $position: null, $z-index: null, $display: null) {
@@ -21,7 +19,6 @@
   display: $display;
   z-index: $z-index;
 }
-
 // icon wrapper
 // On the app icons has this attributes
 @mixin icon_background($width, $height, $background-size, $display: inline-block) {
@@ -30,11 +27,9 @@
   background-size: $background-size $background-size;
   display: $display;
 }
-
 // Styling the fonts
-@mixin styling_wrapper_content($color, $text-align, $size : $base__font-size,  $font: null, $h:null, $w:null) {
-
-  @if $size != null {
+@mixin styling_wrapper_content($color, $text-align, $size : $base__font-size, $font: null, $h:null, $w:null) {
+   @if $size != null{
     font-size: em($size);
   }
   color: $color;
@@ -43,7 +38,6 @@
   line-height: $h;
   font-weight: $w;
 }
-
 // Mixing position
 // This mixin generate position values
 @mixin position($pos, $all: false, $values:()) {
@@ -53,8 +47,9 @@
   @each $offset in $offsets {
     // If all values have the same valuecd
     @if $all == true {
-      #{$offset} : nth($values, 1);
-    } @else {
+      #{$offset}: nth($values, 1);
+    }
+    @else {
       $index: index($values, $offset);
       @if $index {
         $val: nth($values, $index + 1);
@@ -63,7 +58,20 @@
     }
   }
 }
-
+// Styling the fonts
+@mixin styling_zigzag($color) {
+  background: linear-gradient(-45deg, transparent 24px, $color 0), linear-gradient(45deg, transparent 24px, $color 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0;
+}
 // Mixing for transition
 // Generate all transition vendor prefix
 @mixin transition($values...) {
@@ -78,7 +86,6 @@
     $trans: ($prop, $prop-opts);
     $transitions: append($transitions, $trans, comma);
   }
-
   -webkit-transition: trans-prefix($transitions, webkit);
   -moz-transition: trans-prefix($transitions, moz);
   -o-transition: trans-prefix($transitions, o);

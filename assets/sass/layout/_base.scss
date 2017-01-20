@@ -3,7 +3,6 @@
   * This SASS file has general components
   * used on the app
 **/
-
 /*General*/
 .mdl-layout,
 .mdl-layout__container,
@@ -12,20 +11,22 @@ html {
   height: 100%;
   width: 100%;
 }
+
 .mdl-layout,
 .mdl-layout__container,
 .mdl-layout__content {
   z-index: inherit !important;
 }
+
 ._dialog_overlay {
   z-index: inherit !important;
   position: inherit !important;
 }
 
-
 .no-margin {
   margin: 0;
 }
+
 .logo-font {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   line-height: 1;
@@ -36,11 +37,23 @@ html {
 .phone-appear {
   display: none;
 }
+
 .error-msg {
   width: 100%;
   color: $pink-400;
   @include border-radius(5px);
 }
+
+.zigzag-white {
+  &:after {
+    @include styling_zigzag($white);
+  }
+}
+
+.zigzag-grey:after {
+  @include styling_zigzag($grey-material);
+}
+
 .loading {
   width: 100%;
   height: 100%;
@@ -51,22 +64,27 @@ html {
   left: 0;
   text-align: center;
   display: none;
+
   .mdl-progress {
     width: 100%;
   }
+
   .loading-container {
     width: 100%;
     text-align: center;
     margin-top: 20%;
+
     img {
       width: 50px;
       height: 50px;
     }
+
     p {
       font-size: em(20px);
     }
   }
 }
+
 .downloads {
   bottom: 0;
   z-index: 99;

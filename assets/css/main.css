@@ -73,6 +73,32 @@ html {
   -ms-border-radius: 5px;
   border-radius: 5px; }
 
+.zigzag-white:after {
+  background: linear-gradient(-45deg, transparent 24px, #FFF 0), linear-gradient(45deg, transparent 24px, #FFF 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0; }
+
+.zigzag-grey:after {
+  background: linear-gradient(-45deg, transparent 24px, #EEEEEE 0), linear-gradient(45deg, transparent 24px, #EEEEEE 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0; }
+
 .loading {
   width: 100%;
   height: 100%;
@@ -333,7 +359,7 @@ html {
   height: 2px;
   left: 45%;
   position: absolute;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   visibility: hidden;
   width: 10px; }
@@ -343,6 +369,13 @@ html {
 
 .nav-atenea {
   background: #ff4081; }
+
+.product-section {
+  width: 110%;
+  margin-right: -8px;
+  margin-left: -8px; }
+  .product-section.gray {
+    background: #EEEEEE; }
 
 /**
   * Buttons Partial SASS
