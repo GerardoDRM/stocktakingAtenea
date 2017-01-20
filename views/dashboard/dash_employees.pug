@@ -26,41 +26,39 @@ div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminControll
     h3 {{employee.full_name}}
     form(name="employeeForm" novalidate)
       .mdl-dialog__content
-        .mdl-textfield.mdl-js-textfield
-          input.mdl-textfield__input(type='number', pattern='-?[0-9]*(\.[0-9]+)?', name="idemployee", ng-model="employee.idemployee", required)
-          label.mdl-textfield__label Id Empleado...
-          .error-msg(ng-show='employeeForm.$submitted || employeeForm.idemployee.$touched')
-            span(ng-show='employeeForm.idemployee.$error.required') Campo requerido
-            span.mdl-textfield__error El Id no es un numero!
+        .mdl-grid
+          .mdl-cell.mdl-cell--6-col
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='number', pattern='-?[0-9]*(\.[0-9]+)?', placeholder="Id Empleado..." name="idemployee", ng-model="employee.idemployee", required)
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text' ng-model="employee.full_name", name="name")
-          label.mdl-textfield__label Nombre...
-          .error-msg(ng-show='employeeForm.$submitted || employeeForm.name.$touched')
-            span(ng-show='employeeForm.name.$error.required') Campo requerido
+              .error-msg(ng-show='employeeForm.$submitted || employeeForm.idemployee.$touched')
+                span(ng-show='employeeForm.idemployee.$error.required') Campo requerido
+                span.mdl-textfield__error El Id no es un numero!
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text' ng-model="employee.full_name", placeholder="Nombre..."  name="name")
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text' ng-model="employee.email", name="email")
-          label.mdl-textfield__label Email...
+              .error-msg(ng-show='employeeForm.$submitted || employeeForm.name.$touched')
+                span(ng-show='employeeForm.name.$error.required') Campo requerido
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text', ng-model="employee.role", placeholder="Rol..." , name="role", required)
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='password' ng-model="employee.password", name="password", required)
-          label.mdl-textfield__label Password...
-          .error-msg(ng-show='employeeForm.$submitted || employeeForm.password.$touched')
-            span(ng-show='employeeForm.password.$error.required') Campo requerido
+              .error-msg(ng-show='employeeForm.$submitted || employeeForm.role.$touched')
+                span(ng-show='employeeForm.role.$error.required') Campo requerido
+            div.mdl-dialog__actions
+              button.mdl-button.close(ng-click="storeData(employeeForm.$valid)") Guardar
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text', ng-model="employee.role", name="role", required)
-          label.mdl-textfield__label Rol...
-          .error-msg(ng-show='employeeForm.$submitted || employeeForm.role.$touched')
-            span(ng-show='employeeForm.role.$error.required') Campo requerido
+          .mdl-cell.mdl-cell--6-col
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text' ng-model="employee.email", name="email", placeholder="Email..." )
 
-        select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
-          .error-msg(ng-show='employeeForm.$submitted || employeeForm.branch.$touched')
-            span(ng-show='employeeForm.branch.$error.required') Campo requerido
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='password' ng-model="employee.password", name="password",  placeholder="Password..." , required)
+               
+              .error-msg(ng-show='employeeForm.$submitted || employeeForm.password.$touched')
+                span(ng-show='employeeForm.password.$error.required') Campo requerido
 
-
-      div.mdl-dialog__actions
-        button.mdl-button.close(ng-click="closeDialog()") Cerrar
-      div.mdl-dialog__actions
-        button.mdl-button.close(ng-click="storeData(employeeForm.$valid)") Guardar
+            select(ng-model="branch" style='margin-top:30px;' ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
+              .error-msg(ng-show='employeeForm.$submitted || employeeForm.branch.$touched')
+                span(ng-show='employeeForm.branch.$error.required') Campo requerido
+            div.mdl-dialog__actions
+              button.mdl-button.close(ng-click="closeDialog()"    style =" margin-top: 19px;") Cerrar

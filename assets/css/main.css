@@ -344,6 +344,17 @@ html {
 .nav-atenea {
   background: #ff4081; }
 
+.product-table {
+  width: 100%; }
+  .product-table img {
+    width: 25%; }
+
+.mdl-data-table th {
+  /* padding: 0 18px 12px 18px; */
+  padding-right: 19%; }
+.mdl-data-table td {
+  text-align: inherit; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
