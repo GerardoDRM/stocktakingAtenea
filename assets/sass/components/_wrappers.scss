@@ -117,15 +117,21 @@
 
 
 .product-table {
-  width: 100%;
+
+
   img {
-    width: 25%;
+    width: 150px;
+  }
+
+  button {
+    margin-left: -80px;
   }
 
 }
 
 .mdl-data-table{
 th {
+  font-size: 20px;
     /* padding: 0 18px 12px 18px; */
     padding-right: 19%;
   }
@@ -133,4 +139,10 @@ th {
     text-align: inherit;
 
 }
+}
+
+
+
+.dialog-grid-employee  {
+  top: 200px;
 }

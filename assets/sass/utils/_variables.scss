@@ -23,7 +23,7 @@ $path-img-css: "../../img";
 $brk-less-lg: "(min-width: 1200px)";
 $brk-less-md: "(min-width: 992px)";
 $brk-less-max-md: "(max-width: 992px)and(min-width:768px)";
-$brk-less-sm: "(min-width: 768px)";
+$brk-less-sm: "only screen and(max-width: 300px)";
 $brk-less-max-sm: "(max-width: 768px)and(min-width:500px)";
 
 

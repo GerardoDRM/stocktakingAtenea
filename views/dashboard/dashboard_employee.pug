@@ -19,24 +19,31 @@ block content
             option(value="1") Todas
             option(value="2") Oaxaca
     div
-      table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.product-table
+      table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.product-table(style="margin:0 auto;")
         thead
           tr
-            th.table-options Foto
-            th.table-options Nombre del producto
-            th Disponibilidad
-            th Precio
+            th.dissapear Foto
+            th Nombre del producto
+
+            th.dissapear
+              div Disponibilidad
+            th.dissapear
+              div Precio
 
 
         tbody
           tr
-            td
+            td.dissapear
               img(src="./images/rop.jpg")
             td Camisa
-            td 3
-            td $50.5
+            td.dissapear 3
+            td.dissapear $50.5
             td
-              button.mdl-button.mdl-js-button#show-dialog Ver más
+              div
+                button.mdl-button.mdl-js-button#show-dialog Ver más
+
+
+
 
 
 

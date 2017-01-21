@@ -9,184 +9,35 @@
 @include mq($brk-less-lg) {}
 @include mq($brk-less-md) {}
 @include mq($brk-less-sm) {
-  .midtern-header {
-    h1 {
-      font-size: em(64px);
-    }
-    p {
-      font-size: em(40px);
-    }
-  }
-  .dissapear {
-    display: block;
-  }
-  .middle-body {
-    p {
-      font-size: em(24px);
-    }
-  }
-  .middle-middle {
-    height: 300px;
-  }
-  .middle-counter {
-    height: 300px;
-  }
-  .mision-vision {
-    height: 300px;
-    font-size: em(24px);
-  }
-  .navbar-default {
-    height: em(100px);
-  }
-  .logo {
-    width: 100%;
-  }
-  .carousel-images {
-    height: 500px;
-  }
-  .carousel-images-dos {
-    height: 500px;
-  }
-  .carousel-images-tres {
-    height: 500px;
-  }
-  /////////  Sign up ////////
-  .form-sign {
-    .input-signup {
-      font-size: 22px;
-    }
-  }
-  .top-sign {
-    img {
-      width: 30%;
-    }
-    h1 {
-      font-size: 40px;
-    }
-  }
-  .function {
-    h1 {
-      font-size: 40px;
-    }
-    h2 {
-      font-size: 40px;
-    }
-    p {
-      font-size: 20px;
-    }
-  }
-  .more-info {
-    p {
-      font-size: 20px;
-    }
-  }
-  ///////LOGIN/////
-  .top-login {
-    img {
-      width: 20%;
-    }
-    h1 {
-      font-size: 30px;
-    }
-  }
-  .form-login {
-    height: 460px;
-    width: 50%;
-    .input-login {
-      font-size: 22px;
-    }
-  }
-  .select-sport {
-    font-size: 22px;
-  }
-  //// Edit Profile //////
-  .images-profile {
-    height: auto;
-    h2 {
-      color: $black;
-      margin-top: 35%;
-    }
-  }
-  .background-img-profile {
-    background: $gray-material;
-  }
-  .buttom-member-one {
-    margin-bottom: 0;
-  }
-  //////Profile edit ////////
-  .left-profile {
-    h1 {
-      text-align: left;
-    }
-  }
-  .recuitrers {
-    margin-top: 5%;
-    padding: 0;
-  }
-  .pay-organization {
-    width: 50%;
-  }
-  .dl-menuwrapper-admin {
-    ul {
-      height: 600px;
-    }
-  }
-  .cd-tabs-content {
-    height: 600px;
-    li {
-      height: 600px;
-    }
-  }
-  ///////// Dashboard coach ////////////////////
-  .coach-container {
-    .coach-row {
-      width: 90%;
-      padding: 0 2%;
-    }
-  }
-  ///////Profiles View //////////////
-  .profile-view-container {
-    .responsive-button {
-      display: none;
-    }
-  }
-  .container-team {
-    margin-top: -125px;
-  }
 
-  ///// Search ////////
-  // Moda Sessions
-  .dialogSessions {
-    width: 40%;
-    h1 {
-      font-size: em(36px);
-    }
-  }
+    .product-table {
 
-  // Feedback
-  .feedback {
-    h3 {
-      font-size: 32px;
-    }
-    p {
-      font-size: 22px;
-    }
-  }
-
-  //////////// CHAT MDOAL ///////////////
-  .modalChat {
-    width: 400px;
-    .header {
-      h2 {
-        font-size: em(30px);
+      img {
+        width: 25%;
       }
+
+
     }
-  }
-  .modalDialogBasic {
 
-    display: none;
+    .mdl-data-table{
+    th {
+      font-size: 13px;
 
+      }
+
+    }
+
+    .dissapear {
+    display: none;;
   }
+
+  .dialog-grid-employee  {
+
+    top: initial;
+  }
+
+
+
 }
 @include mq($brk-less-max-md) {
   .navbar-default {

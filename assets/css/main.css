@@ -344,16 +344,20 @@ html {
 .nav-atenea {
   background: #ff4081; }
 
-.product-table {
-  width: 100%; }
-  .product-table img {
-    width: 25%; }
+.product-table img {
+  width: 150px; }
+.product-table button {
+  margin-left: -80px; }
 
 .mdl-data-table th {
+  font-size: 20px;
   /* padding: 0 18px 12px 18px; */
   padding-right: 19%; }
 .mdl-data-table td {
   text-align: inherit; }
+
+.dialog-grid-employee {
+  top: 200px; }
 
 /**
   * Buttons Partial SASS
@@ -361,5 +365,32 @@ html {
   * buttons style on the web app
 **/
 /* General */
+/**
+  * Media queries Partial SASS
+  * This SASS file has the break points
+  * for each media query used on the app
+  * !Important Sass extend cannot be used
+  * on media queries, just include and functions
+**/
+/*Media Queries*/
+@media only screen and (max-width: 300px) {
+  .product-table img {
+    width: 25%; }
+
+  .mdl-data-table th {
+    font-size: 13px; }
+
+  .dissapear {
+    display: none; }
+
+  .dialog-grid-employee {
+    top: initial; } }
+@media (max-width: 992px) and (min-width: 768px) {
+  .navbar-default {
+    height: 10.25em; } }
+@media (max-width: 768px) and (min-width: 500px) {
+  .special-two-col {
+    float: left;
+    width: 45%; } }
 
 /*# sourceMappingURL=main.css.map */
