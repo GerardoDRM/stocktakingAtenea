@@ -27,10 +27,6 @@ module.exports = {
       type: 'string',
       required: true
     },
-    // Foreign keys
-    idbranch: {
-      model: 'branch'
-    },
     idproduct: {
       model: 'product'
     }

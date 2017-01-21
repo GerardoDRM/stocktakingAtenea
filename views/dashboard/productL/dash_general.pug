@@ -1,0 +1,42 @@
+form(ng-controller="ProductGeneralController" name="GeneralForm" novalidate)
+  //- ProductId
+  .mdl-textfield.mdl-js-textfield
+    input.mdl-textfield__input(type='text', name="idproduct", ng-model="product.idproduct" required)
+    label.mdl-textfield__label Id Producto...
+    .error-msg(ng-show='GeneralForm.$submitted || GeneralForm.idproduct.$touched')
+      span(ng-show='GeneralForm.idproduct.$error.required') Campo requerido
+  //- Name
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input.mdl-textfield__input(type='text' ng-model="product.name", name="name" required)
+    label.mdl-textfield__label Nombre...
+    .error-msg(ng-show='GeneralForm.$submitted || GeneralForm.name.$touched')
+      span(ng-show='GeneralForm.name.$error.required') Campo requerido
+  //- Description
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input.mdl-textfield__input(type='text' ng-model="product.description", name="description" required)
+    label.mdl-textfield__label Descripción...
+    .error-msg(ng-show='GeneralForm.$submitted || GeneralForm.description.$touched')
+      span(ng-show='GeneralForm.description.$error.required') Campo requerido
+  //- Price
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input.mdl-textfield__input(type='text' ng-model="product.price", name="price" required)
+    label.mdl-textfield__label Precio...
+    .error-msg(ng-show='GeneralForm.$submitted || GeneralForm.price.$touched')
+      span(ng-show='GeneralForm.price.$error.required') Campo requerido
+  //- category
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input.mdl-textfield__input(type='text' ng-model="product.category", name="category" required)
+    label.mdl-textfield__label Categoría...
+    .error-msg(ng-show='GeneralForm.$submitted || GeneralForm.category.$touched')
+      span(ng-show='GeneralForm.category.$error.required') Campo requerido
+  //- branch_model
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    input.mdl-textfield__input(type='text' ng-model="product.model", name="model")
+    label.mdl-textfield__label Marca...
+  div
+    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for="{{$index}}" ng-repeat="b in branches track by $index")
+      input.mdl-checkbox__input(type='checkbox' id="{{$index}}" ng-model='branchSelected.selected[$index]')
+      span.mdl-checkbox__label {{b.name}}
+
+  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(ng-click="storeData(GeneralForm.$valid)")
+    | Guardar
