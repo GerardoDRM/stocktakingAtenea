@@ -6,16 +6,14 @@
  */
 
 module.exports = {
-
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
-    autoPK: true,
-    autoCreatedAt: false,
-    autoUpdatedAt: false,
-
     iddetail: {
       type: 'integer',
       primaryKey: true,
-      required: true
+      autoIncrement: true
     },
     size: {
       type: 'string',

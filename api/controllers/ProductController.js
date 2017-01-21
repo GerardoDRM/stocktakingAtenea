@@ -4,31 +4,39 @@
  * @description :: Server-side logic for managing Products
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var nodemailer = require('nodemailer');
+
+var transport = nodemailer.createTransport("SMTP", {
+  service: "hotmail",
+  auth: {
+    user: "gerardo.delarosama@udlap.mx",
+    pass: "4h.ye31p"
+  }
+});
 
 module.exports = {
 
   showProducts: function(req, res) {
     Product.find({}, function find(err, products) {
-      if (err || products === undefined) return res.negotiate(err);
+      if (err || products === undefined)
+        return res.negotiate(err);
+
       // Return productes array
-      return res.json({
-        "status": 200,
-        "products": products
-      })
+      return res.json({"status": 200, "products": products})
     });
   },
 
   getProductById: function(req, res) {
-    Product.findOne({"idproduct": req.param("id")}, function find(err, product) {
-      if (err || product === undefined) return res.negotiate(err);
+    Product.findOne({
+      "idproduct": req.param("id")
+    }, function find(err, product) {
+      if (err || product === undefined)
+        return res.negotiate(err);
+
       // Return productes array
-      return res.json({
-        "status": 200,
-        "product": product
-      })
+      return res.json({"status": 200, "product": product})
     });
   },
-
 
   addProduct: function(req, res) {
     var values = req.allParams();
@@ -38,10 +46,7 @@ module.exports = {
         return res.negotiate(err);
       }
       // Send back the id of the new product
-      return res.json({
-        "status": 200,
-        "product": product
-      });
+      return res.json({"status": 200, "product": product});
     });
   },
 
@@ -49,11 +54,9 @@ module.exports = {
     Product.findOne({
       idproduct: req.param("id")
     }, function searchProduct(err, product) {
-      if (err || product === undefined) return res.negotiate(err);
-      return res.json({
-        "status": 200,
-        "product": product
-      });
+      if (err || product === undefined)
+        return res.negotiate(err);
+      return res.json({"status": 200, "product": product});
     });
   },
 
@@ -66,9 +69,7 @@ module.exports = {
         // Otherwise, send back something reasonable as our error response.
         return res.negotiate(err);
       }
-			return res.json({
-        "status": 200
-      });
+      return res.json({"status": 200});
     });
   },
 
@@ -81,15 +82,30 @@ module.exports = {
         // handle error here- e.g. `res.serverError(err);`
         return res.negotiate(err);
       }
-      return res.json({
-        "status": 200,
-        "product": updated
-      });
+      // Check if update on stock and compare min product
+      if (updated["min_product"] !== undefined || updated["min_product"] != null) {
+        // Compare quantity
+        if (updated["min_product"] >= updated["quantity"]) {
+          var mailOptions = {
+            from: 'Atenea Warning 👥 <contacto@nextplayers.mx>', // sender address
+            to: 'gerardo.bw@gmail.com', // list of receivers
+            subject: "Tema: Reabastecimiento de inventario", // Subject line
+            html: "Producto:" + updated["id"] + "<br/>" // html body
+          };
+
+          transport.sendMail(mailOptions, function(error, info) {
+            if (error) {
+              return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+          });
+        }
+      }
+      return res.json({"status": 200, "product": updated});
     });
 
   }
 
   // Specific products CRUD
-
 
 };

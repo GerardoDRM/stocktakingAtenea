@@ -6,23 +6,21 @@
  */
 
 module.exports = {
-
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
-    autoPK: true,
-    autoCreatedAt: false,
-    autoUpdatedAt: false,
-
     idgallery: {
       type: 'integer',
       primaryKey: true,
-      required: true
+      autoIncrement: true
     },
     url: {
       type: 'string',
       required: true
     },
     // Foreign keys
-    idproduct: {
+    product_idproduct: {
       model: 'product'
     }
 
