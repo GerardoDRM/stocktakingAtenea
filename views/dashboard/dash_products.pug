@@ -1,13 +1,15 @@
 div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminController")
-  div.filters
-    h2 Sucursal
-    select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch")
-    h2 Ordenar
-    select
-      option(value="1") Todas
-      option(value="2") Oaxaca
   div
-    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top(style="margin-top:0;")
+    .header-title.zigzag-pink
+      .filters
+        h2 Sucursal
+        select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch")
+        h2 Ordenar
+        select
+          option(value="1") Todas
+          option(value="2") Oaxaca
+  div
+    table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
           th Foto

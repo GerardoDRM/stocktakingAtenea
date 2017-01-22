@@ -54,6 +54,11 @@ html {
   @include styling_zigzag($grey-material);
 }
 
+.zigzag-pink:after {
+  @include styling_zigzag($deep-pink);
+  top: 140px;
+}
+
 .loading {
   width: 100%;
   height: 100%;

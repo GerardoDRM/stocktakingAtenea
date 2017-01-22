@@ -26,30 +26,6 @@
   font-size: 25px;
 }
 
-.filters {
-  margin-top: 5%;
-  display: flex;
-  padding-left: 4%;
-  border-bottom: 10px solid gray;
-  border-width: thin;
-
-  h2 {
-    padding-right: 30px;
-    color: gray;
-    font-weight: bold;
-    font-size: 32px;
-  }
-
-  select {
-    margin-right: 10%;
-    font-size: 23px;
-    border: none;
-    margin-top: 36px;
-    background: white;
-    height: 26px;
-  }
-}
-
 .dialog-grid {
   h3 {
     padding-left: 27px;
@@ -76,7 +52,7 @@
 // Table Dashboard
 
 .dash-content-top {
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .table-dash {
@@ -91,8 +67,10 @@
 .fab {
   position: absolute;
   text-align: center;
-  right: 0;
-  top: 120px;
+  right: 2%;
+  top: 140px;
+  z-index: 999;
+
 }
 
 .mdl-textfield__label:after {
