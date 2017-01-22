@@ -27,30 +27,30 @@ div.mdl-layout__content(style="width:100%;" ng-controller="BranchAdminController
     h3 {{branch.full_name}}
     form(name="branchForm" novalidate)
       .mdl-dialog__contents
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text' ng-model="branch.name", name="name")
-          label.mdl-textfield__label Nombre...
-          .error-msg(ng-show='branchForm.$submitted || branchForm.name.$touched')
-            span(ng-show='branchForm.name.$error.required') Campo requerido
+        .mdl-grid
+          .mdl-cell.mdl-cell--6-col
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text' ng-model="branch.name", name="name" , placeholder ="Nombre...")
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text' ng-model="branch.street", name="street")
-          label.mdl-textfield__label Calle...
-          .error-msg(ng-show='branchForm.$submitted || branchForm.street.$touched')
-            span(ng-show='branchForm.street.$error.required') Campo requerido
+              .error-msg(ng-show='branchForm.$submitted || branchForm.name.$touched')
+                span(ng-show='branchForm.name.$error.required') Campo requerido
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text' ng-model="branch.state", placeholder ="Estado...")
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text' ng-model="branch.state")
-          label.mdl-textfield__label Estado...
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='phone', ng-model="branch.phone", placeholder ="Telefono...")
 
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='text', ng-model="branch.city")
-          label.mdl-textfield__label Ciudad...
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-          input.mdl-textfield__input(type='phone', ng-model="branch.phone")
-          label.mdl-textfield__label Telefono...
+            div.mdl-dialog__actions
+              button.mdl-button.close(ng-click="storeData(branchForm.$valid)") Guardar
 
-      div.mdl-dialog__actions
-        button.mdl-button.close(ng-click="closeDialog()") Cerrar
-      div.mdl-dialog__actions
-        button.mdl-button.close(ng-click="storeData(branchForm.$valid)") Guardar
+          .mdl-cell.mdl-cell--6-col
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text' ng-model="branch.street", name="street", placeholder ="Calle...")
+
+              .error-msg(ng-show='branchForm.$submitted || branchForm.street.$touched')
+                span(ng-show='branchForm.street.$error.required') Campo requerido
+            .mdl-textfield.mdl-js-textfield
+              input.mdl-textfield__input(type='text', ng-model="branch.city", placeholder ="Ciudad...")
+              
+            div.mdl-dialog__actions
+              button.mdl-button.close(ng-click="closeDialog()" style='margin-top:67px;') Cerrar

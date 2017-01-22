@@ -2,7 +2,9 @@ extends ../base_employee.pug
 
 block content
 
-  div.mdl-layout__content.cd-tabs-content
+  div
+
+
     div.filters
       h2 Sucursal
       select
@@ -16,34 +18,41 @@ block content
       select
             option(value="1") Todas
             option(value="2") Oaxaca
-    div.tab.selected.product(data-content="product")
-      div.mdl-grid
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            p.nameProduct Nombre del Productos
-            p.availableProduct Disponibilidad
-          div.mdl-cell.mdl-cell--4-col
-            p.priceProduct Precio
-            a#show-dialog Ver más
-      div.mdl-grid
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            p.nameProduct Nombre del Productos
-            p.availableProduct Disponibilidad
-          div.mdl-cell.mdl-cell--4-col
-            p.priceProduct Precio
-            a#show-dialog Ver más
-      div.mdl-grid
-          div.mdl-cell.mdl-cell--4-col
-            img(src="./images/rop.jpg")
-          div.mdl-cell.mdl-cell--4-col
-            p.nameProduct Nombre del Productos
-            p.availableProduct Disponibilidad
-          div.mdl-cell.mdl-cell--4-col
-            p.priceProduct Precio
-            a#show-dialog Ver más
+    div
+      table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.product-table(style="margin:0 auto;")
+        thead
+          tr
+            th.dissapear Foto
+            th Nombre del producto
+
+            th.dissapear
+              div Disponibilidad
+            th.dissapear
+              div Precio
+
+
+        tbody
+          tr
+            td.dissapear
+              img(src="./images/rop.jpg")
+            td Camisa
+            td.dissapear 3
+            td.dissapear $50.5
+            td
+              div
+                button.mdl-button.mdl-js-button#show-dialog Ver más
+
+
+
+
+
+
+
+
+
+
+
+
 
       dialog.mdl-dialog.dialog-grid-employee
           h3 Nombre
@@ -62,8 +71,8 @@ block content
               p Color
             div.mdl-cell.mdl-cell--3-col
               h4 Acción
-              button Acción
-              button Acción
+              button.mdl-button.mdl-js-button Acción
+              button.mdl-button.mdl-js-button Acción
 
 
 
