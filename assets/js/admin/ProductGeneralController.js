@@ -8,8 +8,6 @@ app.controller('ProductGeneralController', [
 
     $scope.product = {};
     $scope.branches = [];
-    $scope.sBranches = [];
-    $scope.selectedBranches = {};
     var po = productObject;
 
     $scope.branchSelected = {
@@ -57,25 +55,26 @@ app.controller('ProductGeneralController', [
     var createProduct = function() {
       // Change Price to float
       $scope.product.price = parseFloat($scope.product.price);
-      // Get selected branches ids
-      var sBranches = $scope.branchSelected.selected;
-      var branchesIds = [];
-      for (var b in sBranches) {
-        if (sBranches[b]) {
-          $scope.product.location = $scope.branches[b].idbranch;
-          // Create each product on branches
-          $http({
-            method: "POST",
-            url: '/api/v0/product',
-            data: $scope.product
-          }).then(function successCallback(response) {
-            var data = response.data;
-            if (data.status == 200) {
-              po["id"] = data.product.idproduct;
-            }
-          }, function errorCallback(response) {});
+      $http({
+        method: "POST",
+        url: '/api/v0/product',
+        data: $scope.product
+      }).then(function successCallback(response) {
+        var data = response.data;
+        if (data.status == 200) {
+          po["id"] = data.product.idproduct;
         }
-      }
+      }, function errorCallback(response) {});
+      // Get selected branches ids
+      // var sBranches = $scope.branchSelected.selected;
+      // var branchesIds = [];
+      // for (var b in sBranches) {
+      //   if (sBranches[b]) {
+      //     $scope.product.location = $scope.branches[b].idbranch;
+      //     // Create each product on branches
+      //
+      //   }
+      // }
     }
 
     $scope.storeData = function(form) {

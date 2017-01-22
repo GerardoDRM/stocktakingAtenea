@@ -36,15 +36,6 @@ module.exports = {
     },
     lon: {
       type: 'float'
-    },
-    // Foreign key
-    products: {
-      collection: "product",
-      via: 'location'
-    },
-    employees: {
-      collection: "employee",
-      via: "workingAt"
     }
   }
 };

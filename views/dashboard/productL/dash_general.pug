@@ -33,10 +33,10 @@ form(ng-controller="ProductGeneralController" name="GeneralForm" novalidate)
   .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
     input.mdl-textfield__input(type='text' ng-model="product.model", name="model")
     label.mdl-textfield__label Marca...
-  div
-    label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for="{{$index}}" ng-repeat="b in branches track by $index")
-      input.mdl-checkbox__input(type='checkbox' id="{{$index}}" ng-model='branchSelected.selected[$index]')
-      span.mdl-checkbox__label {{b.name}}
+  //- div
+  //-   label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for="{{$index}}" ng-repeat="b in branches track by $index")
+  //-     input.mdl-checkbox__input(type='checkbox' id="{{$index}}" ng-model='branchSelected.selected[$index]')
+  //-     span.mdl-checkbox__label {{b.name}}
 
   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(ng-click="storeData(GeneralForm.$valid)")
     | Guardar
