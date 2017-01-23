@@ -7,6 +7,17 @@
 
 module.exports = {
 
+  // Get all products details employees
+  getProductsDetailsEmployees: function(req, res) {
+    Productdetails.query('select * from product, productdetails \
+    where product.idproduct = productdetails.idproduct', [], function(err, rawResult) {
+      if (err) {
+        return res.json({"status": 500});
+      }
+      return res.json({"status": 200, "data": rawResult});
+    });
+  },
+
   // POST create Products details
   createProductDetails: function(req, res) {
     var values = req.allParams();
