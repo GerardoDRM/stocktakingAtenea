@@ -54,10 +54,25 @@
 .dash-content-top {
   margin-top: 10px;
 }
+// Table
 
 .table-dash {
   width: 100%;
   margin-bottom: 100px;
+  table-layout: fixed;
+
+  &.mdl-data-table {
+    th {
+      font-size: 20px;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+      white-space: pre-wrap;
+    }
+  }
 
   img {
     width: 100px;
@@ -70,7 +85,6 @@
   right: 2%;
   top: 140px;
   z-index: 999;
-
 }
 
 .mdl-textfield__label:after {
@@ -90,32 +104,6 @@
   color: #ff4081;
 }
 
-.nav-atenea {
-  background: #ff4081;
-}
-
-.product-table {
-  img {
-    width: 150px;
-  }
-
-  button {
-    margin-left: -80px;
-  }
-}
-
-.mdl-data-table {
-  th {
-    font-size: 20px;
-    /* padding: 0 18px 12px 18px; */
-    padding-right: 19%;
-  }
-
-  td {
-    text-align: inherit;
-  }
-}
-
 .dialog-grid-employee {
   top: 200px;
 }
@@ -129,4 +117,12 @@
   &.gray {
     background: $grey-material;
   }
+}
+// Dashboard container
+
+.container-dash {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: inherit;
+  width: 100%;
 }

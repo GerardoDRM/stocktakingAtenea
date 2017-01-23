@@ -193,12 +193,6 @@ html {
       -moz-animation: cd-fade-in 0.5s;
       animation: cd-fade-in 0.5s; }
 
-.container-dash {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: inherit;
-  width: 80%; }
-
 .avatar {
   width: 60px;
   height: 60px;
@@ -367,7 +361,15 @@ html {
 
 .table-dash {
   width: 100%;
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  table-layout: fixed; }
+  .table-dash.mdl-data-table th {
+    font-size: 20px;
+    white-space: pre-wrap;
+    text-align: center; }
+  .table-dash.mdl-data-table td {
+    text-align: center;
+    white-space: pre-wrap; }
   .table-dash img {
     width: 100px; }
 
@@ -393,21 +395,6 @@ html {
 .mdl-textfield__label {
   color: #ff4081; }
 
-.nav-atenea {
-  background: #ff4081; }
-
-.product-table img {
-  width: 150px; }
-.product-table button {
-  margin-left: -80px; }
-
-.mdl-data-table th {
-  font-size: 20px;
-  /* padding: 0 18px 12px 18px; */
-  padding-right: 19%; }
-.mdl-data-table td {
-  text-align: inherit; }
-
 .dialog-grid-employee {
   top: 200px; }
 
@@ -417,6 +404,12 @@ html {
   margin-left: -8px; }
   .product-section.gray {
     background: #EEEEEE; }
+
+.container-dash {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: inherit;
+  width: 100%; }
 
 /**
   * Buttons Partial SASS
