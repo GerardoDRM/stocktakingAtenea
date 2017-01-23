@@ -71,6 +71,10 @@
     td {
       text-align: center;
       white-space: pre-wrap;
+
+      select {
+        width: 100%;
+      }
     }
   }
 
@@ -175,6 +179,7 @@
   }
 }
 // Dashboard container
+
 .container-dash {
   margin: 0 auto;
   max-width: 1200px;

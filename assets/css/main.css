@@ -370,6 +370,8 @@ html {
   .table-dash.mdl-data-table td {
     text-align: center;
     white-space: pre-wrap; }
+    .table-dash.mdl-data-table td select {
+      width: 100%; }
   .table-dash img {
     width: 100px; }
 
@@ -460,6 +462,9 @@ html {
 /* General */
 .button-add-sale {
   margin-right: 22%; }
+
+.addlink {
+  margin-top: 30px; }
 
 /**
   * Media queries Partial SASS
