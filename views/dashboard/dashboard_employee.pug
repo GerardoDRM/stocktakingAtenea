@@ -1,85 +1,52 @@
 extends ../base_employee.pug
 
 block content
+ div.mdl-card.mdl-shadow--2dp.card-employee(ng-controller="SalesEmployeeController")
+  div.top-sales
+    h2 Sucursal
+    select
+      option(value='oaxaca') Oaxaca
+      option(value='todas') Todas
+    button.mdl-button.mdl-js-button(ng-click="showTicketDialog()") Crear ticket
+  table.mdl-data-table.mdl-js-data-table
+    thead
+      tr
+        th Producto
+        th Precio
+        th Cantidad
+        th Color
+        th Carrito
+    tbody
+      tr
+        td.mdl-data-table__cell--non-numeric #100
+        td.mdl-data-table__cell--non-numeric $300
+        td 4
+        td
+         input.mdl-textfield__input(type='text' ng-model="branch.name", name="name" , style="background:purple;")
 
-  div
-
-
-    div.filters
-      h2 Sucursal
-      select
-        option(value="1") Todas
-        option(value="2") Oaxaca
-      h2 Ventas
-      select
-            option(value="1") Todas
-            option(value="2") Oaxaca
-      h2 Ordenar
-      select
-            option(value="1") Todas
-            option(value="2") Oaxaca
-    div
-      table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.product-table(style="margin:0 auto;")
-        thead
-          tr
-            th.dissapear Foto
-            th Nombre del producto
-
-            th.dissapear
-              div Disponibilidad
-            th.dissapear
-              div Precio
-
-
-        tbody
-          tr
-            td.dissapear
-              img(src="./images/rop.jpg")
-            td Camisa
-            td.dissapear 3
-            td.dissapear $50.5
-            td
-              div
-                button.mdl-button.mdl-js-button#show-dialog Ver más
+        td
+          button.mdl-button.mdl-js-button(ng-click="") Agregar
+          input.mdl-textfield__input(type='text' ng-model="branch.name", name="name")
+  dialog#ticketDialog.mdl-dialog.dialog-sales
+                      h3 Ticket #1000
+                      ul.demo-list-three.mdl-list
+                        li.mdl-list__item.mdl-list__item--three-line
+                          span.mdl-list__item-primary-content
+                            i.material-icons.mdl-list__item-avatar(style="height:70px;")
+                            span Producto
+                            span.mdl-list__item-text-body
+                              | Precio unitario
+                            span.mdl-list__item-text-body(style="margin-top: -29px;")
+                              | IVA
 
 
-
-
+                          span.mdl-list__item-secondary-content
+                            a.mdl-list__item-secondary-action(href='#')
+                              i.material-icons star
 
 
 
+                      div.mdl-dialog__actions
 
-
-
-
-
-
-      dialog.mdl-dialog.dialog-grid-employee
-          h3 Nombre
-          div.mdl-grid
-            div.mdl-cell.mdl-cell--3-col
-              h4 Precio
-              p Precio
-              p Precio
-            div.mdl-cell.mdl-cell--3-col
-              h4 Tamaño
-              p Tamaño
-              p Tamaño
-            div.mdl-cell.mdl-cell--3-col
-              h4 Color
-              p Color
-              p Color
-            div.mdl-cell.mdl-cell--3-col
-              h4 Acción
-              button.mdl-button.mdl-js-button Acción
-              button.mdl-button.mdl-js-button Acción
-
-
-
-
-
-
-
-          div.mdl-dialog__actions
-
-            button.mdl-button.close Cerrar
+                        button.mdl-button.close(ng-click="closeDialog()") Cerrar
+                        button.mdl-button.close.button-add-sale(ng-click="addSale()") Agregar compra

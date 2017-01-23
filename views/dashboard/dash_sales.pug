@@ -1,0 +1,47 @@
+div(ng-controller="SalesAdminController")
+  .top-sales
+    h2 Sucursal
+    select
+      option(value='oaxaca') Oaxaca
+      option(value='todas') Todas
+
+  .sales-table
+    table.mdl-data-table.mdl-js-data-table
+      thead
+        tr
+          th.mdl-data-table__cell--non-numeric Ticket
+          th.mdl-data-table__cell--non-numeric Fecha
+          th Venta
+          th.mdl-data-table__cell--non-numeric Sucursal
+          th Detalle
+      tbody
+        tr
+          td.mdl-data-table__cell--non-numeric #100
+          td.mdl-data-table__cell--non-numeric 28/10/2017
+          td 40
+          td.mdl-data-table__cell--non-numeric Oaxaca
+          td
+            div
+              button.mdl-button.mdl-js-button(ng-click="showSalesDialog()") Ver más
+    dialog#salesDialog.mdl-dialog.dialog-sales
+                h3 Ticket #1000
+                ul.demo-list-three.mdl-list
+                  li.mdl-list__item.mdl-list__item--three-line
+                    span.mdl-list__item-primary-content
+                      i.material-icons.mdl-list__item-avatar(style="height:70px;")
+                      span Producto
+                      span.mdl-list__item-text-body
+                        | Precio unitario
+                      span.mdl-list__item-text-body(style="margin-top: -29px;")
+                        | IVA
+
+
+                    span.mdl-list__item-secondary-content
+                      a.mdl-list__item-secondary-action(href='#')
+                        i.material-icons star
+
+
+
+                div.mdl-dialog__actions
+
+                  button.mdl-button.close(ng-click="closeDialog()") Cerrar

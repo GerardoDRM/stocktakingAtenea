@@ -392,12 +392,56 @@ html {
   .product-section.gray {
     background: #EEEEEE; }
 
+.top-sales {
+  text-align: center; }
+  .top-sales select {
+    height: 25px;
+    width: 28%;
+    border-radius: 1px; }
+
+.sales-table table {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  width: 48%; }
+
+.dialog-sales {
+  margin-left: 30%; }
+
+.card-employee {
+  margin-top: 5%;
+  text-align: center;
+  margin-left: 15%;
+  height: 400px;
+  width: 65%; }
+  .card-employee select {
+    height: 25px;
+    width: 28%;
+    border-radius: 1px;
+    margin-bottom: 5%; }
+  .card-employee table {
+    width: 44%;
+    text-align: center; }
+
+.top-sales {
+  margin-bottom: 44px; }
+  .top-sales button {
+    margin-top: -67px;
+    /* margin-bottom: 2px; */
+    padding-bottom: -9px;
+    padding-top: -7px;
+    display: block;
+    margin-left: 76%;
+    /* margin-top: -27px; */ }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
   * buttons style on the web app
 **/
 /* General */
+.button-add-sale {
+  margin-right: 22%; }
+
 /**
   * Media queries Partial SASS
   * This SASS file has the break points

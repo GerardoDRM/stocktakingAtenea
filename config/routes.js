@@ -81,7 +81,23 @@ module.exports.routes = {
 
   // UPLOAD IMAGE
   'PUT /api/v0/product/image/:idproduct': 'GalleryController.uploadImgProduct',
-  'DELETE /api/v0/product/image/:idgallery': 'GalleryController.deleteImgProduct'
+  'DELETE /api/v0/product/image/:idgallery': 'GalleryController.deleteImgProduct',
+
+  //SALES CRUD API
+
+  'POST api/v0/sales': 'SalesController.addSale',
+  'GET api/v0/sales': 'SalesController.searchSale',
+  'PUT api/v0/sales': 'SalesController.updateSale',
+  'DELETE api/v0/sales': 'SalesController.deleteSale',
+
+  //TICKET CRUD API
+
+  'POST api/v0/tickets': 'TicketController.addTicket',
+  'GET api/v0/tickets': 'TicketController.searchTicket',
+  'PUT api/v0/tickets': 'TicketController.updateTicket',
+  'DELETE api/v0/tickets': 'TicketController.deleteTicket'
+
+
 
 
 };
