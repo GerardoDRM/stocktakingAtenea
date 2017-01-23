@@ -26,8 +26,8 @@ module.exports = {
       type: 'float'
     },
     // Foreing keys
-    product: {
-      model: 'product'
+    iddetail: {
+      model: 'productdetails'
     },
     ticket: {
       model: 'ticket'

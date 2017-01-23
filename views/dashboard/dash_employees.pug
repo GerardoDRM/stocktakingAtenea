@@ -1,6 +1,7 @@
 div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminController")
   div
-    h2 Empleados
+    .header-title.zigzag-pink
+      h2 Empleados
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
@@ -53,7 +54,7 @@ div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminControll
 
             .mdl-textfield.mdl-js-textfield
               input.mdl-textfield__input(type='password' ng-model="employee.password", name="password",  placeholder="Password..." , required)
-               
+
               .error-msg(ng-show='employeeForm.$submitted || employeeForm.password.$touched')
                 span(ng-show='employeeForm.password.$error.required') Campo requerido
 

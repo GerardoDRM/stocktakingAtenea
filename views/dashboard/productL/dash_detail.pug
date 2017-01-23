@@ -1,0 +1,38 @@
+form(ng-controller="ProductDetailsController" name="DetailsForm" novalidate)
+  .mdl-grid
+    .mdl-cell.mdl-cell--6-col
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input(type='text', name="idproduct" placeholder="Id Producto" ng-model="product.idproduct" required)
+        .error-msg(ng-show='DetailsForm.$submitted || DetailsForm.idproduct.$touched')
+          span(ng-show='DetailsForm.idproduct.$error.required') Campo requerido
+      //- Name
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input(type='text' ng-model="product.name" placeholder="Nombre" name="name" required)
+        .error-msg(ng-show='DetailsForm.$submitted || DetailsForm.name.$touched')
+          span(ng-show='DetailsForm.name.$error.required') Campo requerido
+      //- Description
+      .mdl-textfield.mdl-js-textfield
+        textarea.mdl-textfield__input(type='text' ng-model="product.description" placeholder="Descripción" rows="4" name="description" required)
+        .error-msg(ng-show='DetailsForm.$submitted || DetailsForm.description.$touched')
+          span(ng-show='DetailsForm.description.$error.required') Campo requerido
+    .mdl-cell.mdl-cell--6-col
+      //- Price
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input(type='text' ng-model="product.price" placeholder="Precio" name="price" required)
+        .error-msg(ng-show='DetailsForm.$submitted || DetailsForm.price.$touched')
+          span(ng-show='DetailsForm.price.$error.required') Campo requerido
+      //- category
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input(type='text' ng-model="product.category" placeholder="Categoría" name="category" required)
+        .error-msg(ng-show='DetailsForm.$submitted || DetailsForm.category.$touched')
+          span(ng-show='DetailsForm.category.$error.required') Campo requerido
+      //- branch_model
+      .mdl-textfield.mdl-js-textfield
+        input.mdl-textfield__input(type='text' ng-model="product.model" placeholder="Marca" name="model")
+      //- div
+      //-   label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for="{{$index}}" ng-repeat="b in branches track by $index")
+      //-     input.mdl-checkbox__input(type='checkbox' id="{{$index}}" ng-model='branchSelected.selected[$index]')
+      //-     span.mdl-checkbox__label {{b.name}}
+
+  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent(ng-click="storeData(DetailsForm.$valid)")
+    | Guardar

@@ -1,6 +1,7 @@
 div.mdl-layout__content(style="width:100%;" ng-controller="BranchAdminController")
   div
-    h2 Sucursales
+    .header-title.zigzag-pink
+      h2 Sucursales
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
@@ -51,6 +52,6 @@ div.mdl-layout__content(style="width:100%;" ng-controller="BranchAdminController
                 span(ng-show='branchForm.street.$error.required') Campo requerido
             .mdl-textfield.mdl-js-textfield
               input.mdl-textfield__input(type='text', ng-model="branch.city", placeholder ="Ciudad...")
-              
+
             div.mdl-dialog__actions
               button.mdl-button.close(ng-click="closeDialog()" style='margin-top:67px;') Cerrar

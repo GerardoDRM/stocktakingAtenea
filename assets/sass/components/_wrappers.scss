@@ -26,30 +26,6 @@
   font-size: 25px;
 }
 
-.filters {
-  margin-top: 5%;
-  display: flex;
-  padding-left: 4%;
-  border-bottom: 10px solid gray;
-  border-width: thin;
-
-  h2 {
-    padding-right: 30px;
-    color: gray;
-    font-weight: bold;
-    font-size: 32px;
-  }
-
-  select {
-    margin-right: 10%;
-    font-size: 23px;
-    border: none;
-    margin-top: 36px;
-    background: white;
-    height: 26px;
-  }
-}
-
 .dialog-grid {
   h3 {
     padding-left: 27px;
@@ -76,12 +52,27 @@
 // Table Dashboard
 
 .dash-content-top {
-  margin-top: 80px;
+  margin-top: 10px;
 }
+// Table
 
 .table-dash {
   width: 100%;
   margin-bottom: 100px;
+  table-layout: fixed;
+
+  &.mdl-data-table {
+    th {
+      font-size: 20px;
+      white-space: pre-wrap;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+      white-space: pre-wrap;
+    }
+  }
 
   img {
     width: 100px;
@@ -91,8 +82,9 @@
 .fab {
   position: absolute;
   text-align: center;
-  right: 0;
-  top: 120px;
+  right: 2%;
+  top: 140px;
+  z-index: 999;
 }
 
 .mdl-textfield__label:after {
@@ -112,32 +104,6 @@
   color: #ff4081;
 }
 
-.nav-atenea {
-  background: #ff4081;
-}
-
-.product-table {
-  img {
-    width: 150px;
-  }
-
-  button {
-    margin-left: -80px;
-  }
-}
-
-.mdl-data-table {
-  th {
-    font-size: 20px;
-    /* padding: 0 18px 12px 18px; */
-    padding-right: 19%;
-  }
-
-  td {
-    text-align: inherit;
-  }
-}
-
 .dialog-grid-employee {
   top: 200px;
 }
@@ -155,10 +121,11 @@
 
 .top-sales {
   text-align: center;
+
   select {
-        height: 25px;
-        width: 28%;
-        border-radius: 1px;
+    height: 25px;
+    width: 28%;
+    border-radius: 1px;
   }
 }
 
@@ -170,32 +137,33 @@
   }
 }
 
-.dialog-sales{
+.dialog-sales {
   margin-left: 30%;
 }
 
-.card-employee{
+.card-employee {
   margin-top: 5%;
+  text-align: center;
+  margin-left: 15%;
+  height: 400px;
+  width: 65%;
+
+  select {
+    height: 25px;
+    width: 28%;
+    border-radius: 1px;
+    margin-bottom: 5%;
+  }
+
+  table {
+    width: 44%;
     text-align: center;
-    margin-left: 15%;
-    height: 400px;
-    width: 65%;
-
-    select {
-          height: 25px;
-          width: 28%;
-          border-radius: 1px;
-          margin-bottom: 5%;
-    }
-
-    table {
-      width: 44%;
-      text-align: center;
-    }
+  }
 }
 
-.top-sales{
-    margin-bottom: 44px;
+.top-sales {
+  margin-bottom: 44px;
+
   button {
     margin-top: -67px;
     /* margin-bottom: 2px; */
@@ -205,6 +173,11 @@
     margin-left: 76%;
     /* margin-top: -27px; */
   }
-
-
+}
+// Dashboard container
+.container-dash {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: inherit;
+  width: 100%;
 }

@@ -1,69 +1,45 @@
-form(name="productForm" novalidate)
-  div.mdl-layout__content.product-form
-    .mdl-grid.mdl-card.mdl-shadow--4dp
-      .mdl-cell.mdl-cell--6-col.zigzag-white.product-section
-        .mdl-grid
-          div.mdl-cell.mdl-cell--6-col
-            //- ProductId
-            .mdl-textfield.mdl-js-textfield
-              input.mdl-textfield__input(type='number', pattern='-?[0-9]*(\.[0-9]+)?', name="idproduct", ng-model="product.idproduct", required)
-              label.mdl-textfield__label Id Empleado...
-              .error-msg(ng-show='productForm.$submitted || productForm.idproduct.$touched')
-                span(ng-show='productForm.idproduct.$error.required') Campo requerido
-            //- Name
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' ng-model="product.name", name="name")
-              label.mdl-textfield__label Nombre...
-            //- Description
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' ng-model="product.description", name="description")
-              label.mdl-textfield__label Descripción...
-            //- Price
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' ng-model="product.price", name="price")
-              label.mdl-textfield__label Precio...
-            //- category
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' ng-model="product.category", name="category")
-              label.mdl-textfield__label Categoría...
-            //- branch_model
-            .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              input.mdl-textfield__input(type='text' ng-model="product.model", name="model")
-              label.mdl-textfield__label Marca...
-          //- Photos grid
-          div.mdl-cell.mdl-cell--6-col
-            .mdl-grid
-              .mdl-cell.mdl-cell--12-col
-                img(src="./images/rop.jpg" width="100%")
-              .mdl-cell.mdl-cell--4-col
-                img(src="./images/rop.jpg" width="100%")
-              .mdl-cell.mdl-cell--4-col
-                img(src="./images/rop.jpg" width="100%")
-              .mdl-cell.mdl-cell--4-col
-                img(src="./images/rop.jpg" width="100%")
-      .mdl-cell.mdl-cell--6-col.product-section.gray
-        //- Details grid
-        table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top(id="content-details")
-          thead
-            tr
-              th Color
-              th Tamano
-              th Sucursal
-              th Cantidad
-          tbody
-            tr
-              td
-                //- color
-                .mdl-textfield.mdl-js-textfield
-                  input.mdl-textfield__input(type='color'  value="#ff0000" placeholder="Tamano..." ng-model="product.quantity", name="quantity")
-              td
-                //- quantity
-                .mdl-textfield.mdl-js-textfield
-                  input.mdl-textfield__input(type='text' placeholder="Tamano..." ng-model="product.quantity", name="quantity")
-              td
-                select
-              td
-                //- quantity
-                .mdl-textfield.mdl-js-textfield
-                  input.mdl-textfield__input(type='text' placeholder="Cantidad.." ng-model="product.quantity", name="quantity")
-              td
+div.mdl-layout__content.product-form
+  .mdl-card.mdl-shadow--4dp
+    // Simple header with fixed tabs.
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-tabs.tabs-products
+      header.mdl-layout__header.zigzag-pink
+        // Tabs
+        .mdl-layout__tab-bar.mdl-js-ripple-effect
+          a.mdl-layout__tab.is-active(href='#general') General
+          a.mdl-layout__tab(href='#details') Detalles
+          a.mdl-layout__tab(href='#gallery') Galeria
+      main.mdl-layout__content
+        section#general.mdl-layout__tab-panel.is-active
+          .page-content
+            include productL/dash_general.pug
+        section#details.mdl-layout__tab-panel
+          .page-content
+            include productL/dash_detail.pug
+        section#gallery.mdl-layout__tab-panel
+          .page-content
+            include productL/dash_gallery.pug
+
+  //-     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top(id="content-details")
+  //-       thead
+  //-         tr
+  //-           th Color
+  //-           th Tamano
+  //-           th Sucursal
+  //-           th Cantidad
+  //-       tbody
+  //-         tr
+  //-           td
+  //-             //- color
+  //-             .mdl-textfield.mdl-js-textfield
+  //-               input.mdl-textfield__input(type='color'  value="#ff0000" placeholder="Tamano..." ng-model="product.quantity", name="quantity")
+  //-           td
+  //-             //- quantity
+  //-             .mdl-textfield.mdl-js-textfield
+  //-               input.mdl-textfield__input(type='text' placeholder="Tamano..." ng-model="product.quantity", name="quantity")
+  //-           td
+  //-             select
+  //-           td
+  //-             //- quantity
+  //-             .mdl-textfield.mdl-js-textfield
+  //-               input.mdl-textfield__input(type='text' placeholder="Cantidad.." ng-model="product.quantity", name="quantity")
+  //-           td

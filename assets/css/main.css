@@ -99,6 +99,20 @@ html {
   top: 32px;
   left: 0; }
 
+.zigzag-pink:after {
+  background: linear-gradient(-45deg, transparent 24px, #AD1457 0), linear-gradient(45deg, transparent 24px, #AD1457 0);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-size: 30px 40px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 32px;
+  position: relative;
+  top: 32px;
+  left: 0;
+  top: 140px; }
+
 .loading {
   width: 100%;
   height: 100%;
@@ -179,12 +193,6 @@ html {
       -moz-animation: cd-fade-in 0.5s;
       animation: cd-fade-in 0.5s; }
 
-.container-dash {
-  margin: 0 auto;
-  max-width: 1200px;
-  display: inherit;
-  width: 80%; }
-
 .avatar {
   width: 60px;
   height: 60px;
@@ -236,7 +244,7 @@ html {
   * multiple backgrounds (colors/img)
 **/
 .backLogin {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(233, 30, 99, 0.45) 90%), linear-gradient(0deg, rgba(156, 39, 176, 0.35), transparent), url(../images/fashion.jpg) center 90%/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(233, 30, 99, 0.45) 90%), linear-gradient(0deg, rgba(156, 39, 176, 0.35), transparent), url("../images/fashion.jpg") center 90%/cover no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%; }
@@ -256,6 +264,22 @@ html {
       background: #ff4081;
       color: white; }
 
+.header-title {
+  width: 100%;
+  height: 150px;
+  background: #AD1457;
+  position: relative;
+  z-index: 99; }
+  .header-title h2 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
+  .header-title .filters {
+    display: flex; }
+  .header-title.zigzag-pink:after {
+    top: 75px; }
+
 /**
   * Forms Partial SASS
   * This SASS file has all
@@ -265,7 +289,21 @@ html {
   max-width: 1000px;
   width: 100%; }
   .product-form .mdl-card {
-    width: 90%; }
+    width: 90%;
+    height: 600px;
+    margin: 0 auto; }
+
+.tabs-products .mdl-layout__header {
+  background: #AD1457;
+  height: 150px;
+  position: relative; }
+  .tabs-products .mdl-layout__header .mdl-layout__tab-bar-container {
+    position: absolute;
+    bottom: 10px; }
+  .tabs-products .mdl-layout__header .mdl-layout__tab-bar {
+    background: #AD1457; }
+    .tabs-products .mdl-layout__header .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+      background: transparent; }
 
 /**
   * Icons Partial SASS
@@ -302,25 +340,6 @@ html {
   color: white;
   font-size: 25px; }
 
-.filters {
-  margin-top: 5%;
-  display: flex;
-  padding-left: 4%;
-  border-bottom: 10px solid gray;
-  border-width: thin; }
-  .filters h2 {
-    padding-right: 30px;
-    color: gray;
-    font-weight: bold;
-    font-size: 32px; }
-  .filters select {
-    margin-right: 10%;
-    font-size: 23px;
-    border: none;
-    margin-top: 36px;
-    background: white;
-    height: 26px; }
-
 .dialog-grid h3 {
   padding-left: 27px;
   font-weight: bold; }
@@ -338,19 +357,28 @@ html {
   width: 700px; }
 
 .dash-content-top {
-  margin-top: 80px; }
+  margin-top: 10px; }
 
 .table-dash {
   width: 100%;
-  margin-bottom: 100px; }
+  margin-bottom: 100px;
+  table-layout: fixed; }
+  .table-dash.mdl-data-table th {
+    font-size: 20px;
+    white-space: pre-wrap;
+    text-align: center; }
+  .table-dash.mdl-data-table td {
+    text-align: center;
+    white-space: pre-wrap; }
   .table-dash img {
     width: 100px; }
 
 .fab {
   position: absolute;
   text-align: center;
-  right: 0;
-  top: 120px; }
+  right: 2%;
+  top: 140px;
+  z-index: 999; }
 
 .mdl-textfield__label:after {
   background-color: #ff4081;
@@ -366,21 +394,6 @@ html {
 
 .mdl-textfield__label {
   color: #ff4081; }
-
-.nav-atenea {
-  background: #ff4081; }
-
-.product-table img {
-  width: 150px; }
-.product-table button {
-  margin-left: -80px; }
-
-.mdl-data-table th {
-  font-size: 20px;
-  /* padding: 0 18px 12px 18px; */
-  padding-right: 19%; }
-.mdl-data-table td {
-  text-align: inherit; }
 
 .dialog-grid-employee {
   top: 200px; }
@@ -432,6 +445,12 @@ html {
     display: block;
     margin-left: 76%;
     /* margin-top: -27px; */ }
+
+.container-dash {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: inherit;
+  width: 100%; }
 
 /**
   * Buttons Partial SASS
