@@ -280,6 +280,48 @@ html {
   .header-title.zigzag-pink:after {
     top: 75px; }
 
+.profile-photo {
+  background: #000;
+  height: 550px;
+  margin: 0 auto;
+  position: relative; }
+  .profile-photo .default-photo {
+    background: #878787;
+    -webkit-transition: opacity ease-in-out 0.2s;
+    -moz-transition: opacity ease-in-out 0.2s;
+    -o-transition: opacity ease-in-out 0.2s;
+    transition: opacity ease-in-out 0.2s;
+    height: 100%; }
+    .profile-photo .default-photo .photo-icon {
+      width: 80px;
+      height: 80px !important;
+      margin: 0 auto;
+      position: relative;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      display: flex; }
+  .profile-photo input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.profile-preview {
+  height: 550px;
+  width: 100%;
+  display: none; }
+  .profile-preview .inner-filter {
+    background: linear-gradient(0deg, transparent, rgba(29, 17, 17, 0.6)), linear-gradient(transparent, transparent 50%);
+    width: 100%;
+    height: 100%; }
+    .profile-preview .inner-filter .mdl-button {
+      align-items: center;
+      display: flex; }
+
 /**
   * Forms Partial SASS
   * This SASS file has all

@@ -55,3 +55,45 @@
     top: 75px;
   }
 }
+
+// Images Gallery
+.profile-photo {
+  background: $black;
+  height: 550px;
+  margin: 0 auto;
+  position: relative;
+  .default-photo {
+    background: $grey;
+    @include transition(opacity ease-in-out .2s);
+    height: 100%;
+    .photo-icon {
+      width: 80px;
+      height: 80px !important;
+      margin: 0 auto;
+      @include vertical-align();
+      display: flex;
+    }
+  }
+  input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.profile-preview {
+  height: 550px;
+  width: 100%;
+  display: none;
+  .inner-filter {
+    background: linear-gradient(0deg, transparent, rgba(29, 17, 17, 0.6)), linear-gradient(transparent, transparent 50%);
+    width: 100%;
+    height: 100%;
+    .mdl-button {
+      align-items: center;
+      display: flex;
+    }
+  }
+}

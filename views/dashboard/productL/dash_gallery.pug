@@ -1,1 +1,15 @@
 form(ng-controller="ProductGalleryController")
+  .mdl-grid
+    .mdl-cell.mdl-cell--6-col
+      .profile-photo
+        .default-photo
+          img.photo-icon(alt='...', src='/images/photo.png')
+        input(fileread='', type='file')
+      .profile-preview
+        .inner-filter
+          // Colored mini FAB button
+          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto($event)')
+            i.material-icons delete_forever
+    .mdl-cell.mdl-cell--6-col
+    .mdl-cell.mdl-cell--6-col
+    .mdl-cell.mdl-cell--6-col
