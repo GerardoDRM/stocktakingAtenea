@@ -7,12 +7,13 @@ html(lang="es")
     link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
     link(rel='stylesheet', href='/css/main.css', type='text/css')
   body(ng-app="AteneaApp" ng-cloak)
-    div.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-      header.mdl-layout__header.drawer
+    div.app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      header.android-header.mdl-layout__header.mdl-layout__header--waterfall
         div.mdl-layout__header-row.nav-atenea
           span.mdl-layout-title   User
           div.mdl-layout-spacer
             nav.mdl-navigation.mdl-layout--large-screen-only
+              a.mdl-navigation__link(href='' style="    margin-left: 78%;") Devoluciones
 
 
 
@@ -33,7 +34,7 @@ html(lang="es")
   script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js")
   script(src="/js/admin/EmployeeAdminController.js")
   script(src="/js/admin/SalesEmployeeController.js")
-  
+
 
   script(src="https://code.getmdl.io/1.3.0/material.min.js")
 

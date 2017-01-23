@@ -1,0 +1,31 @@
+extends ../base_employee.pug
+
+block content
+  div.mdl-card.mdl-shadow--2dp.card-employee(ng-controller="SalesEmployeeController")
+   div.header-title-sales.zigzag-pink
+     h2 Sucursal
+     select
+       option(value='oaxaca') Oaxaca
+       option(value='todas') Todas
+
+   table.mdl-data-table.mdl-js-data-table.table-dash
+     thead
+       tr
+         th Producto
+         th Precio
+         th Cantidad
+         th Color
+         th Devoluciones
+
+     tbody
+       tr
+         td.mdl-data-table__cell--non-numeric #100
+         td.mdl-data-table__cell--non-numeric $300
+         td 4
+         td
+          input.mdl-textfield__input(type='text' ng-model="branch.name", name="name" , style="background:purple;")
+
+         td
+           button.mdl-button.mdl-js-button(ng-click="") Devolución
+
+   

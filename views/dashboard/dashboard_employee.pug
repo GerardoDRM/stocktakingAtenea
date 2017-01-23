@@ -2,13 +2,13 @@ extends ../base_employee.pug
 
 block content
  div.mdl-card.mdl-shadow--2dp.card-employee(ng-controller="SalesEmployeeController")
-  div.top-sales
+  div.header-title-sales.zigzag-pink
     h2 Sucursal
     select
       option(value='oaxaca') Oaxaca
       option(value='todas') Todas
     button.mdl-button.mdl-js-button(ng-click="showTicketDialog()") Crear ticket
-  table.mdl-data-table.mdl-js-data-table
+  table.mdl-data-table.mdl-js-data-table.table-dash
     thead
       tr
         th Producto

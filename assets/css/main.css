@@ -264,21 +264,102 @@ html {
       background: #ff4081;
       color: white; }
 
-.header-title {
+.header-title-sales {
   width: 100%;
-  height: 150px;
+  height: 195px;
   background: #AD1457;
   position: relative;
-  z-index: 99; }
+  z-index: 99;
+  text-align: center; }
+  .header-title-sales select {
+    margin-top: 10px;
+    height: 25px;
+    width: 28%;
+    border-radius: 1px; }
+  .header-title-sales h2 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
+  .header-title-sales h3 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
+  .header-title-sales .filters {
+    margin-left: 80px;
+    display: flex; }
+    .header-title-sales .filters select {
+      width: 133px;
+      border-radius: 1px; }
+  .header-title-sales.zigzag-pink:after {
+    top: 75px; }
+
+.header-title-employee {
+  width: 100%;
+  height: 153px;
+  background: #AD1457;
+  position: relative;
+  z-index: 99;
+  text-align: center; }
+  .header-title-employee select {
+    height: 25px;
+    width: 28%;
+    border-radius: 1px; }
+  .header-title-employee h2 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
+  .header-title-employee h3 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
+  .header-title-employee .filters {
+    margin-left: 80px;
+    display: flex; }
+    .header-title-employee .filters select {
+      width: 133px;
+      border-radius: 1px; }
+  .header-title-employee.zigzag-pink:after {
+    top: 75px; }
+
+.header-title {
+  width: 100%;
+  height: 198px;
+  background: #AD1457;
+  position: relative;
+  z-index: 99;
+  text-align: center; }
+  .header-title select {
+    height: 25px;
+    width: 28%;
+    border-radius: 1px; }
   .header-title h2 {
     margin: 0;
     text-align: center;
     color: #E91E63;
     padding-top: 26px; }
+  .header-title h3 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px; }
   .header-title .filters {
+    margin-left: 80px;
     display: flex; }
+    .header-title .filters select {
+      width: 133px;
+      border-radius: 1px; }
   .header-title.zigzag-pink:after {
     top: 75px; }
+
+.product-header {
+  padding-right: 194px; }
+
+.select-branch-product {
+  margin-left: 63px; }
 
 /**
   * Forms Partial SASS
@@ -406,38 +487,25 @@ html {
     background: #EEEEEE; }
 
 .top-sales {
+  margin-top: -24px;
+  width: 100%;
+  height: 195px;
+  background: #AD1457;
+  position: relative;
+  z-index: 99;
   text-align: center; }
+  .top-sales h2 {
+    margin: 0;
+    text-align: center;
+    color: #E91E63;
+    padding-top: 26px;
+    margin-bottom: 5%; }
   .top-sales select {
     height: 25px;
     width: 28%;
     border-radius: 1px; }
-
-.sales-table table {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  width: 48%; }
-
-.dialog-sales {
-  margin-left: 30%; }
-
-.card-employee {
-  margin-top: 5%;
-  text-align: center;
-  margin-left: 15%;
-  height: 400px;
-  width: 65%; }
-  .card-employee select {
-    height: 25px;
-    width: 28%;
-    border-radius: 1px;
-    margin-bottom: 5%; }
-  .card-employee table {
-    width: 44%;
-    text-align: center; }
-
-.top-sales {
-  margin-bottom: 44px; }
   .top-sales button {
+    color: white;
     margin-top: -67px;
     /* margin-bottom: 2px; */
     padding-bottom: -9px;
@@ -445,6 +513,23 @@ html {
     display: block;
     margin-left: 76%;
     /* margin-top: -27px; */ }
+
+.sales-table table {
+  width: 100%;
+  margin-bottom: 100px;
+  table-layout: fixed; }
+.sales-table th {
+  font-size: 20px;
+  white-space: pre-wrap;
+  text-align: center; }
+
+.dialog-sales {
+  margin-left: 30%; }
+
+.card-employee {
+  width: 100%; }
+  .card-employee table {
+    text-align: center; }
 
 .container-dash {
   margin: 0 auto;

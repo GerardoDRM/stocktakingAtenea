@@ -45,6 +45,9 @@ module.exports.routes = {
   '/product': {
     view: 'dashboard/product_layout'
   },
+  '/product_return': {
+    view: 'dashboard/product_return'
+  },
   /***************************************************************************
    *                                                                          *
                               API RESTFUL
