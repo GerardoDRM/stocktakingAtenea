@@ -1,15 +1,42 @@
 form(ng-controller="ProductGalleryController")
   .mdl-grid
     .mdl-cell.mdl-cell--6-col
-      .profile-photo
+      #photo0.profile-photo
         .default-photo
           img.photo-icon(alt='...', src='/images/photo.png')
         input(fileread='', type='file')
       .profile-preview
         .inner-filter
           // Colored mini FAB button
-          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto($event)')
+          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto(0)')
             i.material-icons delete_forever
     .mdl-cell.mdl-cell--6-col
+      #photo1.profile-photo
+        .default-photo
+          img.photo-icon(alt='...', src='/images/photo.png')
+        input(fileread='', type='file')
+      .profile-preview
+        .inner-filter
+          // Colored mini FAB button
+          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto(1)')
+            i.material-icons delete_forever
     .mdl-cell.mdl-cell--6-col
+      #photo2.profile-photo
+        .default-photo
+          img.photo-icon(alt='...', src='/images/photo.png')
+        input(fileread='', type='file')
+      .profile-preview
+        .inner-filter
+          // Colored mini FAB button
+          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto(2)')
+            i.material-icons delete_forever
     .mdl-cell.mdl-cell--6-col
+      #photo3.profile-photo
+        .default-photo
+          img.photo-icon(alt='...', src='/images/photo.png')
+        input(fileread='', type='file')
+      .profile-preview
+        .inner-filter
+          // Colored mini FAB button
+          button.mdl-button.mdl-js-button.mdl-button--fab.warm(ng-click='deletePhoto(3)')
+            i.material-icons delete_forever
