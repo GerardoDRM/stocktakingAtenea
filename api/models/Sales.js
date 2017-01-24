@@ -25,6 +25,13 @@ module.exports = {
     discount: {
       type: 'float'
     },
+    return_date: {
+      type: 'date'
+    },
+    model: {
+      type: 'string',
+      required: true
+    },
     // Foreing keys
     iddetail: {
       model: 'productdetails'

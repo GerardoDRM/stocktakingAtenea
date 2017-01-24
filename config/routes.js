@@ -77,6 +77,7 @@ module.exports.routes = {
   'GET /api/v0/products/:id': 'ProductController.getProductById',
 
   // PRODUCT CRUD API DETAILS
+  'GET /api/v0/products_employee' : 'ProductDetailsController.getProductsDetailsEmployees',
   'GET /api/v0/products_details': 'ProductDetailsController.showProductDetails',
   'POST /api/v0/product_details': 'ProductDetailsController.createProductDetails',
   'DELETE /api/v0/products_details/:id': 'ProductDetailsController.deleteProductDetails',
@@ -95,6 +96,7 @@ module.exports.routes = {
 
   //TICKET CRUD API
   'GET /api/v0/ticket_details': 'TicketController.getTicketDetails',
+  'GET /api/v0/return_products': 'TicketController.getReturnsDetails',
   'POST api/v0/tickets': 'TicketController.addTicket',
   'GET api/v0/tickets': 'TicketController.searchTicket',
   'PUT api/v0/tickets': 'TicketController.updateTicket',

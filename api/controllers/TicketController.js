@@ -24,14 +24,13 @@ module.exports = {
 
   // Get returns admin
   getReturnsDetails: function(req, res) {
-    var idTicket = req.param('idTicket');
 
-    Sales.query('select date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select return_date, color, product.name, product.idproduct, branch.name \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
     branch.idbranch = productdetails.idbranch \
-    and ticket.model = "return" and ticket.idticket = ' + idTicket, [], function(err, rawResult) {
+    and sales.model = "return"', [], function(err, rawResult) {
       if (err) {
         return res.json({"status": 500});
       }
