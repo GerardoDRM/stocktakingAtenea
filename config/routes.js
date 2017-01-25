@@ -102,6 +102,7 @@ module.exports.routes = {
   'POST api/v0/tickets': 'TicketController.addTicket',
   'GET api/v0/tickets': 'TicketController.searchTicket',
   'PUT api/v0/tickets': 'TicketController.updateTicket',
-  'DELETE api/v0/tickets': 'TicketController.deleteTicket'
+  'DELETE api/v0/tickets': 'TicketController.deleteTicket',
+  'PUT /api/v0/return_ticket': 'TicketController.updateReturnProduct'
 
 };
