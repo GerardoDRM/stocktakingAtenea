@@ -1,17 +1,16 @@
 app.controller('ProductDetailsController', [
   '$scope',
+  '$rootScope',
   '$http',
   '$compile',
   'productObject',
+  function($scope, $rootScope, $http, $compile, productObject) {
 
-  function($scope, $http, $compile, productObject) {
-
-    $scope.detail = {};
     $scope.branches = [];
-    // var po = productObject;
     var po = productObject;
     $scope.details = {};
     $scope.rowsNumber = 0;
+    $scope.po = productObject;
 
     // Create empty array
     $scope.getNumber = function(num) {
@@ -32,7 +31,38 @@ app.controller('ProductDetailsController', [
       }, function errorCallback(response) {});
     }
 
-    getAllBranches();
+    // GET Stored detaiils
+    var getStoredDetails = function() {
+      $http({
+        method: "GET",
+        url: '/api/v0/products_details',
+        params: {
+          "idproduct": $scope.po.getID()
+        }
+      }).then(function successCallback(response) {
+        var data = response.data;
+        if (data.status == 200) {
+          var products = data.products;
+          // Iterate Over products and fill table
+          $scope.details = {};
+          $scope.rowsNumber = 0;
+          for (var p in products) {
+            $scope.details[p] = products[p];
+            $scope.rowsNumber++;
+          }
+        }
+      }, function errorCallback(response) {});
+    }
+
+    // Get Products
+    // Listen if this controller needs to start
+    $rootScope.$on("ProductMethodInit", function() {
+      $scope.details = {};
+      $scope.rowsNumber = 0;
+      if ($scope.po.getID() !== undefined)
+        getStoredDetails();
+      getAllBranches();
+    });
 
     // Create new product
     var createDetail = function(product) {
@@ -44,7 +74,21 @@ app.controller('ProductDetailsController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
-          // $scope.getProducts();
+          getStoredDetails();
+        }
+      }, function errorCallback(response) {});
+    }
+
+    var updateProductDetails = function(product) {
+      // Update details
+      $http({
+        method: "PUT",
+        url: '/api/v0/products_details',
+        data: product
+      }).then(function successCallback(response) {
+        var data = response.data;
+        if (data.status == 200) {
+          getStoredDetails();
         }
       }, function errorCallback(response) {});
     }
@@ -69,9 +113,14 @@ app.controller('ProductDetailsController', [
           }
         }
       }
-      if (count == 0 && po["id"] !== undefined) {
-        product["idproduct"] = po["id"];
-        createDetail(product);
+      // Check if update or create
+      if (count == 0 && $scope.po.getID() !== undefined) {
+        product["idproduct"] = $scope.po.getID();
+        if (product["iddetail"] === undefined) {
+          createDetail(product);
+        } else {
+          updateProductDetails(product);
+        }
       }
     }
 
@@ -80,6 +129,29 @@ app.controller('ProductDetailsController', [
       $scope.rowsNumber++;
     }
 
-    $scope.removeTemplate = function() {}
+    var deleteDetailProduct = function(id) {
+      // Update details
+      $http({
+        method: "DELETE",
+        url: '/api/v0/products_details/' + id
+      }).then(function successCallback(response) {
+        var data = response.data;
+        if (data.status == 200) {
+          getStoredDetails();
+        }
+      }, function errorCallback(response) {});
+    }
+
+    $scope.removeDetail = function(index) {
+      $scope.rowsNumber--;
+      var product = $scope.details[index];
+      // Check if it's stored or it's just a template
+      if (product["iddetail"] === undefined) {
+        getStoredDetails();
+      } else {
+        deleteDetailProduct(product["iddetail"]);
+      }
+
+    }
   }
 ]);
