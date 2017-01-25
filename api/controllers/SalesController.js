@@ -12,9 +12,12 @@ module.exports = {
     Sales.query('select ticket.idticket, ticket.date, SUM(sales.total_price) as price, \
     branch.name from sales, ticket, productdetails, branch \
     where sales.ticket = ticket.idticket and sales.iddetail = productdetails.iddetail \
-    and branch.idbranch = productdetails.idbranch GROUP BY 1 ', [], function(err, rawResult) {
+    and branch.idbranch = productdetails.idbranch GROUP BY 1,2,4; ', [], function(err, rawResult) {
+
       if (err) {
+        sails.log(err);
         return res.json({"status": 500});
+
       }
 
       return res.json({"status": 200, "data": rawResult});

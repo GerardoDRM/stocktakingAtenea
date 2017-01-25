@@ -16,6 +16,7 @@ div(ng-controller="ReturnAdminController")
         tr(ng-repeat="t in sales")
           td  {{t.return_date}}
           td
-           input(style= "background:{{t.color}}")
+            div.color-container(style="background:{{t.color}}")
+
           td  {{t.name}}
           td {{t.idproduct}}

@@ -34,8 +34,11 @@ app.controller('SalesAdminController', ['$scope', '$http', '$compile', function(
         if (data.status == 200) {
           // Copy to tickets array
           $scope.tickets = data.data;
+
         }
-      }, function errorCallback(response) {});
+      }, function errorCallback(response) {
+      
+      });
   }
 
   $scope.getAllSales();

@@ -272,6 +272,7 @@ html {
   z-index: 99;
   text-align: center; }
   .header-title-sales select {
+    margin-right: 45px;
     margin-top: 10px;
     height: 25px;
     width: 28%;
@@ -477,7 +478,7 @@ html {
 .mdl-dialog {
   border: none;
   box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
-  width: 700px; }
+  width: 370px; }
 
 .dash-content-top {
   margin-top: 10px; }
@@ -567,8 +568,15 @@ html {
   white-space: pre-wrap;
   text-align: center; }
 
-.dialog-sales {
-  margin-left: 30%; }
+.dialog-sales ul {
+  border: 3px solid;
+  border-style: dashed;
+  border-left: none;
+  border-right: none; }
+.dialog-sales i {
+  height: 49px;
+  margin-right: 60px;
+  border: 2px solid black; }
 
 .card-employee {
   width: 100%; }
@@ -580,6 +588,23 @@ html {
   max-width: 1200px;
   display: inherit;
   width: 100%; }
+
+.avatar-sales {
+  height: 49px;
+  margin-right: 60px; }
+
+.color-container {
+  height: 22px;
+  width: 100%; }
+
+.ticket-button {
+  color: white; }
+
+.div-car {
+  margin-top: -86px;
+  margin-left: 50%; }
+  .div-car button {
+    margin-top: 51px; }
 
 /**
   * Buttons Partial SASS

@@ -47,7 +47,7 @@
 .mdl-dialog {
   border: none;
   box-shadow: 0 9px 46px 8px rgba(0,0,0,.14),0 11px 15px -7px rgba(0,0,0,.12),0 24px 38px 3px rgba(0,0,0,.2);
-  width: 700px;
+  width: 370px;
 }
 // Table Dashboard
 
@@ -173,7 +173,20 @@ margin-bottom: 5%;
 }
 
 .dialog-sales {
-  margin-left: 30%;
+
+  ul {
+    border: 3px solid;
+    border-style: dashed;
+    border-left: none;
+    border-right: none;
+  }
+
+  i {
+    height:49px;
+    margin-right: 60px;
+        border: 2px solid black;
+  }
+
 }
 
 .card-employee {
@@ -201,4 +214,28 @@ width: 100%;
   max-width: 1200px;
   display: inherit;
   width: 100%;
+}
+
+.avatar-sales {
+  height:49px;
+  margin-right: 60px;
+}
+
+.color-container {
+  height: 22px;
+  width: 100%;
+}
+
+.ticket-button{
+      color: white;
+
+  //    margin-right: 10%;
+}
+
+.div-car {
+  margin-top: -86px;
+margin-left: 50%;
+button {
+      margin-top: 51px;
+}
 }
