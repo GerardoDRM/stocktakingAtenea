@@ -38,6 +38,23 @@ module.exports = {
     });
   },
 
+  //Get returns employees
+
+  getReturnsDetailsEmployee: function(req, res) {
+
+    Sales.query('select return_date, color, product.name, product.idproduct, branch.name \
+    from ticket, productdetails, product, sales, branch where \
+    ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
+    and productdetails.idproduct = product.idproduct and \
+    branch.idbranch = productdetails.idbranch \
+    and sales.model = "sell"', [], function(err, rawResult) {
+      if (err) {
+        return res.json({"status": 500});
+      }
+      return res.json({"status": 200, "data": rawResult});
+    });
+  },
+
   addTicket: function(req, res) {
     var values = req.allParams();
     Ticket.create(values, function createTicket(err, ticket) {

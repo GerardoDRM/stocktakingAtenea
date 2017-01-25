@@ -97,6 +97,7 @@ module.exports.routes = {
   //TICKET CRUD API
   'GET /api/v0/ticket_details': 'TicketController.getTicketDetails',
   'GET /api/v0/return_products': 'TicketController.getReturnsDetails',
+  'GET /api/v0/return_products_employee': 'TicketController.getReturnsDetailsEmployee',
   'POST api/v0/tickets': 'TicketController.addTicket',
   'GET api/v0/tickets': 'TicketController.searchTicket',
   'PUT api/v0/tickets': 'TicketController.updateTicket',

@@ -33,6 +33,9 @@ html(lang="es")
           a#salesBtn.mdl-navigation__link.menu-click(href='#', data-content='sales')
             i.mdl-color-text--blue-grey-400.material-icons(role='presentation') attach_money
             | Ventas
+          a#returnBtn.mdl-navigation__link.menu-click(href='#', data-content='return_product')
+            i.mdl-color-text--blue-grey-400.material-icons(role='presentation') keyboard_return
+            | Devoluciones
           a.mdl-navigation__link.menu-click(href='/logout')
             i.mdl-color-text--blue-grey-400.material-icons(role='presentation') closed
             | Cerrar Sesion
@@ -67,6 +70,11 @@ html(lang="es")
   script(src="/js/admin/ProductGeneralController.js")
   script(src="/js/admin/ProductDetailsController.js")
   script(src="/js/admin/ProductGalleryController.js")
+  script(src="/js/admin/ReturnAdminController.js")
+
+
+
+
 
   script.
     $(document).ready(function() {

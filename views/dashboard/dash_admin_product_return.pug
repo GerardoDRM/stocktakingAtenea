@@ -1,0 +1,21 @@
+div(ng-controller="ReturnAdminController")
+  .header-title-sales.zigzag-pink(style="height: 160px;")
+    h2 Devoluciones
+
+
+  div
+    table.mdl-data-table.mdl-js-data-table.table-dash
+      thead
+        tr
+          th.mdl-data-table__cell--non-numeric Fecha
+          th.mdl-data-table__cell--non-numeric Color
+          th Nombre
+          th.mdl-data-table__cell--non-numeric Producto
+
+      tbody
+        tr(ng-repeat="t in sales")
+          td  {{t.return_date}}
+          td
+           input(style= "background:{{t.color}}")
+          td  {{t.name}}
+          td {{t.idproduct}}

@@ -12,20 +12,18 @@ block content
      thead
        tr
          th Producto
-         th Precio
-         th Cantidad
+         th Fecha
+         th Sucursal
          th Color
          th Devoluciones
 
      tbody
-       tr
-         td.mdl-data-table__cell--non-numeric #100
-         td.mdl-data-table__cell--non-numeric $300
-         td 4
+       tr(ng-repeat = "t in tickets")
+         td.mdl-data-table__cell--non-numeric {{t.idproduct}}
+         td.mdl-data-table__cell--non-numeric {{t.return_date}}
+         td {{t.name}}
          td
           input.mdl-textfield__input(type='text' ng-model="branch.name", name="name" , style="background:purple;")
 
          td
            button.mdl-button.mdl-js-button(ng-click="") Devolución
-
-   
