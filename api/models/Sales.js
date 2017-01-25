@@ -6,10 +6,15 @@
  */
 
 module.exports = {
-
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
-    autoCreatedAt: false,
-    autoUpdatedAt: false,
+    idsales: {
+      type: 'integer',
+      primaryKey: true,
+      autoIncrement: true
+    },
     quantity: {
       type: 'integer',
       required: true
@@ -34,7 +39,7 @@ module.exports = {
     },
     // Foreing keys
     iddetail: {
-      model: 'productdetails'
+      model: 'productdetails',
     },
     ticket: {
       model: 'ticket'

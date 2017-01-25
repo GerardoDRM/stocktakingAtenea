@@ -16,9 +16,14 @@ module.exports = {
     where sales.ticket = ticket.idticket and sales.iddetail = productdetails.iddetail \
     and product.idproduct = productdetails.idproduct and ticket.idticket = ' + idTicket, [], function(err, rawResult) {
       if (err) {
-        return res.json({"status": 500});
+        return res.json({
+          "status": 500
+        });
       }
-      return res.json({"status": 200, "data": rawResult});
+      return res.json({
+        "status": 200,
+        "data": rawResult
+      });
     });
   },
 
@@ -32,9 +37,14 @@ module.exports = {
     branch.idbranch = productdetails.idbranch \
     and sales.model = "return"', [], function(err, rawResult) {
       if (err) {
-        return res.json({"status": 500});
+        return res.json({
+          "status": 500
+        });
       }
-      return res.json({"status": 200, "data": rawResult});
+      return res.json({
+        "status": 200,
+        "data": rawResult
+      });
     });
   },
 
@@ -42,46 +52,76 @@ module.exports = {
 
   getReturnsDetailsEmployee: function(req, res) {
 
-    Sales.query('select return_date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select sales.iddetail, sales.ticket, ticket.date, color, product.name, product.idproduct, branch.name \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
     branch.idbranch = productdetails.idbranch \
-    and sales.model = "sell"', [], function(err, rawResult) {
+    and sales.model != "return"', [], function(err, rawResult) {
       if (err) {
-        return res.json({"status": 500});
+        return res.json({
+          "status": 500
+        });
       }
-      return res.json({"status": 200, "data": rawResult});
+      return res.json({
+        "status": 200,
+        "data": rawResult
+      });
     });
   },
 
   // Update return
   updateReturnProduct: function(req, res) {
     var data = {
-      "iddetail": req.params("iddetail"),
-      "idticket": req.params("idticket")
+      "iddetail": req.param("iddetail"),
+      "ticket": req.param("idticket")
     };
-
-    var updates = {
-      "return_date": req.params("date"),
-      "model": "return"
-    }
-    Sales.update(data, updates, function updateProduct(err, sale) {
-      if (err)
-        res.json({"status": 500});
-      res.json({"status": 200})
+    Sales.findOne(data, function getProductSale(err, sale) {
+      if (err || sale === undefined) {
+        res.json({
+          "status": 500
+        });
+      }
+      sale["return_date"] = req.param("date");
+      sale["model"] = "return";
+      sale.save();
+      res.json({
+        "status": 200,
+        "updated": sale
+      })
     });
   },
 
   addTicket: function(req, res) {
     var values = req.allParams();
-    Ticket.create(values, function createTicket(err, ticket) {
+    Ticket.create(values["ticket"], function createTicket(err, ticket) {
       if (err) {
         // Otherwise, send back something reasonable as our error response.
         return res.negotiate(err);
       }
       // Send back the id of the new ticket
-      return res.json({"status": 200, "ticket": ticket});
+      var ticketID = ticket.idticket;
+      // Create Sales
+      // Configure sales objects
+      var sales = values["sales"];
+      var newSales = [];
+      for (var s in sales) {
+        newSales.push({
+          "quantity": "",
+          "unitary_price" :"",
+          "total_price": "",
+          "model": "sale",
+          "iddetail": "",
+          "ticket": ticketID
+        });
+      }
+      Sales.create(newSales, function createSales(err, ) {
+        return res.json({
+          "status": 200,
+          "ticket": ticket,
+          "sales": sales
+        });
+      });
     });
   },
 
@@ -91,7 +131,10 @@ module.exports = {
     }, function searchTicket(err, ticket) {
       if (err || ticket === undefined)
         return res.negotiate(err);
-      return res.json({"status": 200, "ticket": ticket});
+      return res.json({
+        "status": 200,
+        "ticket": ticket
+      });
     });
   },
 
@@ -104,7 +147,9 @@ module.exports = {
         // Otherwise, send back something reasonable as our error response.
         return res.negotiate(err);
       }
-      return res.json({"status": 200});
+      return res.json({
+        "status": 200
+      });
     });
   },
 
@@ -117,7 +162,10 @@ module.exports = {
         // handle error here- e.g. `res.serverError(err);`
         return res.negotiate(err);
       }
-      return res.json({"status": 200, "ticket": updated});
+      return res.json({
+        "status": 200,
+        "ticket": updated
+      });
     });
 
   }

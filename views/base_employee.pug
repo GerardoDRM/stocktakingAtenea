@@ -21,6 +21,26 @@ html(lang="es")
 
       main.mdl-layout__content(ng-controller="SalesEmployeeController")
         block content
+        dialog#ticketDialog.mdl-dialog.dialog-sales
+          h3 Ticket
+          ul.demo-list-three.mdl-list(ng-repeat="p in shop_cart track by $index")
+            li.mdl-list__item.mdl-list__item--three-line
+              span.mdl-list__item-primary-content
+                i.material-icons.mdl-list__item-avatar(style="width: 47px;height: 45px; margin-right: 60px;background:{{p.color}}")
+                span {{p.idproduct}}
+                span.mdl-list__item-text-body
+                  | Precio unitario {{p.price}}
+                span.mdl-list__item-text-body(style="margin-top: -29px;")
+                  | IVA {{p.total_price}}
+
+              span.mdl-list__item-secondary-content
+                button.mdl-button(ng-click="removeElementCart($index)") Eliminar
+          span
+            h3 Total
+            p $ {{total_ticket}}
+          div.mdl-dialog__actions
+            button.mdl-button.close(ng-click="closeDialog()") Cerrar
+            button.mdl-button.close.button-add-sale(ng-click="createTicket()") Agregar compra
 
 
 

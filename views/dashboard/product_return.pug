@@ -2,28 +2,25 @@ extends ../base_employee.pug
 
 block content
   div.mdl-card.mdl-shadow--2dp.card-employee
-   div.header-title-sales.zigzag-pink
-     h2 Sucursal
-     select
-       option(value='oaxaca') Oaxaca
-       option(value='todas') Todas
+    div.header-title-sales.zigzag-pink
+      h2 Sucursal
+      select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
 
-   table.mdl-data-table.mdl-js-data-table.table-dash
-     thead
-       tr
-         th Producto
-         th Fecha
-         th Sucursal
-         th Color
-         th Devoluciones
+    table.mdl-data-table.mdl-js-data-table.table-dash
+      thead
+        tr
+          th Producto
+          th Fecha
+          th Sucursal
+          th Color
+          th Devoluciones
 
-     tbody
-       tr(ng-repeat = "t in tickets")
-         td.mdl-data-table__cell--non-numeric {{t.idproduct}}
-         td.mdl-data-table__cell--non-numeric {{t.return_date}}
-         td {{t.name}}
-         td
-          input.mdl-textfield__input(type='text' ng-model="branch.name", name="name" , style="background:purple;")
-
-         td
-           button.mdl-button.mdl-js-button(ng-click="") Devolución
+      tbody
+        tr(ng-repeat = "t in tickets track by $index")
+          td.mdl-data-table__cell--non-numeric {{t.idproduct}}
+          td.mdl-data-table__cell--non-numeric {{t.date}}
+          td {{t.name}}
+          td
+            div.color-container(style="background:{{t.color}}; border:2px solid #ccc")
+          td
+            button.mdl-button.mdl-js-button(ng-click="returnProduct($index)") Devolución

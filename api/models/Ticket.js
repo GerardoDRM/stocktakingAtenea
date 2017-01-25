@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-
+  autoPK: true,
+  autoCreatedAt: false,
+  autoUpdatedAt: false,
   attributes: {
-    autoPK: false,
-    autoCreatedAt: false,
-    autoUpdatedAt: false,
+
     idticket: {
       type: 'integer',
       primaryKey: true,
