@@ -80,14 +80,14 @@ module.exports.routes = {
   'GET /api/v0/products_employee': 'ProductDetailsController.getProductsDetailsEmployees',
   'GET /api/v0/products_details': 'ProductDetailsController.showProductDetails',
   'POST /api/v0/product_details': 'ProductDetailsController.createProductDetails',
-  'DELETE /api/v0/products_details/:id': 'ProductDetailsController.deleteProductDetails',
+  'DELETE /api/v0/products_details/:iddetail': 'ProductDetailsController.deleteProductDetails',
   'PUT /api/v0/products_details': 'ProductDetailsController.updateProductDetails',
 
   // UPLOAD IMAGE
   'PUT /api/v0/product/image/:idproduct': 'GalleryController.uploadImgProduct',
   'DELETE /api/v0/product/image/:idgallery': 'GalleryController.deleteImgProduct',
   'GET /api/v0/get_gallery/:idproduct': 'GalleryController.getGallery',
-  
+
   //SALES CRUD API
   'GET /api/v0/all_sales': 'SalesController.getSales',
   'POST api/v0/sales': 'SalesController.addSale',

@@ -27,4 +27,5 @@ form(ng-controller="ProductDetailsController")
             input.mdl-textfield__input(type='number' placeholder="Cantidad.." ng-model="details[$index].quantity", name="quantity")
         td
           //- Actions
-          button.mdl-button.mdl-js-button(ng-click="storeDetail($index)") Guardar
+          button.mdl-button.mdl-js-button.mdl-button--raised(ng-click="storeDetail($index)") Guardar
+          button.mdl-button.mdl-js-button.mdl-button--raised(ng-click="removeDetail($index)") Borrar
