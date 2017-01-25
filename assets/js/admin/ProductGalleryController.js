@@ -1,16 +1,14 @@
 app.controller('ProductGalleryController', [
   '$scope',
+  '$rootScope',
   '$http',
   '$compile',
   'productObject',
 
-  function($scope, $http, $compile, productObject) {
+  function($scope, $rootScope, $http, $compile, productObject) {
     var photosArray = [];
     // var po = productObject;
-    var po = {
-      "id": "CA120"
-    };
-
+    $scope.po = productObject;
 
     var previewPhotos = function(index, photo) {
       var parent = $("#photo" + index);
@@ -28,9 +26,9 @@ app.controller('ProductGalleryController', [
     // Reset all gallery
     var cleanPreviews = function() {
       for (var i = 0; i < 4; i++) {
-        var parent = $("#photo" + index);
+        var parent = $("#photo" + i);
         $(parent[0]).css({
-          'display': 'display'
+          'display': 'block'
         });
         var previewImage = $(parent[0]).next();
         $(previewImage[0]).css({
@@ -43,7 +41,7 @@ app.controller('ProductGalleryController', [
       cleanPreviews();
       $http({
         method: "GET",
-        url: '/api/v0/get_gallery/' + po["id"]
+        url: '/api/v0/get_gallery/' + $scope.po.getID()
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
@@ -59,7 +57,11 @@ app.controller('ProductGalleryController', [
     }
 
     // Call photos
-    $scope.getFiles();
+    // Listen if this controller needs to start
+    $rootScope.$on("ProductMethodInit", function() {
+      photosArray = [];
+      $scope.getFiles();
+    });
 
     // Delete photos
     $scope.deletePhoto = function(id) {

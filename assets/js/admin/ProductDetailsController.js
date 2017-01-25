@@ -9,9 +9,7 @@ app.controller('ProductDetailsController', [
     $scope.detail = {};
     $scope.branches = [];
     // var po = productObject;
-    var po = {
-      "id": "CA213"
-    };
+    var po = productObject;
     $scope.details = {};
     $scope.rowsNumber = 0;
 
@@ -19,7 +17,6 @@ app.controller('ProductDetailsController', [
     $scope.getNumber = function(num) {
       return new Array(num);
     }
-
 
     // Get branches list
     var getAllBranches = function() {
@@ -76,7 +73,6 @@ app.controller('ProductDetailsController', [
         product["idproduct"] = po["id"];
         createDetail(product);
       }
-
     }
 
     // Add Details table row empty
@@ -84,8 +80,6 @@ app.controller('ProductDetailsController', [
       $scope.rowsNumber++;
     }
 
-    $scope.removeTemplate = function() {
-
-    }
+    $scope.removeTemplate = function() {}
   }
 ]);

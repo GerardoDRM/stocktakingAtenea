@@ -1,38 +1,16 @@
 app.controller('ProductGeneralController', [
   '$scope',
+  '$rootScope',
   '$http',
   '$compile',
   'productObject',
 
-  function($scope, $http, $compile, productObject) {
+  function($scope, $rootScope, $http, $compile, productObject) {
 
     $scope.product = {};
-    $scope.branches = [];
-    var po = productObject;
-
-    $scope.branchSelected = {
-      selected: {}
-    };
-
-    // Get branches list
-    var getAllBranches = function() {
-      $http({
-          method: "GET",
-          url: '/api/v0/branches'
-        })
-        .then(function successCallback(response) {
-          var data = response.data;
-          if (data.status == 200) {
-            var branches = data.branches;
-            $scope.branches = branches;
-          }
-        }, function errorCallback(response) {});
-    }
-
-    getAllBranches();
-
+    $scope.po = productObject;
     // Get products list
-    $scope.getProductById = function(id) {
+    var getProductById = function(id) {
       $scope.product = {};
       $http({
         method: "GET",
@@ -41,15 +19,21 @@ app.controller('ProductGeneralController', [
         var data = response.data;
         if (data.status == 200) {
           $scope.product = data.product;
-          // Check branch
-          for (var b in $scope.branches) {
-            if ($scope.branches[b].idbranch == $scope.product.location) {
-              $scope.branch = $scope.branches[b];
-            }
-          }
         }
       }, function errorCallback(response) {});
     }
+
+    // Start tab
+    var init = function() {
+      if ($scope.po.getID() !== undefined) {
+        getProductById($scope.po.getID());
+      }
+    }
+    // Listen if this controller needs to start
+    $rootScope.$on("ProductMethodInit", function() {
+      $scope.product = {};
+      init();
+    });
 
     // Create new product
     var createProduct = function() {
@@ -62,32 +46,15 @@ app.controller('ProductGeneralController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
-          po["id"] = data.product.idproduct;
+          $scope.po.setID(data.product.idproduct);
+          getProductById($scope.po.getID())
         }
       }, function errorCallback(response) {});
-      // Get selected branches ids
-      // var sBranches = $scope.branchSelected.selected;
-      // var branchesIds = [];
-      // for (var b in sBranches) {
-      //   if (sBranches[b]) {
-      //     $scope.product.location = $scope.branches[b].idbranch;
-      //     // Create each product on branches
-      //
-      //   }
-      // }
-    }
-
-    $scope.storeData = function(form) {
-      if (form) {
-        // Select update or create
-        createProduct();
-      }
     }
 
     // Update Products
     var updateProduct = function() {
       var id = $scope.product["idproduct"];
-      $scope.product.location = $scope.branch.idbranch;
       $http({
         method: "PUT",
         url: '/api/v0/products/' + id,
@@ -95,11 +62,21 @@ app.controller('ProductGeneralController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
-          console.log("Updated");
-          $scope.getAllProducts();
+          getProductById($scope.po.getID());
         }
       }, function errorCallback(response) {});
     }
 
+    $scope.storeData = function(form) {
+      if (form) {
+        // Select update or create
+        if ($scope.po.getID() !== undefined) {
+          updateProduct();
+        } else {
+          createProduct();
+        }
+
+      }
+    }
   }
 ]);
