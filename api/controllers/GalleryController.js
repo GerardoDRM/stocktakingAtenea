@@ -8,6 +8,20 @@ const fs = require('fs');
 
 module.exports = {
 
+  // Get Gallery by product
+  getGallery: function(req, res) {
+    var product = req.param("idproduct");
+    Gallery.find({
+      "product_idproduct": product
+    }, function getPhotos(err, photos) {
+      if (err) {
+        res.json({"status": 500});
+      }
+      // Return gallery list
+      res.json({"status": 200, "photos": photos});
+    });
+  },
+
   // Upload Image
   uploadImgProduct: function(req, res) {
     req.file('product').upload({
@@ -21,9 +35,7 @@ module.exports = {
         "url": uploadedFiles[0].fd.replace(sails.config.appPath + "/", ""),
         "product_idproduct": req.param("idproduct")
       }
-			sails.log(data);
       Gallery.create(data, function createPhoto(err, gallery) {
-				sails.log(err);
         if (err || gallery === undefined) {
           return res.json({"status": 500});
         }
