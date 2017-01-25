@@ -55,6 +55,24 @@ module.exports = {
     });
   },
 
+  // Update return
+  updateReturnProduct: function(req, res) {
+    var data = {
+      "iddetail": req.params("iddetail"),
+      "idticket": req.params("idticket")
+    };
+
+    var updates = {
+      "return_date": req.params("date"),
+      "model": "return"
+    }
+    Sales.update(data, updates, function updateProduct(err, sale) {
+      if (err)
+        res.json({"status": 500});
+      res.json({"status": 200})
+    });
+  },
+
   addTicket: function(req, res) {
     var values = req.allParams();
     Ticket.create(values, function createTicket(err, ticket) {

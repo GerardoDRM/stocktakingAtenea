@@ -25,7 +25,7 @@ module.exports = {
     Productdetails.create(values, function createDetails(err, details) {
       if (err) {
         // Otherwise, send back something reasonable as our error response.
-        return res.negotiate(err);
+        return res.json({"status": 500});
       }
       return res.json({"status": 200, "product": details});
     });
@@ -36,7 +36,7 @@ module.exports = {
     var values = req.allParams();
     Productdetails.find(values, function find(err, products) {
       if (err || products === undefined)
-        return res.negotiate(err);
+        return res.json({"status": 500});
 
       // Return productes array
       return res.json({"status": 200, "products": products})
@@ -44,12 +44,12 @@ module.exports = {
   },
 
   deleteProductDetails: function(req, res) {
-    Product.destroy({
-      iddetail: req.param("id")
+    Productdetails.destroy({
+      iddetail: req.param("iddetail")
     }, function deleteProduct(err) {
       if (err) {
         // Otherwise, send back something reasonable as our error response.
-        return res.negotiate(err);
+        return res.json({"status": 500});
       }
       return res.json({"status": 200});
     });
@@ -57,11 +57,13 @@ module.exports = {
 
   updateProductDetails: function(req, res) {
     var values = req.allParams();
-    Product.update({
-      iddetail: req.param("id")
+    var iddetail = req.param("iddetail");
+    delete values["iddetail"];
+    Productdetails.update({
+      iddetail: iddetail
     }, values).exec(function updateProduct(err, updated) {
       if (err) {
-        return res.negotiate(err);
+        return res.json({"status": 500});
       }
       return res.json({"status": 200, "product": updated});
     });

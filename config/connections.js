@@ -45,7 +45,7 @@ module.exports.connections = {
     host: 'localhost',
     port: 3306,
     user: 'root', //optional
-    password: 'CraftCode1234', //optional
+    password: 'root', //optional
     database: 'stocktakingAtenea' //optional
   },
 
