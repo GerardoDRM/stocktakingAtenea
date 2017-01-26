@@ -11,6 +11,7 @@ div(ng-controller="ReturnAdminController")
           th.mdl-data-table__cell--non-numeric Color
           th Nombre
           th.mdl-data-table__cell--non-numeric Producto
+          th Tamano
 
       tbody
         tr(ng-repeat="t in sales")
@@ -20,3 +21,4 @@ div(ng-controller="ReturnAdminController")
 
           td  {{t.name}}
           td {{t.idproduct}}
+          td {{t.size}}

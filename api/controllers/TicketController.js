@@ -12,7 +12,7 @@ module.exports = {
     var idTicket = req.param('idTicket');
 
     Sales.query('select product.idproduct,product.name, unitary_price, \
-    total_price, color from sales, ticket, productdetails, product \
+    total_price, color, size from sales, ticket, productdetails, product \
     where sales.ticket = ticket.idticket and sales.iddetail = productdetails.iddetail \
     and product.idproduct = productdetails.idproduct and ticket.idticket = ' + idTicket, [], function(err, rawResult) {
       if (err) {
@@ -30,7 +30,7 @@ module.exports = {
   // Get returns admin
   getReturnsDetails: function(req, res) {
 
-    Sales.query('select return_date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select return_date, color, size, product.name, product.idproduct, branch.name \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
@@ -52,7 +52,7 @@ module.exports = {
 
   getReturnsDetailsEmployee: function(req, res) {
 
-    Sales.query('select sales.iddetail, sales.ticket, ticket.date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select size, sales.iddetail, sales.ticket, ticket.date, color, product.name, product.idproduct, branch.name \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
@@ -85,10 +85,24 @@ module.exports = {
       sale["return_date"] = req.param("date");
       sale["model"] = "return";
       sale.save();
-      res.json({
-        "status": 200,
-        "updated": sale
-      })
+      // Update Products details
+      // Find all products
+      Productdetails.findOne({
+        "iddetail": sale["iddetail"]
+      }).exec(function(err, detail) {
+        if (err) {
+          return res.json({
+            "status": 500
+          });
+        }
+        // update all product quantity
+        detail["quantity"] += parseInt(req.param("returnNum"));
+        detail.save();
+        return res.json({
+          "status": 200,
+          "sales": sale
+        });
+      }); // End product details
     });
   },
 
@@ -107,20 +121,51 @@ module.exports = {
       var newSales = [];
       for (var s in sales) {
         newSales.push({
-          "quantity": "",
-          "unitary_price" :"",
-          "total_price": "",
+          "quantity": sales[s]["quantity_cart"],
+          "unitary_price": sales[s]["price"],
+          "total_price": sales[s]["total_price"],
           "model": "sale",
-          "iddetail": "",
+          "iddetail": sales[s]["iddetail"],
           "ticket": ticketID
         });
       }
-      Sales.create(newSales, function createSales(err, ) {
-        return res.json({
-          "status": 200,
-          "ticket": ticket,
-          "sales": sales
-        });
+
+      Sales.create(newSales, function createSales(err, sales) {
+        if (err) {
+          return res.json({
+            "status": 500
+          });
+        }
+        // Update each product
+        var pDetailsIDs = [];
+        for (var s in sales) {
+          pDetailsIDs.push(sales[s]["iddetail"]);
+        }
+        // Find all products
+        Productdetails.find().where({
+            iddetail: pDetailsIDs
+          })
+          .exec(function(err, details) {
+            if (err) {
+              return res.json({
+                "status": 500
+              });
+            }
+            // update all products quantity
+            for (var s in sales) {
+              for (var d in details) {
+                if (sales[s]["iddetail"] == details[d]["iddetail"]) {
+                  details[d]["quantity"] = details[d]["quantity"] - sales[s]["quantity"];
+                  details[d].save();
+                }
+              }
+            }
+            return res.json({
+              "status": 200,
+              "ticket": ticket,
+              "sales": sales
+            });
+          }); // End product details
       });
     });
   },

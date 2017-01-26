@@ -10,11 +10,9 @@ module.exports = {
   autoCreatedAt: false,
   autoUpdatedAt: false,
   attributes: {
-
     idticket: {
       type: 'integer',
       primaryKey: true,
-      required: true,
       autoIncrement: true
     },
     date: {
@@ -22,12 +20,10 @@ module.exports = {
       required: true
     },
     evidence: {
-      type: 'string',
-      required: true
+      type: 'string'
     },
     model: {
-      type: 'string',
-      required: true
+      type: 'string'
     }
   }
 };

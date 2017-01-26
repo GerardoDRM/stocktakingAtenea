@@ -8,6 +8,8 @@ app.controller('SalesEmployeeController', [
     // Returns
     $scope.tickets = [];
     $scope.ticket = {};
+    $scope.return = {};
+
     // Cart
     $scope.products = [];
     $scope.product = {};
@@ -85,22 +87,20 @@ app.controller('SalesEmployeeController', [
       var ticket = {
         "date": new Date()
       };
-      var sales = {
-        "sales": $scope.shop_cart;
-      }
       // Sales data
       $http({
         method: "POST",
         url: '/api/v0/create_ticket',
         data: {
           "ticket": ticket,
-          "sales": sales
+          "sales": $scope.shop_cart
         }
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           // Update quantity on productdetails
           init();
+          $scope.closeDialog();
         }
       }, function errorCallback(response) {});
     }
@@ -134,12 +134,13 @@ app.controller('SalesEmployeeController', [
         data: {
           "iddetail": product["iddetail"],
           "idticket": product["ticket"],
-          "date": new Date()
+          "date": new Date(),
+          "returnNum": $scope.return[index]["quantity"]
         }
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
-          getAllProducts();
+          getAllSalesEmployee();
         }
       }, function errorCallback(response) {});
     }
