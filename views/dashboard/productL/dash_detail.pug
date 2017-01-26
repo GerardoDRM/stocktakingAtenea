@@ -20,7 +20,7 @@ form(ng-controller="ProductDetailsController")
           .mdl-textfield.mdl-js-textfield
             input.mdl-textfield__input(type='text' placeholder="Tamano..." ng-model="details[$index].size", name="size")
         td
-          select(ng-model="details[$index].idbranch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch")
+          select(ng-model="details[$index].idbranch" ng-options="b.name for b in branches track by b.idbranch")
         td
           //- quantity
           .mdl-textfield.mdl-js-textfield

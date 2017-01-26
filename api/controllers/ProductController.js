@@ -9,17 +9,19 @@ var nodemailer = require('nodemailer');
 var transport = nodemailer.createTransport("SMTP", {
   service: "hotmail",
   auth: {
-    user: "gerardo.delarosama@udlap.mx",
-    pass: "4h.ye31p"
+    user: "",
+    pass: ""
   }
 });
 
 module.exports = {
 
   showProducts: function(req, res) {
-    Product.find({}, function find(err, products) {
+    Product.query("Select product.idproduct, name, price, model, \
+    idbranch, SUM(quantity) as quantity from product, productdetails \
+    where product.idproduct = productdetails.idproduct group by 1,2,3,4", [], function find(err, products) {
       if (err || products === undefined)
-        return res.negotiate(err);
+        return res.json({"status": 500});
 
       // Return productes array
       return res.json({"status": 200, "products": products})
@@ -83,24 +85,24 @@ module.exports = {
         return res.negotiate(err);
       }
       // Check if update on stock and compare min product
-      if (updated["min_product"] !== undefined || updated["min_product"] != null) {
-        // Compare quantity
-        if (updated["min_product"] >= updated["quantity"]) {
-          var mailOptions = {
-            from: 'Atenea Warning 👥 <contacto@nextplayers.mx>', // sender address
-            to: 'gerardo.bw@gmail.com', // list of receivers
-            subject: "Tema: Reabastecimiento de inventario", // Subject line
-            html: "Producto:" + updated["id"] + "<br/>" // html body
-          };
-
-          transport.sendMail(mailOptions, function(error, info) {
-            if (error) {
-              return console.log(error);
-            }
-            console.log('Message sent: ' + info.response);
-          });
-        }
-      }
+      // if (updated["min_product"] !== undefined || updated["min_product"] != null) {
+      //   // Compare quantity
+      //   if (updated["min_product"] >= updated["quantity"]) {
+      //     var mailOptions = {
+      //       from: 'Atenea Warning 👥 <contacto@nextplayers.mx>', // sender address
+      //       to: 'gerardo.bw@gmail.com', // list of receivers
+      //       subject: "Tema: Reabastecimiento de inventario", // Subject line
+      //       html: "Producto:" + updated["id"] + "<br/>" // html body
+      //     };
+      //
+      //     transport.sendMail(mailOptions, function(error, info) {
+      //       if (error) {
+      //         return console.log(error);
+      //       }
+      //       console.log('Message sent: ' + info.response);
+      //     });
+      //   }
+      // }
       return res.json({"status": 200, "product": updated});
     });
 

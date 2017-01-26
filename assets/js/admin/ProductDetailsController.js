@@ -19,14 +19,11 @@ app.controller('ProductDetailsController', [
 
     // Get branches list
     var getAllBranches = function() {
-      $http({
-        method: "GET",
-        url: '/api/v0/branches'
-      }).then(function successCallback(response) {
+      $http({method: "GET", url: '/api/v0/branches'}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           var branches = data.branches;
-          $scope.branches = branches;
+          $scope.branches = branches
         }
       }, function errorCallback(response) {});
     }
@@ -48,6 +45,13 @@ app.controller('ProductDetailsController', [
           $scope.rowsNumber = 0;
           for (var p in products) {
             $scope.details[p] = products[p];
+            // Check branch
+            for (var b in $scope.branches) {
+              if ($scope.branches[b].idbranch == products[p]['idbranch']) {
+                $scope.details[p].idbranch = $scope.branches[b];
+              }
+            }
+
             $scope.rowsNumber++;
           }
         }
@@ -59,19 +63,17 @@ app.controller('ProductDetailsController', [
     $rootScope.$on("ProductMethodInit", function() {
       $scope.details = {};
       $scope.rowsNumber = 0;
+      getAllBranches();
       if ($scope.po.getID() !== undefined)
         getStoredDetails();
-      getAllBranches();
-    });
+
+      }
+    );
 
     // Create new product
     var createDetail = function(product) {
       // Change Price to float
-      $http({
-        method: "POST",
-        url: '/api/v0/product_details',
-        data: product
-      }).then(function successCallback(response) {
+      $http({method: "POST", url: '/api/v0/product_details', data: product}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           getStoredDetails();
@@ -81,11 +83,7 @@ app.controller('ProductDetailsController', [
 
     var updateProductDetails = function(product) {
       // Update details
-      $http({
-        method: "PUT",
-        url: '/api/v0/products_details',
-        data: product
-      }).then(function successCallback(response) {
+      $http({method: "PUT", url: '/api/v0/products_details', data: product}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           getStoredDetails();

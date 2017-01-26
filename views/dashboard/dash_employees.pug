@@ -58,7 +58,7 @@ div.mdl-layout__content(style="width:100%;" ng-controller="EmployeeAdminControll
               .error-msg(ng-show='employeeForm.$submitted || employeeForm.password.$touched')
                 span(ng-show='employeeForm.password.$error.required') Campo requerido
 
-            select(ng-model="branch" style='margin-top:30px;' ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
+            select(ng-model="branch" style='margin-top:30px;' ng-options="b.name for b in branches track by b.idbranch", required)
               .error-msg(ng-show='employeeForm.$submitted || employeeForm.branch.$touched')
                 span(ng-show='employeeForm.branch.$error.required') Campo requerido
             div.mdl-dialog__actions

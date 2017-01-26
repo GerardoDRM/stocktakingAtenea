@@ -11,7 +11,13 @@ app.factory("productObject", function() {
   };
 });
 app.factory("filterBranch", function() {
-  return function(data, branches) {
-    for (var i in data) {}
+  return function(data, branch) {
+    var elemen = [];
+    for (var i in data) {
+      if (data[i]["idbranch"] == branch) {
+        elemen.push(data[i]);
+      }
+    }
+    return elemen;
   }
 });

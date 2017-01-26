@@ -1,32 +1,25 @@
 div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminController")
   div
-    .header-title.zigzag-pink
-      .filters
-        .mdl-grid
-          .mdl-cell.mdl-cell--6-col.product-header
-            h3 Sucursal
-            select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch")
-          .mdl-cell.mdl-cell--6-col
-
-            h3 Ordenar
-            select.select-branch-product
-              option(value="1") Todas
-              option(value="2") Oaxaca
+    .header-title-sales.zigzag-pink
+      h2 Sucursal
+      select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch" ng-change="changeData()")
 
   div
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
-          th Foto
+          th Id
           th Nombre
           th Precio
+          th Marca
           th Cantidad
+          th Acciones
       tbody
         tr(ng-repeat="e in products")
-          td
-            img(src="./images/people.svg")
+          td {{e.idproduct}}
           td {{e.name}}
           td {{e.price}}
+          td {{e.model}}
           td {{e.quantity}}
           td
             button.mdl-button.mdl-js-button(ng-click="showProductDetail(e.idproduct)") Ver Mas

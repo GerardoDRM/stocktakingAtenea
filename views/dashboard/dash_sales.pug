@@ -1,7 +1,7 @@
 div(ng-controller="SalesAdminController")
   .header-title-sales.zigzag-pink
     h2 Sucursal
-    select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
+    select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch" ng-change="changeData()")
 
 
   div
