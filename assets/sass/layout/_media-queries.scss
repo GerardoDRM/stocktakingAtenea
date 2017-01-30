@@ -10,6 +10,13 @@
 @include mq($brk-less-md) {}
 @include mq($brk-less-sm) {
 
+  .backLogin .mdl-card {
+
+  background: red;
+
+    width: 500px;
+}
+
     .product-table {
 
       img {

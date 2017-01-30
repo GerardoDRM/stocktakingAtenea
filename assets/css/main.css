@@ -252,7 +252,7 @@ html {
     height: 300px;
     text-align: center;
     margin: 14% auto 0;
-    width: 500px; }
+    width: 90%; }
     .backLogin .mdl-card .mdl-card__title {
       margin: 0 auto; }
       .backLogin .mdl-card .mdl-card__title h2 {
@@ -627,6 +627,10 @@ html {
 **/
 /*Media Queries*/
 @media only screen and (max-width: 300px) {
+  .backLogin .mdl-card {
+    background: red;
+    width: 500px; }
+
   .product-table img {
     width: 25%; }
 
