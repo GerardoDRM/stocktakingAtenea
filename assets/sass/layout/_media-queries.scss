@@ -6,55 +6,25 @@
   * on media queries, just include and functions
 **/
 /*Media Queries*/
-@include mq($brk-less-lg) {}
-@include mq($brk-less-md) {}
-@include mq($brk-less-sm) {
+@include mq($brk-max-md) {}
+@include mq($brk-max-sm) {
+  .backLogin {
+    .mdl-card {
+      width: 80%;
 
-  .backLogin .mdl-card {
+      form {
+        padding: 10px;
 
-  background: red;
-
-    width: 500px;
-}
-
-    .product-table {
-
-      img {
-        width: 25%;
+        button {
+          width: 90%;
+        }
       }
-
-
     }
-
-    .mdl-data-table{
-    th {
-      font-size: 13px;
-
-      }
-
-    }
-
-    .dissapear {
-    display: none;;
   }
-
-  .dialog-grid-employee  {
-
-    top: initial;
+  .disappear {
+    display: none;
   }
-
-
-
-}
-@include mq($brk-less-max-md) {
-  .navbar-default {
-    height: 10.25em;
+  .mdl-dialog {
+    width: 80%;
   }
-}
-@include mq($brk-less-max-sm) {
-  .special-two-col {
-    float: left;
-    width: 45%;
-  }
-
 }

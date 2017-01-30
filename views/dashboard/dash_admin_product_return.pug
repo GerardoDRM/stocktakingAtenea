@@ -7,18 +7,18 @@ div(ng-controller="ReturnAdminController")
     table.mdl-data-table.mdl-js-data-table.table-dash
       thead
         tr
-          th.mdl-data-table__cell--non-numeric Fecha
-          th.mdl-data-table__cell--non-numeric Color
-          th Nombre
-          th.mdl-data-table__cell--non-numeric Producto
+          th Fecha
+          th.disappear Color
+          th.disappear Nombre
+          th Producto
           th Tamano
 
       tbody
         tr(ng-repeat="t in sales")
           td  {{t.return_date}}
-          td
+          td.disappear
             div.color-container(style="background:{{t.color}}")
 
-          td  {{t.name}}
+          td.disappear {{t.name}}
           td {{t.idproduct}}
           td {{t.size}}

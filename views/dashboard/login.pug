@@ -1,8 +1,10 @@
 doctype html
-html(lang="es")
+html(lang="es-MX")
   head
     title= "Sistema Inventarios"
-
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='author', content='Craft Code')
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
     link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
     link(rel='stylesheet', href='/css/main.css', type='text/css')
@@ -12,7 +14,7 @@ html(lang="es")
         .login(ng-controller="LoginController")
           .card-login.mdl-card.mdl-shadow--2dp
             .mdl-card__title
-              h2.mdl-card__title-text Bienvenido a Atenea
+              h2.mdl-card__title-text Bienvenido
             form(name="userForm" novalidate)
               .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
                 input.mdl-textfield__input(type='number' name="id" ng-model="user.id")

@@ -5,17 +5,18 @@ div.mdl-layout__content(style="width:100%;" ng-controller="BranchAdminController
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top
       thead
         tr
-          th Foto
+          th.disappear Foto
           th Nombre
-          th Direccion
-          th Tel.
+          th.disappear Direccion
+          th.disappear Tel.
+          th Acciones
       tbody
         tr(ng-repeat="e in branches")
-          td
+          td.disappear
             img(src="./images/store.svg")
           td {{e.name}}
-          td {{e.address}}
-          td {{e.phone}}
+          td.disappear {{e.address}}
+          td.disappear {{e.phone}}
           td
             button.mdl-button.mdl-js-button(ng-click="showBranchDetail(e.idbranch)") Ver Mas
             button.mdl-button.mdl-js-button(ng-click="deleteBranch(e.idbranch)") Eliminar

@@ -252,7 +252,7 @@ html {
     height: 300px;
     text-align: center;
     margin: 14% auto 0;
-    width: 90%; }
+    width: 500px; }
     .backLogin .mdl-card .mdl-card__title {
       margin: 0 auto; }
       .backLogin .mdl-card .mdl-card__title h2 {
@@ -626,28 +626,18 @@ html {
   * on media queries, just include and functions
 **/
 /*Media Queries*/
-@media only screen and (max-width: 300px) {
+@media (max-width: 768px) {
   .backLogin .mdl-card {
-    background: red;
-    width: 500px; }
+    width: 80%; }
+    .backLogin .mdl-card form {
+      padding: 10px; }
+      .backLogin .mdl-card form button {
+        width: 90%; }
 
-  .product-table img {
-    width: 25%; }
-
-  .mdl-data-table th {
-    font-size: 13px; }
-
-  .dissapear {
+  .disappear {
     display: none; }
 
-  .dialog-grid-employee {
-    top: initial; } }
-@media (max-width: 992px) and (min-width: 768px) {
-  .navbar-default {
-    height: 10.25em; } }
-@media (max-width: 768px) and (min-width: 500px) {
-  .special-two-col {
-    float: left;
-    width: 45%; } }
+  .mdl-dialog {
+    width: 80%; } }
 
 /*# sourceMappingURL=main.css.map */

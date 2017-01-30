@@ -9,17 +9,17 @@ div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminControlle
       thead
         tr
           th Id
-          th Nombre
-          th Precio
-          th Marca
+          th.disappear Nombre
+          th.disappear Precio
+          th.disappear Marca
           th Cantidad
           th Acciones
       tbody
         tr(ng-repeat="e in products")
           td {{e.idproduct}}
-          td {{e.name}}
-          td {{e.price}}
-          td {{e.model}}
+          td.disappear {{e.name}}
+          td.disappear {{e.price}}
+          td.disappear {{e.model}}
           td {{e.quantity}}
           td
             button.mdl-button.mdl-js-button(ng-click="showProductDetail(e.idproduct)") Ver Mas
