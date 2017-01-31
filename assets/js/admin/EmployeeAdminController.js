@@ -1,4 +1,4 @@
-app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showToast', function($scope, $http, $compile, showToast) {
   $scope.branches = [];
   $scope.branch = undefined;
   $scope.employees = [];
@@ -52,6 +52,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has agregado un nuevo empleado");
           dialog.close();
           $scope.getAllEmployees();
         }
@@ -91,6 +92,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has actualizado la información");
           console.log("Updated");
           $scope.getAllEmployees();
         }
@@ -106,6 +108,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has eliminado a un empleado");
           $scope.getAllEmployees();
         }
       }, function errorCallback(response) {});

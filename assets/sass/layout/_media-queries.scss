@@ -8,6 +8,53 @@
 /*Media Queries*/
 @include mq($brk-max-md) {}
 @include mq($brk-max-sm) {
+
+  .span-employee {
+    margin-top: 7px;
+  }
+
+  .mdl-list__item--three-line {
+    height: 150px;
+}
+
+  .right-link {
+    margin-left: 0px;
+  }
+  .mdl-layout.is-small-screen .mdl-layout--large-screen-only {
+    display: flex;
+        margin-left: -68px;
+}
+
+  .header-title-sales select {
+    margin-right: 4px;
+
+}
+
+  .mdl-badge.mdl-badge--overlap {
+    padding-left: 84px;
+}
+
+  .div-car button {
+    margin-left: 30px;
+    margin-top: 23px;
+}
+
+  .mdl-textfield__input {
+
+    font-size: 9px;
+
+    width: 80%;
+
+}
+
+  .mdl-button {
+    margin-left: -28px;
+}
+
+  .table-dash.mdl-data-table th {
+    font-size: 15px;
+
+}
   .backLogin {
     .mdl-card {
       width: 80%;
@@ -17,8 +64,7 @@
 
         button {
           width: 90%;
-        }
-      }
+        }      }
     }
   }
   .disappear {

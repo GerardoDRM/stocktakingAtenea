@@ -4,7 +4,8 @@ app.controller('ProductDetailsController', [
   '$http',
   '$compile',
   'productObject',
-  function($scope, $rootScope, $http, $compile, productObject) {
+  'showToast',
+  function($scope, $rootScope, $http, $compile, productObject, showToast) {
 
     $scope.branches = [];
     var po = productObject;
@@ -76,6 +77,7 @@ app.controller('ProductDetailsController', [
       $http({method: "POST", url: '/api/v0/product_details', data: product}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has creado un producto");
           getStoredDetails();
         }
       }, function errorCallback(response) {});
@@ -86,6 +88,7 @@ app.controller('ProductDetailsController', [
       $http({method: "PUT", url: '/api/v0/products_details', data: product}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Los cambios han sido actualizados");
           getStoredDetails();
         }
       }, function errorCallback(response) {});
@@ -133,8 +136,10 @@ app.controller('ProductDetailsController', [
         method: "DELETE",
         url: '/api/v0/products_details/' + id
       }).then(function successCallback(response) {
+
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has eliminado un producto");
           getStoredDetails();
         }
       }, function errorCallback(response) {});

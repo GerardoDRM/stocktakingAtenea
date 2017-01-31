@@ -4,8 +4,9 @@ app.controller('ProductGeneralController', [
   '$http',
   '$compile',
   'productObject',
+  'showToast',
 
-  function($scope, $rootScope, $http, $compile, productObject) {
+  function($scope, $rootScope, $http, $compile, productObject, showToast) {
 
     $scope.product = {};
     $scope.po = productObject;
@@ -46,6 +47,7 @@ app.controller('ProductGeneralController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha creado un producto");
           $scope.po.setID(data.product.idproduct);
           getProductById($scope.po.getID())
         }
@@ -62,6 +64,7 @@ app.controller('ProductGeneralController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha actualizado la información");
           getProductById($scope.po.getID());
         }
       }, function errorCallback(response) {});

@@ -3,6 +3,7 @@ app.controller('SalesAdminController', [
   '$http',
   '$compile',
   'filterBranch',
+  
   function($scope, $http, $compile, filterBranch) {
 
     $scope.tickets = [];

@@ -1,4 +1,4 @@
-app.controller('BranchAdminController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+app.controller('BranchAdminController', ['$scope', '$http', '$compile', 'showToast', function($scope, $http, $compile, showToast) {
 
   $scope.branches = [];
   $scope.branch = {};
@@ -15,6 +15,7 @@ app.controller('BranchAdminController', ['$scope', '$http', '$compile', function
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has agregado una nueva Sucursal");
           dialog.close();
           $scope.getAllBranches();
         }
@@ -69,6 +70,7 @@ app.controller('BranchAdminController', ['$scope', '$http', '$compile', function
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha actualizado la sucursal correctamente");
           dialog.close();
           $scope.getAllBranches();
         }
@@ -84,6 +86,7 @@ app.controller('BranchAdminController', ['$scope', '$http', '$compile', function
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha eliminado la sucursal correctamente");
           $scope.getAllBranches();
         }
       }, function errorCallback(response) {});

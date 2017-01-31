@@ -1,4 +1,4 @@
-app.controller('ProductSimpleController', ['$scope', '$http', '$compile', function($scope, $http, $compile) {
+app.controller('ProductSimpleController', ['$scope', '$http', '$compile', 'showToast', function($scope, $http, $compile, showToast) {
 
   $scope.branches = [];
   $scope.branch = undefined;
@@ -52,6 +52,7 @@ app.controller('ProductSimpleController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha creado el producto");
           dialog.close();
           $scope.getAllProducts();
         }
@@ -91,6 +92,7 @@ app.controller('ProductSimpleController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha actualizado la información");
           console.log("Updated");
           $scope.getAllProducts();
         }
@@ -106,6 +108,7 @@ app.controller('ProductSimpleController', ['$scope', '$http', '$compile', functi
       .then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has eliminado un producto");
           $scope.getAllProducts();
         }
       }, function errorCallback(response) {});

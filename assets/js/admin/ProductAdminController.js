@@ -5,7 +5,8 @@ app.controller('ProductAdminController', [
   '$compile',
   'productObject',
   'filterBranch',
-  function($scope, $rootScope, $http, $compile, productObject, filterBranch) {
+   'showToast',
+  function($scope, $rootScope, $http, $compile, productObject, filterBranch, showToast) {
 
     $scope.branches = [];
     $scope.branch = undefined;
@@ -54,6 +55,7 @@ app.controller('ProductAdminController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Has eliminado un producto");
           $scope.getAllProducts();
         }
       }, function errorCallback(response) {});

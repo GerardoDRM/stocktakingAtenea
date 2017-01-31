@@ -2,7 +2,8 @@ app.controller('SalesEmployeeController', [
   '$scope',
   '$http',
   '$compile',
-  function($scope, $http, $compile) {
+  'showToast',
+  function($scope, $http, $compile, showToast) {
     $scope.branches = [];
     $scope.branch = undefined;
     // Returns
@@ -98,6 +99,7 @@ app.controller('SalesEmployeeController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha creado el ticket");
           // Update quantity on productdetails
           init();
           $scope.closeDialog();
@@ -140,6 +142,7 @@ app.controller('SalesEmployeeController', [
       }).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
+          showToast("Se ha actualizado la información");
           getAllSalesEmployee();
         }
       }, function errorCallback(response) {});

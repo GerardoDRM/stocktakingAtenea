@@ -1,7 +1,9 @@
-angular.module('AteneaApp', []).controller('LoginController', [
+var app = angular.module('AteneaApp', []);
+app.controller('LoginController', [
   '$scope',
   '$http',
-  function($scope, $http) {
+  'showToast',
+  function($scope, $http, showToast) {
     $scope.user = {};
 
     $scope.loginEmployee = function(form) {
@@ -9,10 +11,12 @@ angular.module('AteneaApp', []).controller('LoginController', [
         $http({method: "PUT", url: '/api/v0/login', data: $scope.user}).then(function successCallback(response) {
           var data = response.data;
           if (data.status == 200) {
-            window.location.href = "/dashboard";
+            showToast("Has ingresado a Atenea");
+             window.location.href = "/dashboard";
           }
         }, function errorCallback(response) {});
       }
     }
   }
+
 ]);

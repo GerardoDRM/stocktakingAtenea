@@ -4,8 +4,9 @@ app.controller('ProductGalleryController', [
   '$http',
   '$compile',
   'productObject',
+  'showToast',
 
-  function($scope, $rootScope, $http, $compile, productObject) {
+  function($scope, $rootScope, $http, $compile, productObject, showToast) {
     var photosArray = [];
     // var po = productObject;
     $scope.po = productObject;
@@ -75,6 +76,7 @@ app.controller('ProductGalleryController', [
       }).then(function successCallback(response) {
         var data = response.status;
         if (data == 200) {
+          showToast("La imagen ha sido eliminada");
           $scope.getFiles();
         }
       }, function errorCallback(response) {});

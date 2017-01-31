@@ -21,3 +21,17 @@ app.factory("filterBranch", function() {
     return elemen;
   }
 });
+
+
+app.factory("showToast", function() {
+  return function(msg) {
+    var notification = document.querySelector('.mdl-js-snackbar');
+notification.MaterialSnackbar.showSnackbar(
+  {
+    message: msg
+  }
+);
+
+
+  }
+});

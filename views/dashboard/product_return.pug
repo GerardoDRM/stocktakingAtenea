@@ -11,19 +11,19 @@ block content
         tr
           th Producto
           th Fecha
-          th Sucursal
-          th Color
-          th Tamano
+          th.disappear Sucursal
+          th.disappear Color
+          th.disappear Tamano
           th Devoluciones
 
       tbody
         tr(ng-repeat = "t in tickets track by $index")
           td.mdl-data-table__cell--non-numeric {{t.idproduct}}
           td.mdl-data-table__cell--non-numeric {{t.date}}
-          td {{t.name}}
-          td
+          td.disappear {{t.name}}
+          td.disappear
             div.color-container(style="background:{{t.color}}; border:2px solid #ccc")
-          td {{t.size}}
+          td.disappear {{t.size}}
           td
             button.mdl-button.mdl-js-button(ng-click="returnProduct($index)") Devolución
             input.mdl-textfield__input(type='number' placeholder="Cantidad" ng-model="return[$index].quantity", name="quantity")

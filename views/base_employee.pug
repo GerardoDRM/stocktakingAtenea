@@ -2,19 +2,26 @@ doctype html
 html(lang="es")
   head
     title= "Sistema Inventarios"
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, minimum-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='author', content='Craft Code')
 
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
     link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
     link(rel='stylesheet', href='/css/main.css', type='text/css')
   body(ng-app="AteneaApp" ng-cloak)
+    .mdl-snackbar.mdl-js-snackbar(aria-live='assertive', aria-atomic='true', aria-relevant='text')
+      .mdl-snackbar__text
+      button.mdl-snackbar__action(type='button')
     div.app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
       header.android-header.mdl-layout__header.mdl-layout__header--waterfall
         div.mdl-layout__header-row.nav-atenea
 
           div.mdl-layout-spacer
             nav.mdl-navigation.mdl-layout--large-screen-only
+              a.mdl-navigation__link(href='/logout' style="    display: inline-table;") Cerrar sesión
               a.mdl-navigation__link(href='/dashboard' style="") Productos
-              a.mdl-navigation__link(href='/product_return' style="    margin-left: 78%;") Devoluciones
+              a.right-link.mdl-navigation__link(href='/product_return' style="") Devoluciones
 
 
 
@@ -26,11 +33,11 @@ html(lang="es")
           ul.demo-list-three.mdl-list(ng-repeat="p in shop_cart track by $index")
             li.mdl-list__item.mdl-list__item--three-line
               span.mdl-list__item-primary-content
-                i.material-icons.mdl-list__item-avatar(style="width: 47px;height: 45px; margin-right: 60px;background:{{p.color}}")
+                i.material-icons.mdl-list__item-avatar(style="width: 58px; height: 58px; margin-right: 60px;background:{{p.color}}")
                 span {{p.idproduct}}
-                span.mdl-list__item-text-body
+                span.disappear.mdl-list__item-text-body
                   | Precio unitario {{p.price}}
-                span.mdl-list__item-text-body(style="margin-top: -29px;")
+                span.span-employee.mdl-list__item-text-body(style="")
                   | IVA {{p.total_price}}
 
               span.mdl-list__item-secondary-content

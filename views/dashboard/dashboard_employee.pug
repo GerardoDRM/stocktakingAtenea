@@ -16,17 +16,17 @@ block content
           th Producto
           th Precio
           th Cantidad
-          th Color
-          th Tamano
+          th.disappear Color
+          th.disappear Tamano
           th Carrito
       tbody
         tr(ng-repeat="t in products track by $index")
           td.mdl-data-table__cell--non-numeric # {{t.name}}
           td.mdl-data-table__cell--non-numeric $ {{t.price}}
           td  {{t.quantity}}
-          td
+          td.disappear
             div.color-container(style="background:{{t.color}}; border:1px solid #ccc")
-          td {{t.size}}
+          td.disappear {{t.size}}
           td
             button.mdl-button.mdl-js-button(ng-click="addElementCart($index)") Agregar
             input.mdl-textfield__input(type='number' placeholder="Cantidad" ng-model="shop[$index].quantity", name="quantity")
