@@ -146,7 +146,7 @@ html {
   * This SASS file has all footers style
 **/
 .footer {
-  background-color: #FA3E51;
+  background-color: #2B2B33;
   position: relative;
   color: #FFF; }
   .footer a:hover {
@@ -171,7 +171,7 @@ html {
 /* Header */
 .android-header {
   overflow: visible;
-  background-color: #2B2B33; }
+  background-color: #FA3E51; }
   .android-header .material-icons {
     color: #767777 !important; }
   .android-header .mdl-navigation__link {
@@ -219,7 +219,7 @@ html {
     align-items: center; }
 
 .drawer-header {
-  background: #2B2B33;
+  background: #FA3E51;
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -281,7 +281,7 @@ html {
   .header-title-sales h2 {
     margin: 0;
     text-align: center;
-    color: #2B2B33;
+    color: white;
     padding-top: 26px; }
   .header-title-sales h3 {
     margin: 0;
@@ -311,7 +311,7 @@ html {
   .header-title-employee h2 {
     margin: 0;
     text-align: center;
-    color: #2B2B33;
+    color: white;
     padding-top: 26px; }
   .header-title-employee h3 {
     margin: 0;
@@ -341,7 +341,7 @@ html {
   .header-title h2 {
     margin: 0;
     text-align: center;
-    color: #2B2B33;
+    color: white;
     padding-top: 26px; }
   .header-title h3 {
     margin: 0;
