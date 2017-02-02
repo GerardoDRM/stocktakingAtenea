@@ -26,13 +26,13 @@ div(ng-controller="SalesAdminController")
     dialog#salesDialog.mdl-dialog.dialog-sales
       h3 Ticket # {{ticket.idTicket}}
       ul.demo-list-three.mdl-list(ng-repeat="t in ticket.products")
-        li.mdl-list__item.mdl-list__item--three-line
+        li.mdl-list__item.mdl-list__item--two-line
           span.mdl-list__item-primary-content
-            i.avatar-sales.material-icons.mdl-list__item-avatar(style="width: 47px;height: 45px; margin-right: 60px;background:{{t.color}}")
+            i.avatar-sales.material-icons.mdl-list__item-avatar(style="width: 45px;height: 45px; background:{{t.color}}")
             span {{t.idproduct}} - {{t.name}}
-            span.mdl-list__item-text-body
+            span.mdl-list__item-sub-title
               | Precio Unitario $ {{t.unitary_price}}
-            span.mdl-list__item-text-body(style="margin-top: -29px;")
+            span.mdl-list__item-sub-title
               | Total $ {{t.total_price}}
 
       div.mdl-dialog__actions

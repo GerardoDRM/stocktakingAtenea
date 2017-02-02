@@ -100,7 +100,7 @@ html {
   left: 0; }
 
 .zigzag-pink:after {
-  background: linear-gradient(-45deg, transparent 24px, #AD1457 0), linear-gradient(45deg, transparent 24px, #AD1457 0);
+  background: linear-gradient(-45deg, transparent 24px, #FA3E51 0), linear-gradient(45deg, transparent 24px, #FA3E51 0);
   background-repeat: repeat-x;
   background-position: left bottom;
   background-size: 30px 40px;
@@ -146,7 +146,7 @@ html {
   * This SASS file has all footers style
 **/
 .footer {
-  background-color: #AD1457;
+  background-color: #FA3E51;
   position: relative;
   color: #FFF; }
   .footer a:hover {
@@ -171,7 +171,7 @@ html {
 /* Header */
 .android-header {
   overflow: visible;
-  background-color: #E91E63; }
+  background-color: #2B2B33; }
   .android-header .material-icons {
     color: #767777 !important; }
   .android-header .mdl-navigation__link {
@@ -219,6 +219,7 @@ html {
     align-items: center; }
 
 .drawer-header {
+  background: #2B2B33;
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -244,7 +245,7 @@ html {
   * multiple backgrounds (colors/img)
 **/
 .backLogin {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(233, 30, 99, 0.45) 90%), linear-gradient(0deg, rgba(156, 39, 176, 0.35), transparent), url("../images/fashion.jpg") center 90%/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(167, 47, 63, 0.65) 90%), linear-gradient(0deg, rgba(43, 43, 51, 0.95), transparent), url(../images/fashion.jpg) center 90%/cover no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%; }
@@ -258,16 +259,16 @@ html {
       .backLogin .mdl-card .mdl-card__title h2 {
         text-align: center;
         font-size: 1.875em;
-        color: #AD1457; }
+        color: #FA3E51; }
     .backLogin .mdl-card button {
       width: 300px;
-      background: #ff4081;
+      background: #FA3E51;
       color: white; }
 
 .header-title-sales {
   width: 100%;
   height: 195px;
-  background: #AD1457;
+  background: #FA3E51;
   position: relative;
   z-index: 99;
   text-align: center; }
@@ -280,12 +281,12 @@ html {
   .header-title-sales h2 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title-sales h3 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title-sales .filters {
     margin-left: 80px;
@@ -299,7 +300,7 @@ html {
 .header-title-employee {
   width: 100%;
   height: 153px;
-  background: #AD1457;
+  background: #FA3E51;
   position: relative;
   z-index: 99;
   text-align: center; }
@@ -310,12 +311,12 @@ html {
   .header-title-employee h2 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title-employee h3 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title-employee .filters {
     margin-left: 80px;
@@ -329,7 +330,7 @@ html {
 .header-title {
   width: 100%;
   height: 198px;
-  background: #AD1457;
+  background: #FA3E51;
   position: relative;
   z-index: 99;
   text-align: center; }
@@ -340,12 +341,12 @@ html {
   .header-title h2 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title h3 {
     margin: 0;
     text-align: center;
-    color: #E91E63;
+    color: #2B2B33;
     padding-top: 26px; }
   .header-title .filters {
     margin-left: 80px;
@@ -418,14 +419,14 @@ html {
     margin: 0 auto; }
 
 .tabs-products .mdl-layout__header {
-  background: #AD1457;
+  background: #FA3E51;
   height: 150px;
   position: relative; }
   .tabs-products .mdl-layout__header .mdl-layout__tab-bar-container {
     position: absolute;
     bottom: 10px; }
   .tabs-products .mdl-layout__header .mdl-layout__tab-bar {
-    background: #AD1457; }
+    background: #FA3E51; }
     .tabs-products .mdl-layout__header .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
       background: transparent; }
 
@@ -623,6 +624,13 @@ html {
 
 .addlink {
   margin-top: 30px; }
+
+.mdl-button--fab.mdl-button--colored {
+  background: #A72F3F;
+  color: white; }
+
+.mdl-button--fab.mdl-button--colored:hover {
+  background-color: #A72F3F; }
 
 /**
   * Media queries Partial SASS

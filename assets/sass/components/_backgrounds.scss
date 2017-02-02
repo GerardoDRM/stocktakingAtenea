@@ -4,7 +4,7 @@
   * multiple backgrounds (colors/img)
 **/
 .backLogin {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(233, 30, 99, 0.45) 90%), linear-gradient(0deg, rgba(156, 39, 176, 0.35), transparent), url("../images/fashion.jpg") center 90%/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(167, 47, 63, 0.65)   90%), linear-gradient(0deg, rgba(43, 43, 51, 0.95), transparent), url(../images/fashion.jpg) center 90%/cover no-repeat;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -27,7 +27,7 @@
 
     button {
       width: 300px;
-      background: #ff4081;
+      background: $deep-pink;
       color: white;
     }
   }
