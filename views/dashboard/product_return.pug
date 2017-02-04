@@ -11,15 +11,17 @@ block content
         tr
           th Producto
           th Fecha
+          th Cantidad
           th.disappear Sucursal
           th.disappear Color
-          th.disappear Tamano
+          th.disappear Tamaño
           th Devoluciones
 
       tbody
         tr(ng-repeat = "t in tickets track by $index")
           td.mdl-data-table__cell--non-numeric {{t.idproduct}}
           td.mdl-data-table__cell--non-numeric {{t.date}}
+          td.mdl-data-table__cell--non-numeric {{t.quantity}}
           td.disappear {{t.name}}
           td.disappear
             div.color-container(style="background:{{t.color}}; border:2px solid #ccc")

@@ -31,11 +31,11 @@ module.exports = {
   getReturnsDetails: function(req, res) {
 
     Sales.query('select return_date, color, size, product.name, product.idproduct, branch.name \
-    from ticket, productdetails, product, sales, branch where \
+    from ticket, productdetails, product, sales, branch, returns where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
     branch.idbranch = productdetails.idbranch \
-    and sales.model = "return"', [], function(err, rawResult) {
+    and sales.idsales = returns.idsales', [], function(err, rawResult) {
       if (err) {
         return res.json({
           "status": 500
@@ -52,20 +52,43 @@ module.exports = {
 
   getReturnsDetailsEmployee: function(req, res) {
 
-    Sales.query('select size, sales.iddetail, sales.ticket, ticket.date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select size, sales.idsales, sales.iddetail, sales.ticket, sales.quantity, ticket.date, color, product.name, product.idproduct, branch.name \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \
-    branch.idbranch = productdetails.idbranch \
-    and sales.model != "return"', [], function(err, rawResult) {
+    branch.idbranch = productdetails.idbranch', [], function(err, rawResult) {
       if (err) {
         return res.json({
           "status": 500
         });
       }
-      return res.json({
-        "status": 200,
-        "data": rawResult
+      // Filter data
+      // Get returns
+      Returns.find({}, function getReturns(err, returns){
+        // Filter returns and sales quantity
+        var sales = JSON.stringify({"data": rawResult});
+        sales = JSON.parse(sales)["data"];
+        var new_result = [];
+        for (var s in sales) {
+          var flag = false;
+          for (var r in returns) {
+            if (sales[s]["idsales"] == returns[r]["idsales"]) {
+              sales[s]["quantity"] -= returns[r]["quantity"];
+              if (sales[s]["quantity"] == 0) {
+                flag = true;
+                break;
+              }
+            }
+          }
+          if (!flag) {
+            new_result.push(sales[s]);
+          }
+        }
+
+        return res.json({
+          "status": 200,
+          "data": new_result
+        });
       });
     });
   },
@@ -82,9 +105,6 @@ module.exports = {
           "status": 500
         });
       }
-      sale["return_date"] = req.param("date");
-      sale["model"] = "return";
-      sale.save();
       // Update Products details
       // Find all products
       Productdetails.findOne({
@@ -98,9 +118,21 @@ module.exports = {
         // update all product quantity
         detail["quantity"] += parseInt(req.param("returnNum"));
         detail.save();
-        return res.json({
-          "status": 200,
-          "sales": sale
+        // Create return evidence
+        Returns.create({
+          "return_date": req.param("date"),
+          "quantity": parseInt(req.param("returnNum")),
+          "idsales": sale["idsales"]
+        }, function createReturn(err, returns) {
+          if (err || returns === undefined) {
+            res.json({
+              "status": 500
+            });
+          }
+          return res.json({
+            "status": 200,
+            "sales": sale
+          });
         });
       }); // End product details
     });
@@ -124,7 +156,6 @@ module.exports = {
           "quantity": sales[s]["quantity_cart"],
           "unitary_price": sales[s]["price"],
           "total_price": sales[s]["total_price"],
-          "model": "sale",
           "iddetail": sales[s]["iddetail"],
           "ticket": ticketID
         });

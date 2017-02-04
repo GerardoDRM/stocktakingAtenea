@@ -20,7 +20,6 @@ module.exports = {
     Product.query("Select product.idproduct, name, price, model, \
     idbranch, SUM(quantity) as quantity from product, productdetails \
     where product.idproduct = productdetails.idproduct group by 1,2,3,4", [], function find(err, products) {
-      console.log("ERROR1", products);
       if (err || products === undefined)
         return res.json({"status": 500});
 

@@ -18,7 +18,9 @@ module.exports = {
     Employee.findOne({
       "idemployee": req.session.me
     }, function find(err, employee) {
-      if (err || employee === undefined) return res.view("dashboard/login");
+      if (err || employee === undefined)
+        return res.view("dashboard/login");
+
       // Return branches array
       if (employee.role == "admin") {
         res.view("dashboard/dashboard_main");
@@ -31,26 +33,23 @@ module.exports = {
 
   showEmployees: function(req, res) {
     Employee.find({}, function find(err, employees) {
-      if (err || employees === undefined) return res.negotiate(err);
+      if (err || employees === undefined)
+        return res.negotiate(err);
+
       // Return branches array
-      return res.json({
-        "status": 200,
-        "employees": employees
-      })
+      return res.json({"status": 200, "employees": employees})
     });
   },
-
 
   getEmployeeById: function(req, res) {
     Employee.findOne({
       "idemployee": req.param("id")
     }, function find(err, employee) {
-      if (err || employee === undefined) return res.negotiate(err);
+      if (err || employee === undefined)
+        return res.negotiate(err);
+
       // Return branches array
-      return res.json({
-        "status": 200,
-        "employee": employee
-      })
+      return res.json({"status": 200, "employee": employee})
     });
   },
 
@@ -61,17 +60,16 @@ module.exports = {
   login: function(req, res) {
     // Try to look up user using the provided email address
     Employee.findOne({
-      "idemployee": req.param('id'),
+      "idemployee": req.param('id')
     }, function foundUser(err, user) {
-      if (err || user === undefined) return res.negotiate(err);
-      if (!user) return res.notFound();
+      if (err || user === undefined)
+        return res.negotiate(err);
+      if (!user)
+        return res.notFound();
 
       // Compare password attempt from the form params to the encrypted password
       // from the database (`user.password`)
-      Passwords.checkPassword({
-        passwordAttempt: req.param('password'),
-        encryptedPassword: user.password
-      }).exec({
+      Passwords.checkPassword({passwordAttempt: req.param('password'), encryptedPassword: user.password}).exec({
 
         error: function(err) {
           return res.negotiate(err);
@@ -87,9 +85,7 @@ module.exports = {
           // Store user id in the user session
           req.session.me = user.idemployee;
           // All done- let the client know that everything worked.
-          return res.json({
-            "status": 200
-          });
+          return res.json({"status": 200});
         }
       });
     });
@@ -97,14 +93,9 @@ module.exports = {
 
   signup: function(req, res) {
     // Encrypt a string using the BCrypt algorithm.
-    Passwords.encryptPassword({
-      password: req.param('password'),
-      difficulty: 10,
-    }).exec({
+    Passwords.encryptPassword({password: req.param('password'), difficulty: 10}).exec({
       // An unexpected error occurred.
-      error: function(err) {
-
-      },
+      error: function(err) {},
       // OK.
       success: function(encryptedPassword) {
         var data = {
@@ -122,12 +113,9 @@ module.exports = {
             return res.negotiate(err);
           }
           // Send back the id of the new user
-          return res.json({
-            "status": 200,
-            "user": newUser
-          });
+          return res.json({"status": 200, "user": newUser});
         });
-      },
+      }
     });
   }, // end signup
   /**
@@ -139,11 +127,11 @@ module.exports = {
     // Look up the user record from the database which is
     // referenced by the id in the user session (req.session.me)
     Employee.findOne(req.session.me, function foundUser(err, user) {
-      if (err) return res.negotiate(err);
+      if (err)
+        return res.view("dashboard/login");
 
       // If session refers to a user who no longer exists, still allow logout.
       if (!user) {
-        sails.log.verbose('Session refers to a user who no longer exists.');
         return res.view("dashboard/login");
       }
 
@@ -165,28 +153,31 @@ module.exports = {
         return res.negotiate(err);
       }
       // Send back the id of the new user
-      return res.json({
-        "status": 200
-      });
+      return res.json({"status": 200});
     });
   },
 
   updateEmployee: function(req, res) {
     var values = req.allParams();
     delete values["idemployee"];
-    Employee.update({
-      idemployee: req.param('id'),
-    }, values).exec(function userUpdated(err, updated) {
 
-      if (err) {
-        // handle error here- e.g. `res.serverError(err);`
-        return res.negotiate(err);
+    Passwords.encryptPassword({password: values['password'], difficulty: 10}).exec({
+      // An unexpected error occurred.
+      error: function(err) {},
+      // OK.
+      success: function(encryptedPassword) {
+        values["password"] = encryptedPassword;
+        Employee.update({
+          idemployee: req.param('id')
+        }, values).exec(function userUpdated(err, updated) {
+          if (err) {
+            return res.json({"status": 500});
+          }
+          return res.json({"status": 200, "user": updated});
+
+        });
+
       }
-      return res.json({
-        "status": 200,
-        "user": updated
-      });
-
     });
   }
 

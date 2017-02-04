@@ -55,6 +55,7 @@ app.controller('SalesEmployeeController', [
       for (var p in cart) {
         $scope.total_ticket += cart[p]["total_price"] * cart[p]["quantity_cart"];
       }
+      $scope.total_ticket = Math.round($scope.total_ticket * 100) / 100;
     }
 
     $scope.addElementCart = function(index) {
@@ -96,7 +97,13 @@ app.controller('SalesEmployeeController', [
           showToast("Se ha creado el ticket");
           // Update quantity on productdetails
           init();
+          $scope.shop_cart = [];
+          $scope.cart_elements = 0;
+          $scope.shop = {};
+          $scope.total_ticket = 0;
           $scope.closeDialog();
+        } else {
+          showToast("Se presento un error, vuelva a intentar");
         }
       }, function errorCallback(response) {});
     }
@@ -134,6 +141,8 @@ app.controller('SalesEmployeeController', [
         if (data.status == 200) {
           showToast("Se ha actualizado la información");
           getAllSalesEmployee();
+        } else {
+          showToast("Se presento un error, vuelva a intentar");
         }
       }, function errorCallback(response) {});
     }

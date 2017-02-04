@@ -11,10 +11,6 @@ app.controller('ProductSimpleController', [
     $scope.product = {};
     var dialogState = undefined;
 
-    $("#productsBtn").click(function() {
-      init();
-    });
-
     // Get branches list
     $scope.getAllBranches = function() {
       $http({
@@ -46,6 +42,8 @@ app.controller('ProductSimpleController', [
       $scope.getAllBranches();
       $scope.getAllProducts();
     }
+
+
 
     // Create new product
     var createProduct = function() {

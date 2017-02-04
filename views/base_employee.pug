@@ -34,11 +34,11 @@ html(lang="es")
             li.mdl-list__item.mdl-list__item--two-line
               span.mdl-list__item-primary-content
                 i.material-icons.mdl-list__item-avatar(style="width: 58px; height: 58px; background:{{p.color}}")
-                span {{p.idproduct}}
+                span {{p.idproduct}} ({{p.quantity_cart}})
                 span.span.mdl-list__item-sub-title
                   | Precio unitario $ {{p.price}}
                 span.span.mdl-list__item-sub-title
-                  | IVA $ fac{{p.total_price}}
+                  | IVA $ {{p.total_price}}
 
               span.mdl-list__item-secondary-content
                 button.mdl-button(ng-click="removeElementCart($index)") Eliminar

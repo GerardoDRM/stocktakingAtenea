@@ -103,7 +103,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
         var data = response.data;
         if (data.status == 200) {
           showToast("Has actualizado la información");
-          console.log("Updated");
+          dialog.close();
           $scope.getAllEmployees();
         }
       }, function errorCallback(response) {});

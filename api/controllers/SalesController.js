@@ -15,7 +15,6 @@ module.exports = {
     and branch.idbranch = productdetails.idbranch GROUP BY 1,2,4,5; ', [], function(err, rawResult) {
 
       if (err) {
-        sails.log(err);
         return res.json({"status": 500});
 
       }

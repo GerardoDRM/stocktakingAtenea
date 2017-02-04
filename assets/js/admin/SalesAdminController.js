@@ -7,6 +7,7 @@ app.controller('SalesAdminController', [
   function($scope, $http, $compile, filterBranch) {
 
     $scope.tickets = [];
+    var backTickets = [];
     $scope.ticket = {};
     $scope.branches = [];
     $scope.branch = undefined;
@@ -34,6 +35,7 @@ app.controller('SalesAdminController', [
         if (data.status == 200) {
           // Copy to tickets array
           $scope.tickets = data.data;
+          backTickets = data.data;
 
         }
       }, function errorCallback(response) {});
@@ -45,7 +47,7 @@ app.controller('SalesAdminController', [
     }
 
     $scope.changeData = function() {
-      $scope.tickets = filterBranch($scope.tickets, $scope.branch["idbranch"]);
+      $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
     }
 
     // Get ticket details

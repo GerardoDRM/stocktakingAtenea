@@ -11,9 +11,14 @@ app.controller('ProductAdminController', [
     $scope.branches = [];
     $scope.branch = undefined;
     $scope.products = [];
+    var productsBack = [];
     $scope.product = {};
     var dialogState = undefined;
     $scope.po = productObject;
+
+    $("#productsBtn").click(function() {
+      init();
+    });
 
     // Get branches list
     $scope.getAllBranches = function() {
@@ -32,6 +37,7 @@ app.controller('ProductAdminController', [
         var data = response.data;
         if (data.status == 200) {
           $scope.products = data.products;
+          productsBack = data.products;
         }
       }, function errorCallback(response) {});
     }
@@ -44,7 +50,7 @@ app.controller('ProductAdminController', [
     init();
 
     $scope.changeData = function() {
-      $scope.products = filterBranch($scope.products, $scope.branch["idbranch"]);
+      $scope.products = filterBranch(productsBack, $scope.branch["idbranch"]);
     }
 
     // Delete Products
