@@ -4,7 +4,7 @@ block content
   div.mdl-card.mdl-shadow--2dp.card-employee
     div.header-title-sales.zigzag-pink
       h2 Sucursal
-      select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", required)
+      select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", ng-change="changeReturns()")
 
     table.mdl-data-table.mdl-js-data-table.table-dash
       thead

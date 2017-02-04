@@ -9,7 +9,7 @@ module.exports = {
 
   // Get sales
   getSales: function(req, res) {
-    Sales.query('select ticket.idticket, ticket.date, SUM(sales.total_price) as price, \
+    Sales.query('select ticket.idticket, ticket.date, ROUND(SUM(sales.total_price),2) as price, \
     branch.name, branch.idbranch from sales, ticket, productdetails, branch \
     where sales.ticket = ticket.idticket and sales.iddetail = productdetails.iddetail \
     and branch.idbranch = productdetails.idbranch GROUP BY 1,2,4,5; ', [], function(err, rawResult) {

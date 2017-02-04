@@ -52,7 +52,7 @@ module.exports = {
 
   getReturnsDetailsEmployee: function(req, res) {
 
-    Sales.query('select size, sales.idsales, sales.iddetail, sales.ticket, sales.quantity, ticket.date, color, product.name, product.idproduct, branch.name \
+    Sales.query('select size, sales.idsales, sales.iddetail, sales.ticket, sales.quantity, ticket.date, color, product.name, product.idproduct, branch.name, branch.idbranch \
     from ticket, productdetails, product, sales, branch where \
     ticket.idticket = sales.ticket and sales.iddetail = productdetails.iddetail \
     and productdetails.idproduct = product.idproduct and \

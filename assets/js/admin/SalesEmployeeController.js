@@ -3,16 +3,19 @@ app.controller('SalesEmployeeController', [
   '$http',
   '$compile',
   'showToast',
-  function($scope, $http, $compile, showToast) {
+  'filterBranch',
+  function($scope, $http, $compile, showToast, filterBranch) {
     $scope.branches = [];
     $scope.branch = undefined;
     // Returns
     $scope.tickets = [];
+    var backTickets = [];
     $scope.ticket = {};
     $scope.return = {};
 
     // Cart
     $scope.products = [];
+    var backProducts = [];
     $scope.product = {};
 
     $scope.shop_cart = [];
@@ -25,6 +28,9 @@ app.controller('SalesEmployeeController', [
     //////////////////////////////////////////
     //////// Cart management /////////////
     /////////////////////////////////////////
+    $scope.changeManage = function() {
+      $scope.products = filterBranch(backProducts, $scope.branch["idbranch"]);
+    }
 
     // Get branches list
     var getAllBranches = function() {
@@ -44,6 +50,7 @@ app.controller('SalesEmployeeController', [
         if (data.status == 200) {
           // Copy to tickets array
           $scope.products = data.data;
+          backProducts = data.data;
           $scope.cart_elements = 0;
         }
       }, function errorCallback(response) {});
@@ -112,6 +119,10 @@ app.controller('SalesEmployeeController', [
     //////// Returns management /////////////
     /////////////////////////////////////////
 
+    $scope.changeReturns = function() {
+      $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
+    }
+
     // Get all sales list
     var getAllSalesEmployee = function() {
       $http({method: "GET", url: '/api/v0/return_products_employee'}).then(function successCallback(response) {
@@ -119,6 +130,7 @@ app.controller('SalesEmployeeController', [
         if (data.status == 200) {
           // Copy to tickets array
           $scope.tickets = data.data;
+          backTickets = data.data;
         }
       }, function errorCallback(response) {});
     }
