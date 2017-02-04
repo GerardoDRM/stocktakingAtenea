@@ -3,7 +3,7 @@ app.controller('SalesAdminController', [
   '$http',
   '$compile',
   'filterBranch',
-  
+
   function($scope, $http, $compile, filterBranch) {
 
     $scope.tickets = [];
@@ -11,6 +11,10 @@ app.controller('SalesAdminController', [
     $scope.branches = [];
     $scope.branch = undefined;
     var dialog = document.getElementById('salesDialog');
+
+    $("#salesBtn").click(function() {
+      init();
+    });
 
     // Get branches list
     $scope.getAllBranches = function() {
@@ -22,8 +26,6 @@ app.controller('SalesAdminController', [
         }
       }, function errorCallback(response) {});
     }
-
-    $scope.getAllBranches();
 
     // Get all sales list
     $scope.getAllSales = function() {
@@ -37,7 +39,10 @@ app.controller('SalesAdminController', [
       }, function errorCallback(response) {});
     }
 
-    $scope.getAllSales();
+    var init = function() {
+      $scope.getAllBranches();
+      $scope.getAllSales();
+    }
 
     $scope.changeData = function() {
       $scope.tickets = filterBranch($scope.tickets, $scope.branch["idbranch"]);

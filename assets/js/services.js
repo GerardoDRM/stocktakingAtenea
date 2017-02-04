@@ -26,12 +26,8 @@ app.factory("filterBranch", function() {
 app.factory("showToast", function() {
   return function(msg) {
     var notification = document.querySelector('.mdl-js-snackbar');
-notification.MaterialSnackbar.showSnackbar(
-  {
-    message: msg
-  }
-);
-
-
+    notification.MaterialSnackbar.showSnackbar({
+      message: msg
+    });
   }
 });

@@ -28,10 +28,7 @@ app.controller('SalesEmployeeController', [
 
     // Get branches list
     var getAllBranches = function() {
-      $http({
-        method: "GET",
-        url: '/api/v0/branches'
-      }).then(function successCallback(response) {
+      $http({method: "GET", url: '/api/v0/branches'}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           var branches = data.branches;
@@ -42,10 +39,7 @@ app.controller('SalesEmployeeController', [
 
     // Get all sales list
     var getAllProducts = function() {
-      $http({
-        method: "GET",
-        url: '/api/v0/products_employee'
-      }).then(function successCallback(response) {
+      $http({method: "GET", url: '/api/v0/products_employee'}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           // Copy to tickets array
@@ -107,17 +101,13 @@ app.controller('SalesEmployeeController', [
       }, function errorCallback(response) {});
     }
 
-
     //////////////////////////////////////////
     //////// Returns management /////////////
     /////////////////////////////////////////
 
     // Get all sales list
     var getAllSalesEmployee = function() {
-      $http({
-        method: "GET",
-        url: '/api/v0/return_products_employee'
-      }).then(function successCallback(response) {
+      $http({method: "GET", url: '/api/v0/return_products_employee'}).then(function successCallback(response) {
         var data = response.data;
         if (data.status == 200) {
           // Copy to tickets array
@@ -137,7 +127,7 @@ app.controller('SalesEmployeeController', [
           "iddetail": product["iddetail"],
           "idticket": product["ticket"],
           "date": new Date(),
-          "returnNum": $scope.return[index]["quantity"]
+          "returnNum": $scope.return [index]["quantity"]
         }
       }).then(function successCallback(response) {
         var data = response.data;

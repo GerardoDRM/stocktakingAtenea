@@ -10,6 +10,7 @@ app.controller('ProductGeneralController', [
 
     $scope.product = {};
     $scope.po = productObject;
+
     // Get products list
     var getProductById = function(id) {
       $scope.product = {};

@@ -5,6 +5,10 @@ app.controller('BranchAdminController', ['$scope', '$http', '$compile', 'showToa
   var dialog = document.getElementById('branchDialog');
   var dialogState = undefined;
 
+  $("#branchesBtn").click(function() {
+    $scope.getAllBranches();
+  });
+
   // Create new branch
   var createBranch = function() {
     $http({
@@ -40,8 +44,6 @@ app.controller('BranchAdminController', ['$scope', '$http', '$compile', 'showToa
         }
       }, function errorCallback(response) {});
   }
-
-  $scope.getAllBranches();
 
   // Get branches list
   $scope.getBranchById = function(id) {

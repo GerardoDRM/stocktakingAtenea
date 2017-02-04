@@ -6,6 +6,10 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
   var dialog = document.getElementById('employeeDialog');
   var dialogState = undefined;
 
+  $("#employeesBtn").click(function() {
+    init();
+  });
+
 
   // Get branches list
   $scope.getAllBranches = function() {
@@ -22,7 +26,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
       }, function errorCallback(response) {});
   }
 
-  $scope.getAllBranches();
+
 
   // Get employees list
   $scope.getAllEmployees = function() {
@@ -38,7 +42,13 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
       }, function errorCallback(response) {});
   }
 
-  $scope.getAllEmployees();
+
+  var init = function() {
+    $scope.getAllBranches();
+    $scope.getAllEmployees();
+  }
+
+  init();
 
   // Create new employee
   var signupEmployee = function() {
@@ -128,7 +138,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
   }
 
   // Show empty dialog
-  $scope.showEmployeeForm = function() {e
+  $scope.showEmployeeForm = function() {
     dialog.showModal();
     dialogState = 0;
     $scope.employee = {};
