@@ -20,8 +20,8 @@ app.directive("fileread", [
                   // Upload Photo
                   var fd = new FormData();
                   fd.append('product', changeEvent.target.files[0]);
-                  console.log(changeEvent.target.files[0]);
-                  $http.put("/api/v0/product/image/CA120", fd, {
+
+                  $http.put("/api/v0/product/image/" + scope.po.getID(), fd, {
                     transformRequest: angular.identity,
                     headers: {
                       'Content-Type': undefined

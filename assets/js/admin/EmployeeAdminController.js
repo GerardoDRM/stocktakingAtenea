@@ -128,7 +128,7 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
   }
 
   // Show empty dialog
-  $scope.showEmployeeForm = function() {
+  $scope.showEmployeeForm = function() {e
     dialog.showModal();
     dialogState = 0;
     $scope.employee = {};
