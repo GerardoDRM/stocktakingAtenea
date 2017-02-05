@@ -140,6 +140,7 @@ module.exports = {
 
   addTicket: function(req, res) {
     var values = req.allParams();
+    values["ticket"]["model"] = "";
     Ticket.create(values["ticket"], function createTicket(err, ticket) {
       if (err) {
         // Otherwise, send back something reasonable as our error response.
@@ -157,8 +158,7 @@ module.exports = {
           "unitary_price": sales[s]["price"],
           "total_price": sales[s]["total_price"],
           "iddetail": sales[s]["iddetail"],
-          "ticket": ticketID,
-          "model": ""
+          "ticket": ticketID
         });
       }
 
