@@ -19,7 +19,7 @@ module.exports = {
   showProducts: function(req, res) {
     Product.query("Select product.idproduct, name, price, model, \
     idbranch, SUM(quantity) as quantity from product, productdetails \
-    where product.idproduct = productdetails.idproduct group by 1,2,3,4", [], function find(err, products) {
+    where product.idproduct = productdetails.idproduct group by 1,2,3,4,5", [], function find(err, products) {
       if (err || products === undefined)
         return res.json({"status": 500});
 

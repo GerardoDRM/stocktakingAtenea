@@ -157,7 +157,8 @@ module.exports = {
           "unitary_price": sales[s]["price"],
           "total_price": sales[s]["total_price"],
           "iddetail": sales[s]["iddetail"],
-          "ticket": ticketID
+          "ticket": ticketID,
+          "model": ""
         });
       }
 
