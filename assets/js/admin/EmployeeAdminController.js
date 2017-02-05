@@ -93,7 +93,9 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
   // Update Employees
   var updateEmployee = function() {
     var id = $scope.employee["idemployee"];
-    $scope.employee.workingAt = $scope.branch.idbranch;
+    if ($scope.branch !== undefined) {
+      $scope.employee.workingAt = $scope.branch.idbranch;
+    }
     $http({
         method: "PUT",
         url: '/api/v0/employees/' + id,
