@@ -101,7 +101,7 @@ module.exports = {
     };
     Sales.findOne(data, function getProductSale(err, sale) {
       if (err || sale === undefined) {
-        res.json({
+        return res.json({
           "status": 500
         });
       }
@@ -125,7 +125,7 @@ module.exports = {
           "idsales": sale["idsales"]
         }, function createReturn(err, returns) {
           if (err || returns === undefined) {
-            res.json({
+            return res.json({
               "status": 500
             });
           }
