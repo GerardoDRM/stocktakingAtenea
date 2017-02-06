@@ -53,7 +53,9 @@ app.controller('EmployeeAdminController', ['$scope', '$http', '$compile', 'showT
   // Create new employee
   var signupEmployee = function() {
     // Get Branch id
-    $scope.employee.workingAt = $scope.branch.idbranch;
+    if ($scope.branch !== undefined) {
+      $scope.employee.workingAt = $scope.branch.idbranch;
+    }
     $http({
         method: "POST",
         url: '/api/v0/signup',
