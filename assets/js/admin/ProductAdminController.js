@@ -5,8 +5,9 @@ app.controller('ProductAdminController', [
   '$compile',
   'productObject',
   'filterBranch',
-   'showToast',
-  function($scope, $rootScope, $http, $compile, productObject, filterBranch, showToast) {
+  'filterProduct',
+  'showToast',
+  function($scope, $rootScope, $http, $compile, productObject, filterBranch, filterProduct, showToast) {
 
     $scope.branches = [];
     $scope.branch = undefined;
@@ -51,6 +52,10 @@ app.controller('ProductAdminController', [
 
     $scope.changeData = function() {
       $scope.products = filterBranch(productsBack, $scope.branch["idbranch"]);
+    }
+
+    $scope.searchById = function() {
+      $scope.products = filterProduct(productsBack, $scope.searchId);
     }
 
     // Delete Products
