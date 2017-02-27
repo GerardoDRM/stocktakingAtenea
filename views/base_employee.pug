@@ -37,8 +37,8 @@ html(lang="es")
                 span {{p.idproduct}} ({{p.quantity_cart}})
                 span.span.mdl-list__item-sub-title
                   | Precio unitario $ {{p.price}}
-                span.span.mdl-list__item-sub-title
-                  | IVA $ {{p.total_price}}
+                //- span.span.mdl-list__item-sub-title
+                //-   | IVA $ {{p.total_price}}
 
               span.mdl-list__item-secondary-content
                 button.mdl-button(ng-click="removeElementCart($index)") Eliminar

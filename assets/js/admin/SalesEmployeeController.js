@@ -77,7 +77,7 @@ app.controller('SalesEmployeeController', [
         var product = $scope.products[index];
         product["quantity_cart"] = $scope.shop[index]["quantity"];
         // product["total_price"] = product["price"] + (product["price"] * .16);
-        product["total_price"] = product["price"] + product["price"];
+        product["total_price"] = product["price"];
         $scope.shop_cart.push(product);
         $scope.cart_elements++;
         calculateTotal();
