@@ -247,3 +247,47 @@ button {
 .span-employee {
   margin-top: -16px;
 }
+
+.top-web-image {
+  background: url("../images/fa.jpg")no-repeat center;
+background-size: cover;
+width: 100%;
+height: 350px;
+}
+
+.atenea-title{
+  height: 100px;
+  background: #de2330;
+  color: white;
+  text-align: center;
+  h1 {
+    font-size: 40px;
+  }
+}
+
+//#fa3e51 #d6222d
+  .middle-web {
+    color: black;
+    p {
+      margin-left: 31%;
+width: 38%;
+/* text-align: -webkit-left; */
+/* padding-left: 119px; */
+/* padding-right: 91px; */
+text-align: center;
+    }
+  }
+
+.info-home {
+  color:black;
+}
+
+.info-faq {
+  color: black;
+  p {
+        margin-bottom: 20%;
+    width: 30%;
+  margin-left: 35%;
+  }
+
+}

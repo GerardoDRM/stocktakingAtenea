@@ -19,3 +19,16 @@
 .mdl-button--fab.mdl-button--colored:hover {
     background-color: #A72F3F;
 }
+
+.mdl-layout__tab-bar {
+    height: 96px;
+    margin: 0;
+    width: calc(100% - 112px);
+    padding: 0 0 0 56px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fa3e51;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}

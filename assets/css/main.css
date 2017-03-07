@@ -613,6 +613,40 @@ html {
 .span-employee {
   margin-top: -16px; }
 
+.top-web-image {
+  background: url("../images/fa.jpg") no-repeat center;
+  background-size: cover;
+  width: 100%;
+  height: 350px; }
+
+.atenea-title {
+  height: 100px;
+  background: #de2330;
+  color: white;
+  text-align: center; }
+  .atenea-title h1 {
+    font-size: 40px; }
+
+.middle-web {
+  color: black; }
+  .middle-web p {
+    margin-left: 31%;
+    width: 38%;
+    /* text-align: -webkit-left; */
+    /* padding-left: 119px; */
+    /* padding-right: 91px; */
+    text-align: center; }
+
+.info-home {
+  color: black; }
+
+.info-faq {
+  color: black; }
+  .info-faq p {
+    margin-bottom: 20%;
+    width: 30%;
+    margin-left: 35%; }
+
 /**
   * Buttons Partial SASS
   * This SASS file has all
@@ -631,6 +665,18 @@ html {
 
 .mdl-button--fab.mdl-button--colored:hover {
   background-color: #A72F3F; }
+
+.mdl-layout__tab-bar {
+  height: 96px;
+  margin: 0;
+  width: calc(100% - 112px);
+  padding: 0 0 0 56px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fa3e51;
+  overflow-y: hidden;
+  overflow-x: scroll; }
 
 /**
   * Media queries Partial SASS

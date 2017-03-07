@@ -125,6 +125,7 @@ module.exports = {
           "idsales": sale["idsales"]
         }, function createReturn(err, returns) {
           if (err || returns === undefined) {
+            sails.log(err);
             return res.json({
               "status": 500
             });

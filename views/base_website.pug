@@ -9,11 +9,48 @@ html(lang="es")
     link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
     link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css")
     link(rel='stylesheet', href='/css/main.css', type='text/css')
-  body.backLogin
-    block content
+  body
+    div.atenea-title
+      h1 Atenea
+      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header.mdl-layout--fixed-tabs
+        header.mdl-layout__header
+
+
+          // Tabs
+          .mdl-layout__tab-bar.mdl-js-ripple-effect
+            a.mdl-layout__tab.is-active(href='#fixed-tab-1') Home
+            a.mdl-layout__tab(href='#fixed-tab-2') Productos
+            img.avatar(src='images/atena.jpg')
+            a.mdl-layout__tab(href='#fixed-tab-3') FAQ`S
+            a.mdl-layout__tab(href='#fixed-tab-4') Contacto
+
+        main.mdl-layout__content
+          section#fixed-tab-1.mdl-layout__tab-panel.is-active
+            .page-content
+            //include website/home.pug
+
+          section#fixed-tab-2.mdl-layout__tab-panel
+            .page-content
+              include website/product.pug
+
+              // Your content goes here
+          section#fixed-tab-3.mdl-layout__tab-panel
+            .page-content
+              include website/faq.pug
+          section#fixed-tab-4.mdl-layout__tab-panel
+            .page-content
+              include website/contact.pug
+
+
+
+
+
+
+          block content
 
 
 
   // SCRIPTS
   script(src="/js/dependencies/sails.io.js")
+  script(src="https://code.getmdl.io/1.3.0/material.min.js")
   // SCRIPTS END
