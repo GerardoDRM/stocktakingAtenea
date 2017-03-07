@@ -4,7 +4,8 @@ app.controller('SalesEmployeeController', [
   '$compile',
   'showToast',
   'filterBranch',
-  function($scope, $http, $compile, showToast, filterBranch) {
+  'filterProduct',
+  function($scope, $http, $compile, showToast, filterBranch, filterProduct) {
     $scope.branches = [];
     $scope.branch = undefined;
     // Returns
@@ -30,6 +31,10 @@ app.controller('SalesEmployeeController', [
     /////////////////////////////////////////
     $scope.changeManage = function() {
       $scope.products = filterBranch(backProducts, $scope.branch["idbranch"]);
+    }
+
+    $scope.searchById = function() {
+      $scope.products = filterProduct(backProducts, $scope.searchId);
     }
 
     // Get branches list
@@ -71,7 +76,8 @@ app.controller('SalesEmployeeController', [
       if ($scope.products[index]["quantity"] >= $scope.shop[index]["quantity"]) {
         var product = $scope.products[index];
         product["quantity_cart"] = $scope.shop[index]["quantity"];
-        product["total_price"] = product["price"] + (product["price"] * .16);
+        // product["total_price"] = product["price"] + (product["price"] * .16);
+        product["total_price"] = product["price"];
         $scope.shop_cart.push(product);
         $scope.cart_elements++;
         calculateTotal();

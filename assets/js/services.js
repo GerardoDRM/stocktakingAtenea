@@ -22,6 +22,17 @@ app.factory("filterBranch", function() {
   }
 });
 
+app.factory("filterProduct", function() {
+  return function(data, word) {
+    var elem = [];
+    for (var i in data) {
+      if (data[i]["idproduct"].toLowerCase().indexOf(word.toLowerCase()) > -1) {
+        elem.push(data[i]);
+      }
+    }
+    return elem;
+  }
+});
 
 app.factory("showToast", function() {
   return function(msg) {

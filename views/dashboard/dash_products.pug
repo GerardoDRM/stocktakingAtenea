@@ -3,6 +3,8 @@ div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminControlle
     .header-title-sales.zigzag-pink
       h2 Sucursal
       select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch" ng-change="changeData()")
+        input.mdl-textfield__input(type='text' placeholder="Buscar por Id" ng-model="searchId", name="searchId", ng-change="searchById()")
+
 
   div
     table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp.table-dash.dash-content-top

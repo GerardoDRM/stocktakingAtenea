@@ -1,3 +1,4 @@
+//- Employees Products Layout
 extends ../base_employee.pug
 
 block content
@@ -6,6 +7,7 @@ block content
       h2 Sucursal
       select(ng-model="branch" ng-init="branch=branches[0]" ng-options="b.name for b in branches track by b.idbranch", ng-change="changeManage()")
         // Number badge on icon
+      input.mdl-textfield__input(type='text' placeholder="Buscar por Id" ng-model="searchId", name="searchId", ng-change="searchById()")
 
       div.div-car
         .material-icons.mdl-badge.mdl-badge--overlap(data-badge='{{cart_elements}}' style="color: white;") add_shopping_cart
@@ -14,6 +16,7 @@ block content
       thead
         tr
           th Producto
+          th Id
           th Precio
           th Cantidad
           th.disappear Color
@@ -22,6 +25,7 @@ block content
       tbody
         tr(ng-repeat="t in products track by $index")
           td.mdl-data-table__cell--non-numeric # {{t.name}}
+          td.mdl-data-table__cell--non-numeric # {{t.idproduct}}
           td.mdl-data-table__cell--non-numeric $ {{t.price}}
           td  {{t.quantity}}
           td.disappear
