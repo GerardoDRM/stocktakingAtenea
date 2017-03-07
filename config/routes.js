@@ -100,6 +100,9 @@ module.exports.routes = {
   'GET /api/v0/return_products': 'TicketController.getReturnsDetails',
   'GET /api/v0/return_products_employee': 'TicketController.getReturnsDetailsEmployee',
   'POST /api/v0/create_ticket': 'TicketController.addTicket',
-  'PUT /api/v0/update_return': 'TicketController.updateReturnProduct'
+  'PUT /api/v0/update_return': 'TicketController.updateReturnProduct',
+
+  // WEBPAGE
+  'POST /api/v0/contact': 'ContactController.contactInfo'
 
 };
