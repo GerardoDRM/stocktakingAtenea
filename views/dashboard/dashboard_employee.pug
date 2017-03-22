@@ -23,7 +23,7 @@ block content
           th.disappear Tamaño
           th Carrito
       tbody
-        tr(ng-repeat="t in products track by $index")
+        tr(ng-repeat="t in displayProducts track by $index")
           td.mdl-data-table__cell--non-numeric # {{t.name}}
           td.mdl-data-table__cell--non-numeric # {{t.idproduct}}
           td.mdl-data-table__cell--non-numeric $ {{t.price}}
@@ -34,3 +34,5 @@ block content
           td
             button.mdl-button.mdl-js-button(ng-click="addElementCart($index)") Agregar
             input.mdl-textfield__input(type='number' placeholder="Cantidad" ng-model="shop[$index].quantity", name="quantity")
+
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPage(page)")

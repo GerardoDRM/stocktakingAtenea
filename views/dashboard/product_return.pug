@@ -18,7 +18,7 @@ block content
           th Devoluciones
 
       tbody
-        tr(ng-repeat = "t in tickets track by $index")
+        tr(ng-repeat = "t in displayTickets track by $index")
           td.mdl-data-table__cell--non-numeric {{t.idproduct}}
           td.mdl-data-table__cell--non-numeric {{t.date}}
           td.mdl-data-table__cell--non-numeric {{t.quantity}}
@@ -29,3 +29,5 @@ block content
           td
             button.mdl-button.mdl-js-button(ng-click="returnProduct($index)") Devolución
             input.mdl-textfield__input(type='number' placeholder="Cantidad" ng-model="return[$index].quantity", name="quantity")
+
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPage(page)")

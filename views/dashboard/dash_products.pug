@@ -17,7 +17,7 @@ div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminControlle
           th Cantidad
           th Acciones
       tbody
-        tr(ng-repeat="e in products")
+        tr(ng-repeat="e in displayProducts")
           td {{e.idproduct}}
           td.disappear {{e.name}}
           td.disappear {{e.price}}
@@ -26,6 +26,9 @@ div.mdl-layout__content(style="width:100%;" ng-controller="ProductAdminControlle
           td
             button.mdl-button.mdl-js-button(ng-click="showProductDetail(e.idproduct)") Ver Mas
             button.mdl-button.mdl-js-button(ng-click="deleteProduct(e.idproduct)") Eliminar
+
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPage(page)")
+
 
   button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.fab.goToGeneral(ng-click="showProductForm()")
     i.material-icons add

@@ -14,13 +14,16 @@ div(ng-controller="SalesAdminController")
           th.disappear Sucursal
           th Detalle
       tbody
-        tr(ng-repeat="t in tickets")
+        tr(ng-repeat="t in displayTickets")
           td # {{t.idticket}}
           td {{t.date}}
           td.disappear $ {{t.price}}
           td.disappear {{t.name}}
           td
             button.mdl-button.mdl-js-button(ng-click="showSalesDialog(t.idticket)") Ver más
+
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPage(page)")
+
 
     //- Dialog
     dialog#salesDialog.mdl-dialog.dialog-sales
