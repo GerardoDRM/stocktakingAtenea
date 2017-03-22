@@ -432,6 +432,17 @@ html {
     .tabs-products .mdl-layout__header .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
       background: transparent; }
 
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  color: white;
+  list-style-type: none;
+  background: white; }
+  .pagination ul li {
+    padding: 15px;
+    background: #e8e8e8;
+    border-radius: 5px; }
+
 /**
   * Icons Partial SASS
   * This SASS file has most of the icons

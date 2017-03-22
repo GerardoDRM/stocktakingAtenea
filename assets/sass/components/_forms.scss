@@ -35,3 +35,20 @@
     }
   }
 }
+// pagination
+
+.pagination {
+  ul {
+    display: flex;
+    justify-content: center;
+    color: white;
+    list-style-type: none;
+    background: white;
+
+    li {
+      padding: 15px;
+      background: #e8e8e8;
+      border-radius: 5px;
+    }
+  }
+}

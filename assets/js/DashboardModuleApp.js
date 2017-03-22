@@ -1,4 +1,4 @@
-var app = angular.module('AteneaApp', []);
+var app = angular.module('AteneaApp', ['bw.paging']);
 app.directive("fileread", [
   '$http',
   function($http) {

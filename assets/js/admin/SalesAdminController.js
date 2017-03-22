@@ -7,11 +7,25 @@ app.controller('SalesAdminController', [
   function($scope, $http, $compile, filterBranch) {
 
     $scope.tickets = [];
+    $scope.displayTickets = [];
     var backTickets = [];
     $scope.ticket = {};
     $scope.branches = [];
     $scope.branch = undefined;
     var dialog = document.getElementById('salesDialog');
+    $scope.pg = {
+      "start": 1,
+      "per_page": 15,
+      "size": 1
+    };
+
+    $scope.goToPage = function(page) {
+      // display products
+      var start = (page - 1) * $scope.pg["per_page"];
+      var end = start + $scope.pg["per_page"];
+      $scope.displayTickets = $scope.tickets.slice(start, end);
+    }
+
 
     $("#salesBtn").click(function() {
       init();
@@ -36,6 +50,10 @@ app.controller('SalesAdminController', [
           // Copy to tickets array
           $scope.tickets = data.data;
           backTickets = data.data;
+          // pagination size
+          $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+          // display tickets
+          $scope.displayTickets = $scope.tickets.slice(0, 15);
 
         }
       }, function errorCallback(response) {});
@@ -48,6 +66,10 @@ app.controller('SalesAdminController', [
 
     $scope.changeData = function() {
       $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
+      // pagination size
+      $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+      // display tickets
+      $scope.displayTickets = $scope.tickets.slice(0, 15);
     }
 
     // Get ticket details

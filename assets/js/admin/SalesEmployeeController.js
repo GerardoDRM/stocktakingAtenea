@@ -10,12 +10,14 @@ app.controller('SalesEmployeeController', [
     $scope.branch = undefined;
     // Returns
     $scope.tickets = [];
+    $scope.displayTickets = [];
     var backTickets = [];
     $scope.ticket = {};
     $scope.return = {};
 
     // Cart
     $scope.products = [];
+    $scope.displayProducts = [];
     var backProducts = [];
     $scope.product = {};
 
@@ -23,6 +25,26 @@ app.controller('SalesEmployeeController', [
     $scope.cart_elements = 0;
     $scope.shop = {};
     $scope.total_ticket = 0;
+    $scope.pg = {
+      "start": 1,
+      "per_page": 15,
+      "size": 1
+    };
+
+    $scope.goToPageTicket = function(page) {
+      // display products
+      var start = (page - 1) * $scope.pg["per_page"];
+      var end = start + $scope.pg["per_page"];
+      $scope.displayTickets = $scope.tickets.slice(start, end);
+    }
+
+
+    $scope.goToPageProducts = function(page) {
+      // display products
+      var start = (page - 1) * $scope.pg["per_page"];
+      var end = start + $scope.pg["per_page"];
+      $scope.displayProducts = $scope.tickets.slice(start, end);
+    }
 
     var dialog = document.getElementById('ticketDialog');
 
@@ -57,6 +79,10 @@ app.controller('SalesEmployeeController', [
           $scope.products = data.data;
           backProducts = data.data;
           $scope.cart_elements = 0;
+          // pagination size
+          $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+          // display products
+          $scope.displayProducts = $scope.products.slice(0, 15);
         }
       }, function errorCallback(response) {});
     }
@@ -137,6 +163,10 @@ app.controller('SalesEmployeeController', [
           // Copy to tickets array
           $scope.tickets = data.data;
           backTickets = data.data;
+          // pagination size
+          $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+          // display products
+          $scope.displayTickets = $scope.tickets.slice(0, 15);
         }
       }, function errorCallback(response) {});
     }

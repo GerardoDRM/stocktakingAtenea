@@ -12,10 +12,23 @@ app.controller('ProductAdminController', [
     $scope.branches = [];
     $scope.branch = undefined;
     $scope.products = [];
+    $scope.displayProducts = [];
     var productsBack = [];
     $scope.product = {};
     var dialogState = undefined;
     $scope.po = productObject;
+    $scope.pg = {
+      "start": 1,
+      "per_page": 15,
+      "size": 1
+    };
+
+    $scope.goToPage = function(page) {
+      // display products
+      var start = (page - 1) * $scope.pg["per_page"];
+      var end = start + $scope.pg["per_page"];
+      $scope.displayProducts = $scope.products.slice(start, end);
+    }
 
     $("#productsBtn").click(function() {
       init();
@@ -39,6 +52,11 @@ app.controller('ProductAdminController', [
         if (data.status == 200) {
           $scope.products = data.products;
           productsBack = data.products;
+          // pagination size
+          $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+          // display products
+          $scope.displayProducts = $scope.products.slice(0, 15);
+
         }
       }, function errorCallback(response) {});
     }
@@ -52,10 +70,16 @@ app.controller('ProductAdminController', [
 
     $scope.changeData = function() {
       $scope.products = filterBranch(productsBack, $scope.branch["idbranch"]);
+      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      // display products
+      $scope.displayProducts = $scope.products.slice(0, 15);
     }
 
     $scope.searchById = function() {
       $scope.products = filterProduct(productsBack, $scope.searchId);
+      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      // display products
+      $scope.displayProducts = $scope.products.slice(0, 15);
     }
 
     // Delete Products
