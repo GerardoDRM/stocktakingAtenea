@@ -21,6 +21,13 @@ app.controller('SalesEmployeeController', [
     var backProducts = [];
     $scope.product = {};
 
+    // Orders
+    $scope.orders = [];
+    $scope.displayOrders = [];
+    var backOrders = [];
+    $scope.order = {};
+
+
     $scope.shop_cart = [];
     $scope.cart_elements = 0;
     $scope.shop = {};
@@ -46,6 +53,14 @@ app.controller('SalesEmployeeController', [
       $scope.displayProducts = $scope.tickets.slice(start, end);
     }
 
+
+    $scope.goToPageOrders = function(page) {
+      // display products
+      var start = (page - 1) * $scope.pg["per_page"];
+      var end = start + $scope.pg["per_page"];
+      $scope.displayOrders = $scope.orders.slice(start, end);
+    }
+
     var dialog = document.getElementById('ticketDialog');
 
     //////////////////////////////////////////
@@ -53,10 +68,18 @@ app.controller('SalesEmployeeController', [
     /////////////////////////////////////////
     $scope.changeManage = function() {
       $scope.products = filterBranch(backProducts, $scope.branch["idbranch"]);
+      // pagination size
+      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      // display products
+      $scope.displayProducts = $scope.products.slice(0, 15);
     }
 
     $scope.searchById = function() {
       $scope.products = filterProduct(backProducts, $scope.searchId);
+      // pagination size
+      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      // display products
+      $scope.displayProducts = $scope.products.slice(0, 15);
     }
 
     // Get branches list
@@ -153,6 +176,10 @@ app.controller('SalesEmployeeController', [
 
     $scope.changeReturns = function() {
       $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
+      // pagination size
+      $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+      // display products
+      $scope.displayProducts = $scope.tickets.slice(0, 15);
     }
 
     // Get all sales list

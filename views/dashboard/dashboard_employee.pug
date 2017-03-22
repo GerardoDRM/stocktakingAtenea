@@ -35,4 +35,4 @@ block content
             button.mdl-button.mdl-js-button(ng-click="addElementCart($index)") Agregar
             input.mdl-textfield__input(type='number' placeholder="Cantidad" ng-model="shop[$index].quantity", name="quantity")
 
-      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPage(page)")
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPageProducts(page)")

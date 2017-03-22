@@ -15,15 +15,17 @@ html(lang="es")
       button.mdl-snackbar__action(type='button')
     div.app-layout.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
       header.android-header.mdl-layout__header.mdl-layout__header--waterfall
-        div.mdl-layout__header-row.nav-atenea
-
-          div.mdl-layout-spacer
-            nav.mdl-navigation.mdl-layout--large-screen-only
-              a.mdl-navigation__link(href='/logout' style="    display: inline-table;") Cerrar sesión
-              a.mdl-navigation__link(href='/dashboard' style="") Productos
-              a.right-link.mdl-navigation__link(href='/product_return' style="") Devoluciones
-
-
+        .mdl-layout__header-row
+          // Title
+          span.mdl-layout-title Empleados
+          // Add spacer, to align navigation to the right
+          .mdl-layout-spacer
+          // Navigation. We hide it in small screens.
+          nav.mdl-navigation.mdl-layout--large-screen-only
+            a.mdl-navigation__link(href='/logout') Cerrar sesión
+            a.mdl-navigation__link(href='/dashboard') Productos
+            a.mdl-navigation__link(href='/product_order') Pedidos
+            a.mdl-navigation__link(href='/product_return') Devoluciones
 
 
       main.mdl-layout__content(ng-controller="SalesEmployeeController")

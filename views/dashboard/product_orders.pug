@@ -1,0 +1,31 @@
+extends ../base_employee.pug
+
+block content
+  div.mdl-card.mdl-shadow--2dp.card-employee
+    div.header-title-sales.zigzag-pink
+      h2 Pedidos
+
+    table.mdl-data-table.mdl-js-data-table.table-dash
+      thead
+        tr
+          th Producto
+          th Fecha
+          th Nombre Cliente
+          th.disappear Cantidad
+          th.disappear Color
+          th.disappear Precio
+          th.disappear Anticipo
+
+
+      tbody
+        tr(ng-repeat = "t in displayOrders track by $index")
+          td.mdl-data-table__cell--non-numeric {{t.idproduct}}
+          td.mdl-data-table__cell--non-numeric {{t.date}}
+          td {{t.client}}
+          td.mdl-data-table__cell--non-numeric {{t.quantity}}
+          td
+            div.color-container(style="background:{{t.color}}; border:2px solid #ccc")
+          td.disappear {{t.price}}
+          td.disappear {{t.payment}}
+
+      div.pagination(paging='', page='pg.start', page-size='pg.per_page', total='pg.size', paging-action="goToPageOrders(page)")
