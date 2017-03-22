@@ -53,9 +53,9 @@ app.controller('ProductAdminController', [
           $scope.products = data.products;
           productsBack = data.products;
           // pagination size
-          $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+          $scope.pg["size"] = Math.ceil($scope.products.length);
           // display products
-          $scope.displayProducts = $scope.products.slice(0, 15);
+          $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
 
         }
       }, function errorCallback(response) {});
@@ -70,16 +70,16 @@ app.controller('ProductAdminController', [
 
     $scope.changeData = function() {
       $scope.products = filterBranch(productsBack, $scope.branch["idbranch"]);
-      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.products.length);
       // display products
-      $scope.displayProducts = $scope.products.slice(0, 15);
+      $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
     }
 
     $scope.searchById = function() {
       $scope.products = filterProduct(productsBack, $scope.searchId);
-      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.products.length);
       // display products
-      $scope.displayProducts = $scope.products.slice(0, 15);
+      $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
     }
 
     // Delete Products

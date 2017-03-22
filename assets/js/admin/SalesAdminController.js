@@ -51,9 +51,9 @@ app.controller('SalesAdminController', [
           $scope.tickets = data.data;
           backTickets = data.data;
           // pagination size
-          $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+          $scope.pg["size"] = Math.ceil($scope.tickets.length);
           // display tickets
-          $scope.displayTickets = $scope.tickets.slice(0, 15);
+          $scope.displayTickets = $scope.tickets.slice(0, $scope.pg["per_page"]);
 
         }
       }, function errorCallback(response) {});
@@ -67,9 +67,9 @@ app.controller('SalesAdminController', [
     $scope.changeData = function() {
       $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
       // pagination size
-      $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.tickets.length);
       // display tickets
-      $scope.displayTickets = $scope.tickets.slice(0, 15);
+      $scope.displayTickets = $scope.tickets.slice(0, $scope.pg["per_page"]);
     }
 
     // Get ticket details

@@ -69,17 +69,17 @@ app.controller('SalesEmployeeController', [
     $scope.changeManage = function() {
       $scope.products = filterBranch(backProducts, $scope.branch["idbranch"]);
       // pagination size
-      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.products.length);
       // display products
-      $scope.displayProducts = $scope.products.slice(0, 15);
+      $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
     }
 
     $scope.searchById = function() {
       $scope.products = filterProduct(backProducts, $scope.searchId);
       // pagination size
-      $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.products.length);
       // display products
-      $scope.displayProducts = $scope.products.slice(0, 15);
+      $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
     }
 
     // Get branches list
@@ -103,9 +103,9 @@ app.controller('SalesEmployeeController', [
           backProducts = data.data;
           $scope.cart_elements = 0;
           // pagination size
-          $scope.pg["size"] = Math.ceil($scope.products.length / 15);
+          $scope.pg["size"] = Math.ceil($scope.products.length);
           // display products
-          $scope.displayProducts = $scope.products.slice(0, 15);
+          $scope.displayProducts = $scope.products.slice(0, $scope.pg["per_page"]);
         }
       }, function errorCallback(response) {});
     }
@@ -177,9 +177,9 @@ app.controller('SalesEmployeeController', [
     $scope.changeReturns = function() {
       $scope.tickets = filterBranch(backTickets, $scope.branch["idbranch"]);
       // pagination size
-      $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+      $scope.pg["size"] = Math.ceil($scope.tickets.length);
       // display products
-      $scope.displayProducts = $scope.tickets.slice(0, 15);
+      $scope.displayProducts = $scope.tickets.slice(0, $scope.pg["per_page"]);
     }
 
     // Get all sales list
@@ -191,9 +191,9 @@ app.controller('SalesEmployeeController', [
           $scope.tickets = data.data;
           backTickets = data.data;
           // pagination size
-          $scope.pg["size"] = Math.ceil($scope.tickets.length / 15);
+          $scope.pg["size"] = Math.ceil($scope.tickets.length);
           // display products
-          $scope.displayTickets = $scope.tickets.slice(0, 15);
+          $scope.displayTickets = $scope.tickets.slice(0, $scope.pg["per_page"]);
         }
       }, function errorCallback(response) {});
     }
